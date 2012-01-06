@@ -1,0 +1,8 @@
+body {
+	background: @overlay($background->color, $background->texture, $background->texture_level, $background->noise);
+}
+
+#page-container {
+	border: 1px solid @e($page->border);
+	padding: @e($page->padding, '%');
+}
