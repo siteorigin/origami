@@ -4,7 +4,7 @@
 	<?php get_template_part('loop', 'index') ?>
 </div>
 
-<?php if(!is_single()) : ?>
+<?php if(get_posts_nav_link() != '') : ?>
 	<div id="posts-nav">
 		<?php if(function_exists('wp_pagenavi')) : ?>
 			<?php wp_pagenavi() ?>

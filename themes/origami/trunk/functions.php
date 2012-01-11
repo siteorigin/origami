@@ -8,7 +8,7 @@ Origin::single()->image->set_overlay_server('http://overlay.siteorigin.com');
 Origin::single()->settings->load_files(dirname(__FILE__).'/conf');
 Origin::single()->grid;
 
-add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'video' ) );
+add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
 add_theme_support( 'post-thumbnails');
 
 class OrigamiController extends Origin_Controller {
@@ -43,6 +43,9 @@ class OrigamiController extends Origin_Controller {
 		register_sidebar( array(
 			'id'          => 'site-footer',
 			'name'        => __( 'Footer', 'origami' ),
+			
+			'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
+			'after_widget'  => '</div>',
 		));
 		
 		// Touch important files so they're never removed from cache

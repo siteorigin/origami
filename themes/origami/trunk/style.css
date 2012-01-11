@@ -4,7 +4,7 @@ Theme URI: http://siteorigin.com/theme/origami
 Description: A vintage photo theme.
 Author: Greg Priday
 Author URI: http://siteorigin.com/
-Version: 0.1
+Version: trunk
 License: GPL
 License URI: http://wordpress.org/about/gpl/
 */
@@ -413,6 +413,22 @@ ul#main-menu li:hover ul{
 /* @end */
 
 /* @group Footer */
+
+/* @group Footer Widgets */
+
+#footer-widgets {
+	padding: 25px 0;
+	margin-top: 25px;
+	background: #FAFAFA;
+	border-top: 1px solid #EEE;
+}
+
+#footer-widgets h2.widgettitle{
+	font-size: 1.1em;
+	margin-bottom: 15px;
+}
+
+/* @end */
 
 #footer {
 	margin-bottom: 30px;
