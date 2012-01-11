@@ -87,8 +87,7 @@ blockquote, q {
 }
 
 body{
-	font: 13px/1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	color: #444;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
 .clear{
@@ -145,11 +144,10 @@ body{
 #searchform #s{
 	width: 28px;
 	padding: 4px;
-	border: 1px solid #EEE;
+	border-style: solid;
 	border-width: 0 0 1px 0;
-	font-size: 13px;
+	font-size: 0.9em;
 	
-	color: #666;
 	font-weight: 200;
 	
 	box-sizing:border-box;
@@ -162,7 +160,9 @@ body{
 	-ms-transition: all 0.275s ease-in-out;
 	transition: all 0.275s ease-in-out;
 	
-	background: #FAFAFA url(images/mag.png) no-repeat 10px center;
+	background-image: url(images/mag.png) ;
+	background-repeat: no-repeat;
+	background-position: 10px center;
 	
 	padding-left: 30px;
 }
@@ -182,8 +182,7 @@ body{
 #main-menu {
 	padding: 0;
 	text-align: center;
-	border: solid #EEE;
-	background: #FAFAFA;
+	border-style: solid;
 	border-width: 1px 0;
 	margin-bottom: 25px;
 }
@@ -196,8 +195,7 @@ body{
 
 #main-menu > li a{
 	text-decoration: none;
-	font-size: 14px;
-	color: #444;
+	font-size: 1.075em;
 }
 
 ul#main-menu li ul{
@@ -216,8 +214,7 @@ ul#main-menu li ul{
 }
 
 ul#main-menu li ul a{
-	color: #666;
-	font-size: 12px;
+	font-size: 0.9em;
 }
 
 ul#main-menu ul li{
@@ -247,7 +244,7 @@ ul#main-menu li:hover ul{
 .post h1{
 	font-family: 'Terminal Dosis', sans-serif;
 	font-weight: 400;
-	font-size: 30px;
+	font-size: 2.1em;
 	margin: 1em 0 0.5em 0;
 	text-align: center;
 }
@@ -263,7 +260,7 @@ ul#main-menu li:hover ul{
 }
 
 .post .post-info{
-	font-size: 11px;
+	font-size: 0.9em;
 	color: #999;
 	margin-bottom: 30px;
 	text-align: center;
@@ -338,42 +335,12 @@ ul#main-menu li:hover ul{
 
 /* @end */
 
-/* @group Date */
-
-.post .featured-image .date{
-	font-family: 'Terminal Dosis', sans-serif;
-	
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	font-size: 18px;
-	font-weight: 500;
-	color: white;
-	background: rgba(0,0,0,0.75);
-	
-	padding: 20px;
-	line-height: 1;
-	
-	text-align: center;
-}
-
-.post .featured-image .date .year{
-	font-size: 22px;
-	font-weight: 700;
-	display: block;
-	margin-top: 10px;
-}
-
-
-
-/* @end */
-
 /* @group Bar below content */
 
 .post .below-content {
 	padding: 20px 10px;
 	text-align: right;
-	border: solid #EEE;
+	border-style: solid;
 	background: #FAFAFA;
 	border-width: 1px 0;
 	margin-top: 30px;
@@ -381,12 +348,9 @@ ul#main-menu li:hover ul{
 
 .post .below-content svg{
 	display: inline-block;
-	margin-bottom: -3px;
+	margin-bottom: -4px;
 	margin-right: 6px;
-}
-
-.post .below-content svg polygon{
-	fill:#777;
+	margin-left: 6px;
 }
 
 .post .below-content a{
@@ -426,6 +390,24 @@ ul#main-menu li:hover ul{
 
 /* @end */
 
+/* @group Comments */
+
+.comment-reply-link{
+	text-decoration: none;
+	font-style: italic;
+}
+
+#comments .author,
+#comments .date{
+	display: block !important;
+}
+
+#comments .separator{
+	display: none !important;
+}
+
+/* @end */
+
 
 
 /* @end */
@@ -435,7 +417,7 @@ ul#main-menu li:hover ul{
 #footer {
 	margin-bottom: 30px;
 	color: #999;
-	font-size: 11px;
+	font-size: 0.85em;
 }
 
 #footer .copyright{
@@ -466,7 +448,7 @@ ul#main-menu li:hover ul{
 #blog-archives h2{
 	font-family: 'Terminal Dosis', sans-serif;
 	font-weight: 400;
-	font-size: 24px;
+	font-size: 1.75em;
 	margin-bottom: 0.75em;
 }
 
@@ -491,7 +473,7 @@ ul#main-menu li:hover ul{
 h1.archive-header {
 	font-family: 'Terminal Dosis', sans-serif;
 	font-weight: 400;
-	font-size: 30px;
+	font-size: 2em;
 	margin: 30px 0;
 	text-align: center;
 }

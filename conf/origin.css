@@ -1,8 +1,57 @@
 body {
 	background: @overlay($background->color, $background->texture, $background->texture_level, $background->noise);
+	font-size: @e($content->font_size, 'px');
+	line-height: @e($content->line_height, 'em');
+	color: @color_grey($content->color);
+}
+
+h1, h2, h3, h4, h5, h6, strong{
+	color: @color_grey($content->heading_color);
+}
+
+a{
+	color: @e($content->link_color);
 }
 
 #page-container {
 	border: 1px solid @e($page->border);
 	padding: @e($page->padding, '%');
+	background: @e($page->color);
+}
+
+#searchform #s {
+	border-color: @e($menu->search_border);
+	background-color: @e($menu->search_background);
+	color: @e($menu->search_text);
+}
+
+#main-menu{
+	border-color: @e($menu->border);
+	background-color: @e($menu->background);
+}
+
+#main-menu > li a{
+	color: @e($menu->text_color);
+}
+
+ul#main-menu li ul {
+	border-color: @e($menu->drop_border);
+	background-color: @e($menu->drop_background);
+}
+
+ul#main-menu li ul a{
+	color: @e($menu->drop_text_color);
+}
+
+.post .below-content{
+	border-color: @e($content->bar_border);
+	background-color: @e($content->bar_background);
+}
+
+.post .below-content a{
+	color: @e($content->bar_link);
+}
+
+.post .below-content svg path{
+	fill: @e($content->bar_icons);
 }
