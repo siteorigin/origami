@@ -33,15 +33,11 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
-	<?php
-		$favicon = Origin::single()->settings->get_value('general', 'favicon');
-		if(empty($favicon)){
-			?><link rel="shortcut icon" href="<?php print get_template_directory_uri() ?>/images/favicon.png" type="image/x-icon" /><?php
-		}
-		else{
-			?><link rel="shortcut icon" href="<?php print $favicon['fileurl'] ?>" type="image/x-icon" /><?php
-		}
-	?>
+	<?php $favicon = Origin::single()->settings->get_value('general', 'favicon'); if(empty($favicon)) : ?>
+		<link rel="shortcut icon" href="<?php get_template_directory_uri() ?>/images/favicon.png" type="image/x-icon" />
+	<?php else : ?>
+		<link rel="shortcut icon" href="<?php print $favicon['fileurl'] ?>" type="image/x-icon" />
+	<?php endif; ?>
 	
 </head>
 
@@ -49,7 +45,14 @@
 <div class="container">
 	<div id="page-container">
 		<div id="logo">
-			<a href="<?php print site_url() ?>" title="<?php _e('Go Home', 'origami') ?>"><img src="<?php print get_template_directory_uri() ?>/images/logo.png" /></a>
+			<a href="<?php print site_url() ?>" title="<?php _e('Go Home', 'origami') ?>">
+				<?php $logo = Origin::single()->settings->get_value('general', 'logo'); ?>
+				<?php if(empty($logo)) : ?>
+					<img src="<?php print get_template_directory_uri() ?>/images/logo.png" />
+				<?php else : ?>
+					<img src="<?php print $logo['fileurl'] ?>" width="<?php print $logo['size'][0] ?>" height="<?php print $logo['size'][1] ?>" />
+				<?php endif; ?>
+			</a>
 			<?php get_search_form() ?>
 		</div>
 		<div id="menu">
