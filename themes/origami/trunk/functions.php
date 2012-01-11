@@ -44,6 +44,9 @@ class OrigamiController extends Origin_Controller {
 			'id'          => 'site-footer',
 			'name'        => __( 'Footer', 'origami' ),
 		));
+		
+		// Touch important files so they're never removed from cache
+		
 	}
 	
 	/**
@@ -52,6 +55,7 @@ class OrigamiController extends Origin_Controller {
 	function action_wp_enqueue_scripts(){
 		if(is_admin()) return;
 		
+		// Import some default Origin styling
 		wp_enqueue_style('origin-content', get_template_directory_uri().'/origin/templates/content/standard.css');
 		wp_enqueue_style('origin-comments', get_template_directory_uri().'/origin/templates/comments/standard/style.css');
 		
@@ -133,6 +137,21 @@ class OrigamiController extends Origin_Controller {
 		$columns = get_post_meta($post->ID, 'content_columns', true);
 		if(!$columns) $columns = 2;
 		include(dirname(__FILE__).'/admin/metabox-columns.php');
+	}
+	
+	//////////////////////////////////////////////////////////////////
+	// Support Functions
+	//////////////////////////////////////////////////////////////////
+	
+	function first_post_date(){
+		$first = get_posts(array(
+			'numberposts' => 1,
+			'order' => 'ASC',
+			'post_type' => null
+		));
+		
+		if(empty($first)) return time();
+		else return strtotime($first[0]->post_date);
 	}
 }
 

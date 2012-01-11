@@ -4,6 +4,13 @@ origin_register_section('page', array(
 	'title' => __('Page', 'origin'),
 ));
 
+origin_register_setting('page', 'color', array(
+	'type' => 'color',
+	'label' => __('Page Color', 'origin'),
+	'description' => __('The page fill color.', 'origin'),
+	'default' => '#FFFFFF',
+));
+
 origin_register_setting('page', 'border', array(
 	'type' => 'color',
 	'label' => __('Page Border Color', 'origin'),

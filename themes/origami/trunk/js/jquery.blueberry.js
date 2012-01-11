@@ -91,15 +91,14 @@
 				var rotate = function(){
 					//fade out current slide and remove active class,
 					//fade in next slide and add active class
-					slides
-						.eq(current).fadeOut(o.duration).removeClass('active')
-						.end().eq(next).fadeIn(o.duration).addClass('active').queue(function(){
+					slides.eq(next).fadeIn(o.duration).addClass('active').queue(function(){
 							//add rotateTimer function to end of animation queue
 							//this prevents animation buildup caused by requestAnimationFrame
 							//rotateTimer starts a timer for the next rotate
 							rotateTimer();
 							$(this).dequeue()
 						});
+					slides.eq(current).fadeOut(o.duration).removeClass('active');
 
 					//update pager to reflect slide change
 					if(pager){

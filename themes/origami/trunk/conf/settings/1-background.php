@@ -6,11 +6,9 @@ origin_register_section('background', array(
 
 origin_register_setting('background', 'color', array(
 	'type' => 'color',
-	'label' => __('Color', 'origin'),
+	'label' => __('Background Color', 'origin'),
 	'description' => __('The main background fill color.', 'origin'),
-	'default' => '#EEEEEE',
-	
-	'sense' => true,
+	'default' => '#f0eeeb',
 ));
 
 origin_register_setting('background', 'texture', array(
@@ -20,8 +18,6 @@ origin_register_setting('background', 'texture', array(
 	'default' => '::none',
 	// The user can have no pattern
 	'none' => true,
-	
-	'sense' => true,
 ));
 
 origin_register_setting('background', 'texture_level', array(
@@ -31,8 +27,6 @@ origin_register_setting('background', 'texture_level', array(
 	'max' => 100,
 	'label' => __('Texture Intesity', 'origin'),
 	'description' => __('The intesity of your background texture.', 'origin'),
-	
-	'sense' => true,
 ));
 
 origin_register_setting('background', 'noise', array(
@@ -42,6 +36,4 @@ origin_register_setting('background', 'noise', array(
 	'max' => 100,
 	'label' => __('Background Noise', 'origin'),
 	'description' => __('The intesity of the noise in your background.', 'origin'),
-	
-	'sense' => true,
 ));
