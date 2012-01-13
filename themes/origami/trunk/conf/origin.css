@@ -55,3 +55,21 @@ ul#main-menu li ul a{
 .post .below-content svg path{
 	fill: @e($content->bar_icons);
 }
+
+/* @group Footer */
+
+#footer-widgets {
+	border-color: @e($footer->border_color);
+	background-color: @e($footer->background_color);
+	color: @e($footer->text_color);
+}
+
+#footer-widgets h2.widgettitle {
+	color: @e($footer->heading_color);
+}
+
+#footer-widgets a {
+	color: @e($footer->link_color);
+}
+
+/* @end */
