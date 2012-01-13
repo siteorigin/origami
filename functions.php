@@ -1,6 +1,7 @@
 <?php
 
 require_once(dirname(__FILE__).'/origin/Origin.php');
+require_once(dirname(__FILE__).'/origin/plugins/maintenance/maintenance.php');
 require_once(dirname(__FILE__).'/origin/plugins/video/video.php');
 
 Origin::single()->update->set_endpoint('http://siteorigin.com/theme/origami/');
@@ -129,7 +130,7 @@ class OrigamiController extends Origin_Controller {
 	}
 	
 	function action_save_post($post_id){
-		if(!wp_verify_nonce($_REQUEST['_wpnonce_cm'], 'save-columns')) return;
+		if(!isset($_REQUEST['_wpnonce_cm']) || !wp_verify_nonce($_REQUEST['_wpnonce_cm'], 'save-columns')) return;
 		if(!current_user_can('edit_post', $post_id)) return;
 		
 		update_post_meta($post_id, 'content_columns', intval($_REQUEST['content_columns']));

@@ -1,7 +1,7 @@
 		<?php $sidebars_widgets = wp_get_sidebars_widgets(); ?>
 		
 		<?php if(!empty($sidebars_widgets['site-footer'])) : ?>
-			<div id="footer-widgets" class="grid noneg">
+			<div id="footer-widgets" class="grid noneg" data-responsive="420=1&640=50%">
 				<?php dynamic_sidebar('Footer') ?>
 			</div>
 		<?php endif; ?>
