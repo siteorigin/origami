@@ -1,0 +1,511 @@
+/*
+Theme Name: Origami
+Theme URI: http://siteorigin.com/theme/origami
+Description: A vintage photo theme.
+Author: Greg Priday
+Author URI: http://siteorigin.com/
+Version: trunk
+License: GPL
+License URI: http://wordpress.org/about/gpl/
+*/
+
+/* @group Font Imports */
+
+@import url(http://fonts.googleapis.com/css?family=Terminal+Dosis:400);
+
+/* @end */
+
+/* @group Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+/* remember to define focus styles! */
+
+:focus {
+	outline: 0;
+}
+
+body {
+	line-height: 1;
+	-webkit-text-size-adjust:none;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+
+blockquote, q {
+	quotes: "" "";
+}
+
+/* @end */
+
+/* @group General */
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 0 15px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+
+body{
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.clear{
+	clear: both;
+}
+
+/* @end */
+
+/* @group Page */
+
+/* This is the main page frame */
+
+#page-container {
+	width: 100%;
+	padding: 4.5%;
+	background: #FEFEFE;
+	margin: 30px 0;
+	
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	
+	box-shadow:0 1px 2px rgba(0,0,0,0.15);
+}
+
+
+
+/* @end */
+
+/* @group Logo */
+
+#logo {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+/* @group Search Form */
+
+#searchform{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -18px;
+}
+
+#searchform label{
+	display: none;
+}
+
+#searchform #searchsubmit{
+	display: none;
+}
+
+#searchform #s{
+	width: 28px;
+	padding: 4px;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	font-size: 0.9em;
+	
+	font-weight: 200;
+	
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	
+	-webkit-transition: all 0.275s ease-in-out;
+	-moz-transition: all 0.275s ease-in-out;
+	-o-transition: all 0.275s ease-in-out;
+	-ms-transition: all 0.275s ease-in-out;
+	transition: all 0.275s ease-in-out;
+	
+	background-image: url(images/mag.png) ;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	
+	padding-left: 30px;
+}
+
+#searchform #s:focus{
+	width: 180px;
+}
+
+/* @end */
+
+
+
+/* @end */
+
+/* @group Main Menu */
+
+#main-menu {
+	padding: 0;
+	text-align: center;
+	border-style: solid;
+	border-width: 1px 0;
+	margin-bottom: 25px;
+}
+
+#main-menu > li{
+	display: inline-block;
+	padding: 25px;
+	position: relative;
+}
+
+#main-menu > li a{
+	text-decoration: none;
+	font-size: 1.075em;
+}
+
+ul#main-menu li ul{
+	visibility: hidden;
+	display: block;
+	
+	position: absolute;
+	background: #F4F4F4;
+	
+	z-index: 10;
+	
+	top: 100%;
+	left: 0px;
+	width: 135px;
+	border-top: 1px solid #DDD;
+}
+
+ul#main-menu li ul a{
+	font-size: 0.9em;
+}
+
+ul#main-menu ul li{
+	width: 135px;
+	text-align: center;
+	padding: 10px 0;
+}
+
+ul#main-menu li:hover ul{
+	visibility: visible;
+	display: block;
+}
+
+
+/* @end */
+
+/* @group Post */
+
+.post{
+	margin-bottom: 30px;
+}
+
+.post:last-child{
+	margin-bottom: 0;
+}
+
+.post h1{
+	font-family: 'Terminal Dosis', sans-serif;
+	font-weight: 400;
+	font-size: 2.1em;
+	margin: 1em 0 0.5em 0;
+	text-align: center;
+}
+
+.post h1.noinfo,
+.page h1{
+	margin-bottom: 30px;
+}
+
+.post h1 a{
+	color: #444;
+	text-decoration: none;
+}
+
+.post .post-info{
+	font-size: 0.9em;
+	color: #999;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.post .post-info strong,
+.post .post-info a{
+	font-weight: 500;
+	color: #777;
+	text-decoration: none;
+}
+
+.post .content{
+	margin-bottom: 20px;
+}
+
+.post .content.column-2 {
+	-moz-column-count: 2;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 30px;
+	column-count: 2;
+	column-gap: 30px;
+}
+
+.post .content.column-3 {
+	-moz-column-count: 3;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 30px;
+	column-count: 3;
+	column-gap: 30px;
+}
+
+.post .content.column-4 {
+	-moz-column-count: 4;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 4;
+	-webkit-column-gap: 30px;
+	column-count: 4;
+	column-gap: 30px;
+}
+
+@media screen and (max-width:480px) {
+	.post .content {
+		-moz-column-count: 1 !important;
+		-webkit-column-count: 1 !important;
+		column-count: 1 !important;
+	}
+}
+
+.post .content p{
+	margin-bottom: 1.5em;
+}
+
+/* @group Gallery */
+
+
+
+/* @end */
+
+/* @group Featured Image */
+
+.post .featured-image{
+	position: relative;
+}
+
+.post .featured-image img {
+	width: 100%;
+	height: auto;
+}
+
+/* @end */
+
+/* @group Bar below content */
+
+.post .below-content {
+	padding: 20px 10px;
+	text-align: right;
+	border-style: solid;
+	background: #FAFAFA;
+	border-width: 1px 0;
+	margin-top: 30px;
+}
+
+.post .below-content svg{
+	display: inline-block;
+	margin-bottom: -4px;
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+.post .below-content a{
+	color: #666;
+	text-decoration: none;
+	font-style: italic;
+}
+
+.post .below-content p{
+	height: 1em;
+	line-height: 1;
+}
+
+/* @group Tags */
+
+.post .below-content .tags{
+	float: left;
+}
+
+.post .below-content .tags .the_tags{
+	display: inline;
+}
+
+.post .below-content .tags .the_tags a:after{
+	content: ', ';
+}
+
+.post .below-content .tags .the_tags a:last-child:after{
+	content: '';
+}
+
+/* @end */
+
+.post .below-content .read-more{
+	float: right;
+}
+
+/* @end */
+
+/* @group Comments */
+
+.comment-reply-link{
+	text-decoration: none;
+	font-style: italic;
+}
+
+#comments .author,
+#comments .date{
+	display: block !important;
+}
+
+#comments .separator{
+	display: none !important;
+}
+
+/* @end */
+
+
+
+/* @end */
+
+/* @group Footer */
+
+/* @group Footer Widgets */
+
+#footer-widgets {
+	padding: 20px 0;
+	margin-top: 30px;
+	border-top: 1px solid;
+}
+
+#footer-widgets h2.widgettitle{
+	font-size: 1.1em;
+	margin-bottom: 15px;
+}
+
+#footer-widgets a{
+	text-decoration: none;
+}
+
+/* @end */
+
+#footer {
+	margin-bottom: 30px;
+	color: #999;
+	font-size: 0.85em;
+}
+
+#footer .copyright{
+	float: left;
+}
+
+#footer .designed{
+	float: right;
+}
+
+#footer a{
+	color: #666;
+	text-decoration: none;
+}
+
+
+
+/* @end */
+
+/* @group Archive Page */
+
+/* The archive page template */
+
+#blog-archives {
+	margin-top: 30px;
+}
+
+#blog-archives h2{
+	font-family: 'Terminal Dosis', sans-serif;
+	font-weight: 400;
+	font-size: 1.75em;
+	margin-bottom: 0.75em;
+}
+
+#blog-archives ul{
+	margin-bottom: 25px;
+}
+
+#blog-archives ul a{
+	color: #666;
+	text-decoration: none;
+}
+
+#blog-archives ul a:hover{
+	color: #333;
+	text-decoration: underline;
+}
+
+/* @end */
+
+/* @group Post Archives */
+
+h1.archive-header {
+	font-family: 'Terminal Dosis', sans-serif;
+	font-weight: 400;
+	font-size: 2em;
+	margin: 30px 0;
+	text-align: center;
+}
+
+#posts-nav{
+	margin-top: 30px;
+	text-align: center;
+	color: #AAA;
+}
+
+#posts-nav a{
+	color: #666;
+	text-decoration: none;
+}
+
+/* @end */
