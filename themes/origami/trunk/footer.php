@@ -16,7 +16,9 @@
 			<div class="copyright"><?php printf('&copy; %s %u-%u', get_bloginfo('name'), date('Y', $first), date('Y')) ?></div>
 		<?php endif; ?>
 		
-		<div class="designed"><?php printf(__('%s Theme By %s', 'origami'), '<a href="http://siteorigin.com/theme/origami">Origami</a>',  '<a href="http://siteorigin.com">SiteOrigin</a>') ?></div>
+		<div class="designed">
+			<?php printf(__('Designed By %s', 'origami'), '<a href="'. Origin::single()->info['designer_url'].'">'. Origin::single()->info['designer_name'].'</a>') ?>
+		</div>
 		<div class="clear"></div>
 	</div>
 </div>

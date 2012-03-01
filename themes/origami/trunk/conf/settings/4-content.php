@@ -31,6 +31,16 @@ origin_register_setting('content', 'heading_color', array(
 	'description' => __('The color of headings.', 'origin'),
 ));
 
+origin_register_setting('content', 'post_heading_font', array(
+	'type' => 'font',
+	'label' => __('Post Heading Font', 'origin'),
+	'description' => __('The font used for post headings.', 'origin'),
+	'default' => array(
+		'family' => 'Terminal Dosis',
+		'variant' => 200
+	)
+));
+
 origin_register_setting('content', 'line_height', array(
 	'type' => 'slider',
 	'default' => 1.5,
