@@ -4,10 +4,13 @@ require_once(dirname(__FILE__).'/origin/Origin.php');
 require_once(dirname(__FILE__).'/origin/plugins/maintenance/maintenance.php');
 require_once(dirname(__FILE__).'/origin/plugins/video/video.php');
 
-Origin::single()->update->set_endpoint('http://siteorigin.com/theme/origami/');
+Origin::single()->set_theme_name('origami');
 Origin::single()->image->set_overlay_server('http://overlay.siteorigin.com');
 Origin::single()->settings->load_files(dirname(__FILE__).'/conf');
 Origin::single()->grid;
+
+Origin::single()->update->activate();
+Origin::single()->update->force_update_check();
 
 add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
 add_theme_support( 'post-thumbnails');
@@ -23,6 +26,7 @@ class OrigamiController extends Origin_Controller {
 	
 	/**
 	 * Get this object's settings
+	 * @return array
 	 */
 	public function get_settings(){
 		global $origami_settings;
@@ -48,9 +52,6 @@ class OrigamiController extends Origin_Controller {
 			'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
 			'after_widget'  => '</div>',
 		));
-		
-		// Touch important files so they're never removed from cache
-		
 	}
 	
 	/**

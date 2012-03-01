@@ -10,6 +10,7 @@
 		 * Print the <title> tag based on what is being viewed.
 		 */
 		global $page, $paged;
+		$upload_url = Origin::single()->get_storage_url('uploads');
 	
 		wp_title( '|', true, 'right' );
 	
@@ -36,7 +37,7 @@
 	<?php $favicon = Origin::single()->settings->get_value('general', 'favicon'); if(empty($favicon)) : ?>
 		<link rel="shortcut icon" href="<?php get_template_directory_uri() ?>/images/favicon.png" type="image/x-icon" />
 	<?php else : ?>
-		<link rel="shortcut icon" href="<?php print $favicon['fileurl'] ?>" type="image/x-icon" />
+		<link rel="shortcut icon" href="<?php print $upload_url.'/'.$favicon['filename'] ?>" type="image/x-icon" />
 	<?php endif; ?>
 	
 </head>
@@ -48,9 +49,9 @@
 			<a href="<?php print site_url() ?>" title="<?php _e('Go Home', 'origami') ?>">
 				<?php $logo = Origin::single()->settings->get_value('general', 'logo'); ?>
 				<?php if(empty($logo)) : ?>
-					<img src="<?php print get_template_directory_uri() ?>/images/logo.png" />
-				<?php else : ?>
-					<img src="<?php print $logo['fileurl'] ?>" width="<?php print $logo['size'][0] ?>" height="<?php print $logo['size'][1] ?>" />
+					<img src="<?php print get_template_directory_uri() ?>/images/logo.png" id="logo-image" />
+				<?php else :  ?>
+					<img src="<?php print $upload_url.'/'.$logo['filename'] ?>" id="logo-image" />
 				<?php endif; ?>
 			</a>
 			<?php get_search_form() ?>

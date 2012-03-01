@@ -3,6 +3,7 @@ body {
 	font-size: @e($content->font_size, 'px');
 	line-height: @e($content->line_height, 'em');
 	color: @color_grey($content->color);
+    @font($general->body_font)
 }
 
 h1, h2, h3, h4, h5, h6, strong{
@@ -41,6 +42,10 @@ ul#main-menu li ul {
 
 ul#main-menu li ul a{
 	color: @e($menu->drop_text_color);
+}
+
+.post h1{
+    @font($content->post_heading_font)
 }
 
 .post .below-content{

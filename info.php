@@ -1,0 +1,1 @@
+<?php return array('style' => 4192, 'style_name' => 'asd-11', 'theme' => 4124, 'theme_name' => 'origami', 'designer' => 1, 'designer_name' => 'Greg Priday', 'designer_url' => 'http://siteorigin.dynalias.com/profile/admin/');
