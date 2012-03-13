@@ -10,6 +10,7 @@ Origin::single()->settings->load_files(dirname(__FILE__).'/conf');
 Origin::single()->grid;
 
 Origin::single()->update->activate();
+// TODO remove the force update check
 Origin::single()->update->force_update_check();
 
 add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
