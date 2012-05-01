@@ -1,24 +1,36 @@
 body {
-	background: @overlay($background->color, $background->texture, $background->texture_level, $background->noise);
-	font-size: @e($content->font_size, 'px');
-	line-height: @e($content->line_height, 'em');
-	color: @color_grey($content->color);
-    @font($general->body_font)
+	background: @api_overlay($background->color, $background->texture, $background->texture_level, $background->noise);
+    @font($general->body_font);
+    font-size: @e($general->font_size, 'px');
 }
 
-h1, h2, h3, h4, h5, h6, strong{
-	color: @color_grey($content->heading_color);
+/* The Text Logo */
+#logo {
+    margin-top: @e($logo->container_top_margin, 'px');
+    margin-bottom: @e($logo->container_bottom_margin, 'px');
 }
 
-a{
-	color: @e($content->link_color);
+#logo h1{
+    color: @e($logo->color);
+    @font($logo->font);
+    font-size: @e($logo->font_size, 'px');
+    margin-bottom: @e($logo->margin, 'em');
 }
+
+#logo h3{
+    color: @e($logo->description_color);
+    font-size:@e($logo->description_size, 'px');
+}
+
+/* The Page Container */
 
 #page-container {
 	border: 1px solid @e($page->border);
-	padding: @e($page->padding, '%');
+	padding: @e(@multiply($page->padding, 0.5), '%') @e($page->padding, '%');
 	background: @e($page->color);
 }
+
+/* The Search Form */
 
 #searchform #s {
 	border-color: @e($menu->search_border);
@@ -26,27 +38,27 @@ a{
 	color: @e($menu->search_text);
 }
 
-#main-menu{
+/* The Main Menu */
+
+#menu ul{
 	border-color: @e($menu->border);
 	background-color: @e($menu->background);
 }
 
-#main-menu > li a{
+#menu ul > li a{
 	color: @e($menu->text_color);
 }
 
-ul#main-menu li ul {
+#menu ul li ul {
 	border-color: @e($menu->drop_border);
 	background-color: @e($menu->drop_background);
 }
 
-ul#main-menu li ul a{
+#menu ul li ul a{
 	color: @e($menu->drop_text_color);
 }
 
-.post h1{
-    @font($content->post_heading_font)
-}
+/* The Post */
 
 .post .below-content{
 	border-color: @e($content->bar_border);
@@ -61,7 +73,40 @@ ul#main-menu li ul a{
 	fill: @e($content->bar_icons);
 }
 
-/* @group Footer */
+/* The Entry Title */
+
+h1.entry-title{
+    color: @color_grey($content->title_color);
+    @font($content->title_font);
+}
+
+h1.entry-title a{
+    color: @color_grey($content->title_color);
+}
+
+/* General Content */
+
+.content{
+    font-size: @e($content->font_size, 'px');
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6, .content strong{
+    color: @color_grey($content->heading_color);
+}
+
+.content a{
+    color: @e($content->link_color);
+}
+
+.content p,
+.content ul,
+.content ol{
+    margin: @e($content->paragraph_margin, 'em') 0;
+    line-height: @e($content->line_height, 'em');
+    color: @color_grey($content->color);
+}
+
+/* The Footer */
 
 #footer-widgets {
 	border-color: @e($footer->border_color);
@@ -77,4 +122,19 @@ ul#main-menu li ul a{
 	color: @e($footer->link_color);
 }
 
-/* @end */
+#footer-widgets li{
+    margin-bottom: @e($footer->li_margin, 'em');
+}
+
+/* The Footer Copyright */
+
+#footer {
+    padding: 0px @e($page->padding, '%');
+    border: transparent;
+    border-width: 0 1px;
+    color: @e($footer->copyright_color);
+}
+
+#footer a {
+    color: @e($footer->copyright_link_color);
+}

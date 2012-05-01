@@ -1,6 +1,9 @@
 jQuery(function($){
-	$('.featured-video').fitVids();
-	$('.blueberry').blueberry({crop:false});
+    // We use FitVids to scale videos to mobile devices 
+	$('.featured-video, .content').fitVids();
+    
+    // FlexSlider is a great responsive slider
+    $('.flexslider').flexslider();
 	
 	// Test and load polyfills
 	Modernizr.load({

@@ -1,8 +1,8 @@
 <?php if(has_post_thumbnail()) : ?>
-	<div class="featured-image">
-		<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
-		<?php print wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail-mobile', false, array('class' => 'main-image mobile')); ?>
-	</div>
+<div class="featured-image">
+	<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
+	<?php print wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail-mobile', false, array('class' => 'main-image mobile')); ?>
+</div>
 <?php endif; ?>
 
 <h1 class="entry-title <?php if(!(Origin::single()->options->get('display', 'comment_counts') || Origin::single()->options->get('display', 'post_author'))) print 'noinfo'  ?>">

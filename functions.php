@@ -1,164 +1,164 @@
 <?php
 
-require_once(dirname(__FILE__).'/origin/Origin.php');
-require_once(dirname(__FILE__).'/origin/plugins/maintenance/maintenance.php');
-require_once(dirname(__FILE__).'/origin/plugins/video/video.php');
+define('THEME_NAME', 'origami');
+define('THEME_VERSION', 'trunk');
 
-Origin::single()->set_theme_name('origami');
-Origin::single()->image->set_overlay_server('http://overlay.siteorigin.com');
-Origin::single()->settings->load_files(dirname(__FILE__).'/conf');
+require_once(dirname(__FILE__).'/origin/Origin.php');
+require_once(dirname(__FILE__).'/options.php');
+
 Origin::single()->grid;
 
-Origin::single()->update->activate();
-// TODO remove the force update check
-Origin::single()->update->force_update_check();
-
-add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
+add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status') );
 add_theme_support( 'post-thumbnails');
+add_theme_support( 'automatic-feed-links' );
 
-class OrigamiController extends Origin_Controller {
-	function __construct(){
-		parent::__construct(false, 'theme_method');
-	}
+
+global $content_width;
+if ( ! isset( $content_width ) ) $content_width = 980;
+
+// Set up the image sizes
+add_image_size('origami-slider', 904, 460, true);
+
+set_post_thumbnail_size(900,300,true);
+add_image_size('thumbnail-mobile', 480, 420, true);
+
+/**
+ * Initialize everything for the theme.
+ *
+ * @action init
+ */
+function origami_init(){
+	add_post_type_support('post', 'origin-video');
+
+	register_nav_menu( 'primary', 'Primary Menu' );
+
+	register_sidebar( array(
+		'id'          => 'site-footer',
+		'name'        => __( 'Footer', 'origami' ),
+
+		'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
+		'after_widget'  => '</div>',
+	));
+
+	wp_register_style('origin', get_template_directory_uri().'/origin.css', array(), THEME_VERSION);
+}
+add_action('init', 'origami_init');
+
+/**
+ * Enqueue Origami's scripts
+ * 
+ * @action 
+ * @return void
+ */
+function origami_enqueue_scripts(){
+	if(is_admin()) return;
+
+	wp_enqueue_script('modernizr', get_template_directory_uri().'/js/modernizr.js', array(), '2.0.6');
+	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'), THEME_VERSION);
+	wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'), '1.0');
 	
-	public static function single(){
-		return parent::single(__CLASS__);
-	}
-	
-	/**
-	 * Get this object's settings
-	 * @return array
-	 */
-	public function get_settings(){
-		global $origami_settings;
-		if(empty($origami_settings))
-			$origami_settings = (array) get_option('origami_settings', self::default_settings());
-		
-		return $origami_settings;
-	}
-	
-	//////////////////////////////////////////////////////////////////
-	// Action Handlers
-	//////////////////////////////////////////////////////////////////
-	
-	function action_init(){
-		add_post_type_support('post', 'origin-video');
-		
-		register_nav_menu( 'primary', 'Primary Menu' );
-		
-		register_sidebar( array(
-			'id'          => 'site-footer',
-			'name'        => __( 'Footer', 'origami' ),
-			
-			'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
-			'after_widget'  => '</div>',
-		));
-	}
-	
-	/**
-	 * Enqueue scripts
-	 */
-	function action_wp_enqueue_scripts(){
-		if(is_admin()) return;
-		
-		// Import some default Origin styling
-		wp_enqueue_style('origin-content', get_template_directory_uri().'/origin/templates/content/standard.css');
-		wp_enqueue_style('origin-comments', get_template_directory_uri().'/origin/templates/comments/standard/style.css');
-		
-		wp_enqueue_script('modernizr', get_template_directory_uri().'/js/modernizr.js');
-		wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'));
-		wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'));
-		wp_enqueue_script('blueberry', get_template_directory_uri().'/js/jquery.blueberry.js', array('jquery'));
-		wp_enqueue_style('blueberry', get_template_directory_uri().'/css/blueberry.css');
-		
-		wp_localize_script('origami', 'origami', array(
- 			'polyfills' => get_template_directory_uri().'/js/polyfills'
-		));
-	}
-	
-	//////////////////////////////////////////////////////////////////
-	// The settings page
-	//////////////////////////////////////////////////////////////////
-	
-	/**
-	 * Add the settings page
-	 */
-	function action_admin_menu(){
-		add_theme_page(__('Origami Settings', 'origami'), __('Origami Settings', 'origami'), 'edit_theme_options', 'origami-settings', array(__CLASS__, 'page_settings'));
-	}
-	
-	/**
-	 * @return array The default settings.
-	 */
-	static function default_settings(){
-		return array(
-			'display' => array(
-				'post_author' => true,
-				'post_tags' => true,
-				'post_categories' => true,
-				'comment_counts' => true,
-			)
-		);
-	}
-	
-	/**
-	 * Render the settings page
-	 */
-	static function page_settings(){
-		if(isset($_REQUEST['_wpnonce']) && wp_verify_nonce($_REQUEST['_wpnonce'], 'origami-settings')){
-			update_option('origami_settings', array(
-				'display' => array(
-					'post_author' => isset($_REQUEST['post_author']),
-					'post_tags' => isset($_REQUEST['post_tags']),
-					'post_categories' => isset($_REQUEST['post_categories']),
-					'comment_counts' => isset($_REQUEST['comment_counts']),
-				)
-			));
-			?><div id="setting-error-settings_updated" class="updated settings-error"><p><strong><?php _e('Settings saved', 'origami') ?></strong></p></div><?php
-		}
-		
-		$settings = (array) get_option('origami_settings', self::default_settings());
-		
-		include(dirname(__FILE__).'/admin/page-settings.php');
-	}
-	
-	//////////////////////////////////////////////////////////////////
-	// Column count meta box
-	//////////////////////////////////////////////////////////////////
-	
-	function action_add_meta_boxes(){
-		add_meta_box('post-columns', __('Columns', 'origin'), array(__CLASS__, 'metabox_columns'), 'post', 'side');
-		add_meta_box('post-columns', __('Columns', 'origin'), array(__CLASS__, 'metabox_columns'), 'page', 'side');
-	}
-	
-	function action_save_post($post_id){
-		if(!isset($_REQUEST['_wpnonce_cm']) || !wp_verify_nonce($_REQUEST['_wpnonce_cm'], 'save-columns')) return;
-		if(!current_user_can('edit_post', $post_id)) return;
-		
-		update_post_meta($post_id, 'content_columns', intval($_REQUEST['content_columns']));
-	}
-	
-	function metabox_columns(){
-		global $post;
-		$columns = get_post_meta($post->ID, 'content_columns', true);
-		if(!$columns) $columns = 2;
-		include(dirname(__FILE__).'/admin/metabox-columns.php');
-	}
-	
-	//////////////////////////////////////////////////////////////////
-	// Support Functions
-	//////////////////////////////////////////////////////////////////
-	
-	function first_post_date(){
-		$first = get_posts(array(
-			'numberposts' => 1,
-			'order' => 'ASC',
-			'post_type' => null
-		));
-		
-		if(empty($first)) return time();
-		else return strtotime($first[0]->post_date);
-	}
+	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '1.8');
+	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '1.8');
+
+	wp_localize_script('origami', 'origami', array(
+		'polyfills' => get_template_directory_uri().'/js/polyfills'
+	));
+}
+add_action('wp_enqueue_scripts', 'origami_enqueue_scripts');
+
+/**
+ * Add post metaboxes
+ * 
+ * @action add_meta_boxes
+ */
+function origami_add_meta_boxes(){
+	// Add the column metaboxes
+	add_meta_box('post-columns', __('Columns', 'origin'), 'origami_render_metabox_columns', 'post', 'side');
+	add_meta_box('post-columns', __('Columns', 'origin'), 'origami_render_metabox_columns', 'page', 'side');
+}
+add_action('add_meta_boxes', 'origami_add_meta_boxes');
+
+/**
+ * Render the columns metabox.
+ */
+function origami_render_metabox_columns(){
+	global $post;
+	$columns = get_post_meta($post->ID, 'content_columns', true);
+	if(empty($columns)) $columns = 2;
+	include(dirname(__FILE__).'/admin/metabox-columns.php');
 }
 
-OrigamiController::single();
+/**
+ * Save the post
+ * 
+ * @action save_post
+ */
+function origami_save_post($post_id){
+	if(!isset($_REQUEST['_wpnonce_cm']) || !wp_verify_nonce($_REQUEST['_wpnonce_cm'], 'save-columns')) return;
+	if(!current_user_can('edit_post', $post_id)) return;
+
+	update_post_meta($post_id, 'content_columns', intval($_REQUEST['content_columns']));
+}
+add_action('save_post', 'origami_save_post');
+
+function origami_first_post_date(){
+	$first = get_posts(array(
+		'numberposts' => 1,
+		'order' => 'ASC',
+		'post_type' => null
+	));
+
+	if(empty($first)) return time();
+	else return strtotime($first[0]->post_date);
+}
+
+/**
+ * Displays some stuff in the footer
+ * 
+ * @action wp_footer
+ */
+function origami_footer(){
+	$analytics = Origin::single()->options->get('general', 'analytics');
+	if(!empty($analytics)) print $analytics;
+}
+add_action('wp_print_footer_scripts', 'origami_footer');
+
+/***********************************************************************************************************************
+ * Pluggable Functions
+ */
+
+if(!function_exists('siteorigin_google_font_families')) :
+	/**
+	 * Enqueue any web fonts used by this theme.
+	 *
+	 * Override this in your child themes if you want to use different fonts.
+	 *
+	 * @param array $families
+	 * @return array
+	 */
+	function siteorigin_google_font_families($families){
+		return array_merge($families, array(
+			'Dosis:200'
+		));
+	}
+endif;
+add_filter('google_font_families', 'siteorigin_google_font_families');
+
+if(!function_exists('siteorigin_attribution_footer')):
+	/**
+	 * Renders the theme attribution. This is used in your site's footer.
+	 *
+	 * You can override this in your child theme to remove the attribution, but it'd be really cool if you left it in :) If
+	 * you decide to remove it, please show your support in other ways. Like by telling people about our free themes.
+	 *
+	 * @param string $before Displayed before the attribution link
+	 * @param string $after Displayed after the attribution link
+	 */
+	function siteorigin_attribution_footer($before, $after){
+		print $before;
+		printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org" rel="generator">WordPress</a>');
+		print ' - ';
+		printf(__('Theme By %s', 'origami'), '<a href="http://siteorigin.com" rel="designer">SiteOrigin</a>');
+		print $after;
+	}
+endif;

@@ -14,7 +14,7 @@
 	<?php elseif ( is_search() ) : ?>
 		<?php printf( __( 'Search Results for: %s', 'origami' ), '<span>' . get_search_query() . '</span>' ); ?>
 	<?php else : ?>
-		<?php _e( 'Blog Archives', 'twentyeleven' ); ?>
+		<?php _e( 'Blog Archives', 'origami' ); ?>
 	<?php endif; ?>
 </h1>
 

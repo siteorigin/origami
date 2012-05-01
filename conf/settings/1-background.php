@@ -1,20 +1,18 @@
 <?php
 
 origin_register_section('background', array(
-	'title' => __('Background', 'origin'),
+	'title' => __('Background', 'origami'),
 ));
 
 origin_register_setting('background', 'color', array(
 	'type' => 'color',
-	'label' => __('Background Color', 'origin'),
-	'description' => __('The main background fill color.', 'origin'),
+	'label' => __('Background Color', 'origami'),
 	'default' => '#f0eeeb',
 ));
 
 origin_register_setting('background', 'texture', array(
 	'type' => 'texture',
-	'label' => __('Texture', 'origin'),
-	'description' => __('The texture to apply to your background.', 'origin'),
+	'label' => __('Texture', 'origami'),
 	'default' => '::none',
 	// The user can have no pattern
 	'none' => true,
@@ -22,18 +20,16 @@ origin_register_setting('background', 'texture', array(
 
 origin_register_setting('background', 'texture_level', array(
 	'type' => 'slider',
-	'default' => 20,
+	'default' => 10,
 	'min' => -100,
 	'max' => 100,
-	'label' => __('Texture Intesity', 'origin'),
-	'description' => __('The intesity of your background texture.', 'origin'),
+	'label' => __('Texture Intensity', 'origami'),
 ));
 
 origin_register_setting('background', 'noise', array(
 	'type' => 'slider',
-	'default' => 20,
+	'default' => 0,
 	'min' => 0,
 	'max' => 100,
-	'label' => __('Background Noise', 'origin'),
-	'description' => __('The intesity of the noise in your background.', 'origin'),
+	'label' => __('Background Noise', 'origami'),
 ));

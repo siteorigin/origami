@@ -1,1 +1,0 @@
-<?php return array('designer' => null, 'designer_name' => 'SiteOrigin', 'designer_url' => 'http://siteorigin.com/');

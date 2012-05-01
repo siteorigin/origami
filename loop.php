@@ -5,6 +5,13 @@
 			
 			<?php get_template_part('content', get_post_format()) ?>
 			
+			<?php
+			wp_link_pages(array(
+				'before' => '<p class="page-links">' . __('Pages:', 'origami'),
+				'after' => '</p>',
+			))
+			?>
+			
 			<?php $tags = wp_get_post_tags($post->ID); ?>
 			<?php if(!empty($tags) || !is_singular()) : ?>
 				<div class="below-content">
@@ -33,7 +40,7 @@
 				</div>
 			<?php endif; ?>
 				
-			<?php if(is_singular()) comments_template('/origin/templates/comments/standard/comments.php'); ?>
+			<?php if(is_singular()) comments_template(); ?>
 			
 		</div>
 	<?php endwhile; ?>
