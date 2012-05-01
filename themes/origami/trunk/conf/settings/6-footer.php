@@ -14,7 +14,7 @@ origin_register_setting('footer', 'border_color', array(
 origin_register_setting('footer', 'background_color', array(
 	'type' => 'color',
 	'label' => __('Footer Background', 'origami'),
-	'default' => '#FAFAFA',
+	'default' => '#F9F9F9',
 ));
 
 origin_register_setting('footer', 'text_color', array(

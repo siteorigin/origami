@@ -13,7 +13,7 @@ origin_register_setting('menu', 'search_border', array(
 origin_register_setting('menu', 'search_background', array(
 	'type' => 'color',
 	'label' => __('Search Background', 'origami'),
-	'default' => '#FAFAFA',
+	'default' => '#F9F9F9',
 ));
 
 origin_register_setting('menu', 'search_text', array(
@@ -31,7 +31,7 @@ origin_register_setting('menu', 'border', array(
 origin_register_setting('menu', 'background', array(
 	'type' => 'color',
 	'label' => __('Menu Background Color', 'origami'),
-	'default' => '#FAFAFA',
+	'default' => '#F9F9F9',
 ));
 
 origin_register_setting('menu', 'text_color', array(

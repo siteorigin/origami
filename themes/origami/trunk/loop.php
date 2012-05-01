@@ -7,7 +7,7 @@
 			
 			<?php
 			wp_link_pages(array(
-				'before' => '<p class="page-links">' . __('Pages:', 'origami'),
+				'before' => '<p class="page-links content">' . __('Pages:', 'origami'),
 				'after' => '</p>',
 			))
 			?>

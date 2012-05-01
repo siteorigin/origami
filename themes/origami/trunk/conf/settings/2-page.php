@@ -7,13 +7,13 @@ origin_register_section('page', array(
 origin_register_setting('page', 'color', array(
 	'type' => 'color',
 	'label' => __('Page Color', 'origami'),
-	'default' => '#FFFFFF',
+	'default' => '#FBFBFB',
 ));
 
 origin_register_setting('page', 'border', array(
 	'type' => 'color',
 	'label' => __('Page Border Color', 'origami'),
-	'default' => '#BBBBBB',
+	'default' => '#CCCAC8',
 ));
 
 origin_register_setting('page', 'padding', array(
