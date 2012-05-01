@@ -6,6 +6,8 @@ define('THEME_VERSION', 'trunk');
 require_once(dirname(__FILE__).'/origin/Origin.php');
 require_once(dirname(__FILE__).'/options.php');
 
+Origin::single()->load_plugin('firstrun');
+
 Origin::single()->grid;
 
 add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status') );
