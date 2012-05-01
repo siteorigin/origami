@@ -13,14 +13,17 @@ origin_register_setting('background', 'color', array(
 origin_register_setting('background', 'texture', array(
 	'type' => 'texture',
 	'label' => __('Texture', 'origami'),
-	'default' => '::none',
+	'default' => array(
+		'texture' => 'groovepaper',
+		'blend' => 'luminosity',
+	),
 	// The user can have no pattern
 	'none' => true,
 ));
 
 origin_register_setting('background', 'texture_level', array(
 	'type' => 'slider',
-	'default' => 10,
+	'default' => 3,
 	'min' => -100,
 	'max' => 100,
 	'label' => __('Texture Intensity', 'origami'),

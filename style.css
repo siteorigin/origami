@@ -272,8 +272,6 @@ h1.entry-title a{
 }
 
 .post .post-info{
-	font-size: 0.9em;
-	color: #999;
 	margin-bottom: 30px;
 	text-align: center;
 }
@@ -538,8 +536,8 @@ a img.aligncenter {
 
 /* @end */
 
-.content p{
-	/* Margin set in Origin */
+.content *:first-child{
+	margin-top: 0px;
 }
 
 .content *:last-child{
@@ -887,10 +885,7 @@ a img.aligncenter {
 
 /* @group Post Archives */
 
-h1.archive-header {
-	font-family: 'Terminal Dosis', sans-serif;
-	font-weight: 400;
-	font-size: 2em;
+h1.archive-title {
 	margin: 30px 0;
 	text-align: center;
 }

@@ -75,24 +75,47 @@ body {
 
 /* The Entry Title */
 
-h1.entry-title{
-    color: @color_grey($content->title_color);
-    @font($content->title_font);
+h1.entry-title,
+h1.archive-title{
+    color: @color_grey($title->color);
+    font-size: @e($title->size, 'px');
+    @font($title->font);
 }
 
 h1.entry-title a{
-    color: @color_grey($content->title_color);
+    color: @color_grey($title->color);
+}
+
+/* Post Info */
+
+.post-info{
+    font-size: @e($title->info_size, 'px');
+    color: @color_grey($title->info_color);
+}
+
+.post-info strong,
+.post-info a{
+    color: @color_grey($title->info_focus_color);
 }
 
 /* General Content */
 
 .content{
     font-size: @e($content->font_size, 'px');
+    color: @color_grey($content->color);
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6, .content strong{
     color: @color_grey($content->heading_color);
+    margin: @e($content->paragraph_margin, 'em') 0;
 }
+
+.content h1 {font-size: @e($content->heading_size, 'px');}
+.content h2 {font-size: @e(@multiply($content->heading_size, 0.85), 'px');}
+.content h3 {font-size: @e(@multiply($content->heading_size, 0.77), 'px');}
+.content h4 {font-size: @e(@multiply($content->heading_size, 0.68), 'px');}
+.content h5 {font-size: @e(@multiply($content->heading_size, 0.58), 'px');}
+.content h6 {font-size: @e(@multiply($content->heading_size, 0.52), 'px');}
 
 .content a{
     color: @e($content->link_color);
@@ -103,7 +126,6 @@ h1.entry-title a{
 .content ol{
     margin: @e($content->paragraph_margin, 'em') 0;
     line-height: @e($content->line_height, 'em');
-    color: @color_grey($content->color);
 }
 
 /* The Footer */

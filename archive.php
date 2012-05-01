@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<h1 class="archive-header">
+<h1 class="archive-title">
 	<?php if ( is_day() ) : ?>
 		<?php printf( __( 'Daily Archives: %s', 'origami' ), '<span>' . get_the_date() . '</span>' ); ?>
 	<?php elseif ( is_month() ) : ?>

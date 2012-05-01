@@ -19,7 +19,7 @@ origin_register_setting('logo', 'container_bottom_margin', array(
 	'label' => __('Container Bottom Margin', 'origami'),
 	'min' => 0,
 	'max' => 50,
-	'default' => 20,
+	'default' => 25,
 	'units' => 'px',
 ));
 
@@ -54,7 +54,7 @@ origin_register_setting('logo', 'margin', array(
 	'segments' => 200,
 	'min' => -1,
 	'max' => 1,
-	'default' => 0.05,
+	'default' => 0.2,
 	'units' => 'em',
 ));
 
