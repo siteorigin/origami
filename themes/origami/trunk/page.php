@@ -5,7 +5,10 @@
 	
 	<div class="content">
 		<?php the_content() ?>
+		<div class="clear"></div>
 	</div>
-</div>
 
+	<?php if(is_singular()) comments_template(); ?>
+</div>
+	
 <?php get_footer() ?>

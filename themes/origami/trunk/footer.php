@@ -8,17 +8,15 @@
 	</div>
 	
 	<div id="footer">
-		<?php $first = OrigamiController::first_post_date(); ?>
+		<?php $first = origami_first_post_date(); ?>
 		
 		<?php if(date('Y', $first) == date('Y')) : ?>
 			<div class="copyright"><?php printf('&copy; %s %u', get_bloginfo('name'), date('Y')) ?></div>
 		<?php else : ?>
 			<div class="copyright"><?php printf('&copy; %s %u-%u', get_bloginfo('name'), date('Y', $first), date('Y')) ?></div>
 		<?php endif; ?>
-		
-		<div class="designed">
-			<?php printf(__('Designed By %s', 'origami'), '<a href="'. Origin::single()->info['designer_url'].'">'. Origin::single()->info['designer_name'].'</a>') ?>
-		</div>
+
+		<?php siteorigin_attribution_footer('<div class="designed">', '</div>') ?>
 		<div class="clear"></div>
 	</div>
 </div>
