@@ -17,6 +17,11 @@ Origin::single()->options->add_page('general', array(
 					'type' => 'textarea',
 					'title' => __('Analytics Code', 'origami'),
 					'description' => __('Inserted just before your closing body tag.', 'origami'),
+				),
+				
+				'foobar' => array(
+					'type' => 'text',
+					'default' => 'TESTING',
 				)
 			)
 		)
