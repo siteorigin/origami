@@ -1,0 +1,162 @@
+body {
+	background: @api_overlay($background->color, $background->texture, $background->texture_level, $background->noise);
+    @font($general->body_font);
+    font-size: @e($general->font_size, 'px');
+}
+
+/* The Text Logo */
+#logo {
+    margin-top: @e($logo->container_top_margin, 'px');
+    margin-bottom: @e($logo->container_bottom_margin, 'px');
+}
+
+#logo h1{
+    color: @e($logo->color);
+    @font($logo->font);
+    font-size: @e($logo->font_size, 'px');
+    margin-bottom: @e($logo->margin, 'em');
+}
+
+#logo h3{
+    color: @e($logo->description_color);
+    font-size:@e($logo->description_size, 'px');
+}
+
+/* The Page Container */
+
+#page-container {
+	border: 1px solid @e($page->border);
+	padding: @e(@multiply($page->padding, 0.5), '%') @e($page->padding, '%');
+	background: @e($page->color);
+}
+
+/* The Search Form */
+
+#searchform #s {
+	border-color: @e($menu->search_border);
+	background-color: @e($menu->search_background);
+	color: @e($menu->search_text);
+}
+
+/* The Main Menu */
+
+#menu ul{
+	border-color: @e($menu->border);
+	background-color: @e($menu->background);
+}
+
+#menu ul > li a{
+	color: @e($menu->text_color);
+}
+
+#menu ul li ul {
+	border-color: @e($menu->drop_border);
+	background-color: @e($menu->drop_background);
+}
+
+#menu ul li ul a{
+	color: @e($menu->drop_text_color);
+}
+
+/* The Post */
+
+.post .below-content{
+	border-color: @e($content->bar_border);
+	background-color: @e($content->bar_background);
+}
+
+.post .below-content a{
+	color: @e($content->bar_link);
+}
+
+.post .below-content svg path{
+	fill: @e($content->bar_icons);
+}
+
+/* The Entry Title */
+
+h1.entry-title,
+h1.archive-title{
+    color: @color_grey($title->color);
+    font-size: @e($title->size, 'px');
+    @font($title->font);
+}
+
+h1.entry-title a{
+    color: @color_grey($title->color);
+}
+
+/* Post Info */
+
+.post-info{
+    font-size: @e($title->info_size, 'px');
+    color: @color_grey($title->info_color);
+}
+
+.post-info strong,
+.post-info a{
+    color: @color_grey($title->info_focus_color);
+}
+
+/* General Content */
+
+.content{
+    font-size: @e($content->font_size, 'px');
+    color: @color_grey($content->color);
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6, .content strong{
+    color: @color_grey($content->heading_color);
+    margin: @e($content->paragraph_margin, 'em') 0;
+}
+
+.content h1 {font-size: @e($content->heading_size, 'px');}
+.content h2 {font-size: @e(@multiply($content->heading_size, 0.85), 'px');}
+.content h3 {font-size: @e(@multiply($content->heading_size, 0.77), 'px');}
+.content h4 {font-size: @e(@multiply($content->heading_size, 0.68), 'px');}
+.content h5 {font-size: @e(@multiply($content->heading_size, 0.58), 'px');}
+.content h6 {font-size: @e(@multiply($content->heading_size, 0.52), 'px');}
+
+.content a{
+    color: @e($content->link_color);
+}
+
+.content p,
+.content ul,
+.content ol{
+    margin: @e($content->paragraph_margin, 'em') 0;
+    line-height: @e($content->line_height, 'em');
+}
+
+/* The Footer */
+
+#footer-widgets {
+	border-color: @e($footer->border_color);
+	background-color: @e($footer->background_color);
+	color: @e($footer->text_color);
+}
+
+#footer-widgets h2.widgettitle {
+	color: @e($footer->heading_color);
+}
+
+#footer-widgets a {
+	color: @e($footer->link_color);
+}
+
+#footer-widgets li{
+    margin-bottom: @e($footer->li_margin, 'em');
+}
+
+/* The Footer Copyright */
+
+#footer {
+    padding: 0px @e($page->padding, '%');
+    border: transparent;
+    border-width: 0 1px;
+    color: @e($footer->copyright_color);
+}
+
+#footer a {
+    color: @e($footer->copyright_link_color);
+}
