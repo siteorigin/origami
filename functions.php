@@ -6,9 +6,8 @@ define('THEME_VERSION', 'trunk');
 require_once(dirname(__FILE__).'/origin/Origin.php');
 require_once(dirname(__FILE__).'/options.php');
 
+Origin::single()->load_plugin('responsive');
 Origin::single()->load_plugin('firstrun');
-
-Origin::single()->grid;
 
 add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status') );
 add_theme_support( 'post-thumbnails');
@@ -40,6 +39,13 @@ function origami_init(){
 
 		'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
 		'after_widget'  => '</div>',
+		
+		// Responsive stuff, from the grid engine
+		'responsive' => true,
+		'grid_selector' => '#footer-widgets',
+		'grid_responds' => '640=50%&420=1',
+		'cell_margin' => 25,
+		'cell_padding' => 10,
 	));
 
 	wp_register_style('origin', get_template_directory_uri().'/origin.css', array(), THEME_VERSION);
