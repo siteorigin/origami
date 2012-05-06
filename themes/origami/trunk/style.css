@@ -1,19 +1,16 @@
 /*
 Theme Name: Origami
 Theme URI: http://siteorigin.com/theme/origami
-Description: A simple blogging theme.
-Author: Greg Priday
+Description: Origami is a simple, responsive media blogging theme that places strong emphasis on your content. It looks great on mobile devices, even the videos and galleries scale to fit small screens. The options panel is easy to understand with a minimal set of options.
+Tags: one-column, flexible-width, post-formats, custom-colors, custom-menu, theme-options, threaded-comments, translation-ready, photoblogging
+Author: SiteOrigin
 Author URI: http://siteorigin.com/
 Version: trunk
 License: GPL
 License URI: http://wordpress.org/about/gpl/
 */
 
-/* @group Font Imports */
-
 @import url(http://fonts.googleapis.com/css?family=Terminal+Dosis:400);
-
-/* @end */
 
 /* @group Reset */
 
@@ -76,6 +73,13 @@ blockquote, q {
 
 /* @group General */
 
+body{
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    background: #f0eeeb url(images/bg.png) center center;
+    font-size: 13px;
+    font-weight: 400;
+}
+
 .container {
 	width: 100%;
 	margin: 0 auto;
@@ -84,10 +88,6 @@ blockquote, q {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-}
-
-body{
-	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
 .clear{
@@ -111,6 +111,10 @@ body{
 	-webkit-box-sizing:border-box;
 	
 	box-shadow:0 1px 2px rgba(0,0,0,0.15);
+	
+	background: #FBFBFB;
+    border: 1px solid #CCCAC8;
+    padding: 2.25% 4.5%;
 }
 
 
@@ -121,6 +125,7 @@ body{
 
 #logo {
 	position: relative;
+    margin: 25px 0;
 }
 
 #logo a.logo-link{
@@ -128,9 +133,16 @@ body{
 }
 
 #logo h1{
+	color: #333333;
+    font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 52px;
+    font-weight: 200;
+    margin-bottom: 0.2em;
 }
 
 #logo h3{
+	color: #555555;
+	font-size: 13px;
 }
 
 /* @group Search Form */
@@ -153,7 +165,7 @@ body{
 #logo #searchform #s{
 	width: 28px;
 	padding: 4px;
-	border-style: solid;
+	border: 1px solid #EEEEEE;
 	border-width: 0 0 1px 0;
 	font-size: 0.9em;
 	
@@ -169,11 +181,11 @@ body{
 	-ms-transition: all 0.275s ease-in-out;
 	transition: all 0.275s ease-in-out;
 	
-	background-image: url(images/mag.png) ;
-	background-repeat: no-repeat;
-	background-position: 10px center;
+	background: #F9F9F9 url(images/mag.png) no-repeat 10px center;
 	
 	padding-left: 30px;
+	
+    color: #666666;
 }
 
 #logo #searchform #s:focus{
@@ -191,9 +203,11 @@ body{
 #menu ul {
 	padding: 0;
 	text-align: center;
-	border-style: solid;
+	border: 1px solid #EEEEEE;
 	border-width: 1px 0;
 	margin-bottom: 25px;
+	
+    background: #F9F9F9;
 }
 
 #menu ul > li{
@@ -205,6 +219,7 @@ body{
 #menu ul > li a{
 	text-decoration: none;
 	font-size: 1.075em;
+	color: #444444;
 }
 
 #menu ul li ul{
@@ -220,9 +235,13 @@ body{
 	left: 0px;
 	width: 135px;
 	border-top: 1px solid #DDD;
+	
+	background-color: #F4F4F4;
+    border-color: #DDDDDD;
 }
 
 #menu ul > li > ul > a{
+	color: #666666;
 	font-size: 0.9em;
 }
 
@@ -248,10 +267,15 @@ body{
 
 /* @group Entry Title */
 
-h1.entry-title{
+h1.entry-title,
+h1.archive-title{
 	font-size: 2.1em;
 	margin: 1em 0 0.5em 0;
 	text-align: center;
+	color: #262626;
+    font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 28px;
+    font-weight: 200;
 }
 
 h1.entry-title.noinfo{
@@ -259,8 +283,8 @@ h1.entry-title.noinfo{
 }
 
 h1.entry-title a{
-	color: #444;
 	text-decoration: none;
+	color: #262626;
 }
 
 
@@ -274,17 +298,21 @@ h1.entry-title a{
 .post .post-info{
 	margin-bottom: 30px;
 	text-align: center;
+	color: #A6A6A6;
+    font-size: 11.5px;
 }
 
 .post .post-info strong,
 .post .post-info a{
 	font-weight: 500;
-	color: #777;
 	text-decoration: none;
+	color: #808080;
 }
 
 .post .content{
 	margin-bottom: 20px;
+	color: #4D4D4D;
+    font-size: 13px;
 }
 
 .post .content.column-2 {
@@ -368,9 +396,13 @@ h1.entry-title a{
 	background: #FAFAFA;
 	border-width: 1px 0;
 	margin-top: 30px;
+	
+	background-color: #F9F9F9;
+    border-color: #EEEEEE;
 }
 
 .post .below-content svg{
+	fill: #666666;
 	display: inline-block;
 	margin-bottom: -4px;
 	margin-right: 6px;
@@ -549,6 +581,17 @@ a img.aligncenter {
 	margin-bottom: 1.5em;
 }
 
+.content a {
+    color: #36659f;
+}
+
+.content p,
+.content ul,
+.content ol {
+    line-height: 1.5em;
+    margin: 1.5em 0;
+}
+
 .content ul li{
 	display: block;
 	padding-left: 1.5em;
@@ -602,6 +645,43 @@ a img.aligncenter {
 	border: 0px;
 	border-top: 1px solid #CCC;
 }
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content strong {
+    color: #333333;
+    margin: 1.5em 0;
+}
+
+.content h1 {
+    font-size: 24px;
+}
+
+.content h2 {
+    font-size: 20.4px;
+}
+
+.content h3 {
+    font-size: 18.48px;
+}
+
+.content h4 {
+    font-size: 16.32px;
+}
+
+.content h5 {
+    font-size: 13.92px;
+}
+
+.content h6 {
+    font-size: 12.48px;
+}
+
+
 
 /* @group Table */
 
@@ -816,15 +896,24 @@ a img.aligncenter {
 	padding: 20px 0;
 	margin-top: 30px;
 	border-top: 1px solid;
+	background-color: #F9F9F9;
+    border-color: #EEEEEE;
+    color: #666666;
 }
 
 #footer-widgets h2.widgettitle{
 	font-size: 1.1em;
 	margin-bottom: 15px;
+	color: #333;
 }
 
 #footer-widgets a{
 	text-decoration: none;
+    color: #444444;
+}
+
+#footer-widgets li{
+	margin-bottom: 0.3em;
 }
 
 /* @end */
@@ -833,6 +922,10 @@ a img.aligncenter {
 	margin-bottom: 30px;
 	color: #999;
 	font-size: 0.85em;
+	border: transparent;
+    border-width: 0 1px;
+    color: #999999;
+    padding: 0px 4.5%;
 }
 
 #footer .copyright{
@@ -844,8 +937,8 @@ a img.aligncenter {
 }
 
 #footer a{
-	color: #666;
 	text-decoration: none;
+	color: #999999;
 }
 
 

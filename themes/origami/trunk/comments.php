@@ -65,11 +65,8 @@
 <?php endif; ?>
 
 <?php if(!comments_open()) : ?>
-	<?php $options = Origin::single()->options->get_values('layout'); ?>
 	
-	<?php if(!empty($options['comments']['closed-message'])) : ?>
-		<div id="comments" class="comments-disabled content">
-			<p><?php _e('Comments are Disabled', 'origami') ?></p>
-		</div>
-	<?php endif; ?>
+	<div id="comments" class="comments-disabled content">
+		<p><?php _e('Comments are Disabled', 'origami') ?></p>
+	</div>
 <?php endif; ?>
