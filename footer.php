@@ -9,15 +9,9 @@
 	</div>
 	
 	<div id="footer">
-		<?php $first = origami_first_post_date(); ?>
-		
-		<?php if(date('Y', $first) == date('Y')) : ?>
-			<div class="copyright"><?php printf('&copy; %s %u', get_bloginfo('name'), date('Y')) ?></div>
-		<?php else : ?>
-			<div class="copyright"><?php printf('&copy; %s %u-%u', get_bloginfo('name'), date('Y', $first), date('Y')) ?></div>
-		<?php endif; ?>
+		<div class="copyright"><?php print simple_options_get('general', 'copyright') ?></div>
 
-		<?php siteorigin_attribution_footer('<div class="designed">', '</div>') ?>
+		<?php origami_attribution_footer('<div class="designed">', '</div>') ?>
 		<div class="clear"></div>
 	</div>
 </div>
