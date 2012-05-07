@@ -12,8 +12,6 @@ get_header(); the_post(); ?>
 		<?php the_content() ?>
 	</div>
 	
-	
-	
 	<div class="content" id="blog-archives">
 		<h2><?php _e('Recent Posts', 'origami') ?></h2>
 		<?php $recent = get_posts(array('numberposts' => 4)); ?>
