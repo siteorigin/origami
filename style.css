@@ -379,6 +379,7 @@ h1.entry-title a{
 /* @group Bar below content */
 
 .post .below-content {
+	color: #666;
 	padding: 20px 10px;
 	text-align: right;
 	border-style: solid;
@@ -417,10 +418,6 @@ h1.entry-title a{
 
 .post .below-content .tags .the_tags{
 	display: inline;
-}
-
-.post .below-content .tags .the_tags a:after{
-	content: ', ';
 }
 
 .post .below-content .tags .the_tags a:last-child:after{
