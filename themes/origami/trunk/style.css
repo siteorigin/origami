@@ -752,6 +752,10 @@ a img.aligncenter {
 	font-weight: 400;
 }
 
+.comment-container .info .author a{
+	color: #444;
+}
+
 .comment-container .info .date{
 	display: block;
 	color: #888;
@@ -883,9 +887,8 @@ a img.aligncenter {
 #footer-widgets {
 	padding: 20px 0;
 	margin-top: 30px;
-	border-top: 1px solid;
+	border-top: 1px solid #EEEEEE;
 	background-color: #F9F9F9;
-	border-color: #EEEEEE;
 }
 
 #footer-widgets .widget{
