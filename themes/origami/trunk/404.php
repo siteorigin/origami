@@ -4,7 +4,7 @@
 	<h1 class="entry-title noinfo"><?php _e('Not Found', 'origami', 'foo') ?></h1>
 	
 	<div class="content" id="blog-archives">
-		<?php print wp_autop(simple_options_get('messages', '')) ?>
+		<?php print wpautop(simple_options_get('messages', 'not_found')) ?>
 		
 		<h2><?php _e('Recent Posts', 'origami') ?></h2>
 		<?php $recent = get_posts(array('numberposts' => 4)); ?>
