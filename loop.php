@@ -1,4 +1,3 @@
-<?php global $origami_settings; ?>
 <?php if(have_posts()) : ?>
 	<?php while(have_posts()) : the_post(); global $post; ?>
 		<div <?php post_class() ?>>
