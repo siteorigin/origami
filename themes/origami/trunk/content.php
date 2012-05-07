@@ -1,8 +1,8 @@
 <?php if(has_post_thumbnail()) : ?>
-	<div class="featured-image">
-		<?php print wp_get_attachment_image(get_post_thumbnail_id(), 'origami-desktop', false, array('class' => 'main-image desktop')); ?>
-		<?php print wp_get_attachment_image(get_post_thumbnail_id(), 'origami-mobile', false, array('class' => 'main-image mobile')); ?>
-	</div>
+<div class="featured-image">
+	<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
+	<?php the_post_thumbnail('post-thumbnail-mobile', array('class' => 'main-image mobile')) ?>
+</div>
 <?php endif; ?>
 
 <h1 class="entry-title <?php if(!(simple_options_get('display', 'comment_counts') || simple_options_get('display', 'post_author'))) print 'noinfo'  ?>">

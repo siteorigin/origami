@@ -38,9 +38,10 @@ function origami_setup(){
 	if ( ! isset( $content_width ) ) $content_width = 980;
 
 	// Set up the image sizes
-	set_post_thumbnail_size(900,300,true);
+	set_post_thumbnail_size(900,400,true);
+	add_image_size('post-thumbnail-mobile', 480, 420, true);
+	add_image_size('post-thumbnail-full', 910, 910, false);
 	add_image_size('origami-slider', 904, 460, true);
-	add_image_size('thumbnail-mobile', 480, 420, true);
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');

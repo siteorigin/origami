@@ -29,6 +29,15 @@
 	<?php if(simple_options_get('display', 'comment_counts')) printf(__('<strong>%u</strong> Comments', 'origami'), $post->comment_count); ?>
 </div>
 
-<div class="content">
+<?php
+if(simple_options_get('display', 'use_columns')){
+	$columns = get_post_meta($post->ID, 'content_columns', true);
+	if($columns === false) $columns = 2;
+}
+else{
+	$columns = 1;
+}
+?>
+<div class="content column-<?php print $columns ?>">
 	<?php the_content(); ?>
 </div>
