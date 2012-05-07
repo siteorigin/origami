@@ -9,7 +9,9 @@
 	</div>
 	
 	<div id="footer">
-		<div class="copyright"><?php print simple_options_get('messages', 'copyright') ?></div>
+		<?php if(simple_options_get('messages', 'copyright') != '') : ?>
+			<div class="copyright"><?php print simple_options_get('messages', 'copyright') ?></div>
+		<?php endif; ?>
 
 		<?php origami_attribution_footer('<div class="designed">', '</div>') ?>
 		<div class="clear"></div>

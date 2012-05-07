@@ -1,7 +1,7 @@
 <?php if(post_password_required()) : ?>
 	<a name="comments"></a>
 	<div id="comments">
-		<p><?php _e('Password required', 'origami') ?></p>
+		<p><?php _e('Password Required', 'origami') ?></p>
 	</div>
 	<?php return; ?>
 <?php endif; ?>
@@ -65,7 +65,6 @@
 <?php endif; ?>
 
 <?php if(!comments_open()) : ?>
-	
 	<div id="comments" class="comments-disabled content">
 		<p><?php _e('Comments are Disabled', 'origami') ?></p>
 	</div>
