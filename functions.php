@@ -2,42 +2,56 @@
 
 define('SO_THEME_VERSION', 'trunk');
 
+// Inlude all the SiteOrigine extras
 require_once(dirname(__FILE__).'/extras/firstrun/firstrun.php');
 require_once(dirname(__FILE__).'/extras/simple-options-lite.php');
-require_once(dirname(__FILE__).'/simple-options.php'); // Load all the options
-
 require_once(dirname(__FILE__).'/extras/responsive.php');
 
-add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status') );
-add_theme_support( 'post-thumbnails');
-add_theme_support( 'automatic-feed-links' );
+// Initialize all the options
+require_once(dirname(__FILE__).'/simple-options.php'); 
 
-
-global $content_width;
-if ( ! isset( $content_width ) ) $content_width = 980;
-
-// Set up the image sizes
-add_image_size('origami-slider', 904, 460, true);
-
-set_post_thumbnail_size(900,300,true);
-add_image_size('thumbnail-mobile', 480, 420, true);
-
+if(!function_exists('origami_setup')) :
 /**
- * Initialize everything for the theme.
- *
- * @action init
+ * Setup Origami.
+ * 
+ * @action after_setup_theme
  */
-function origami_init(){
+function origami_setup(){
+	// Make Renown available for translation.
+	load_theme_textdomain( 'renown', get_template_directory() . '/languages' );
+	
+	add_theme_support( 'automatic-feed-links' );
+	
+	// Origami supports post formats
+	add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status') );
+	
+	// Origami supports post thumbnails
+	add_theme_support( 'post-thumbnails');
+	
+	// Create the primary menu area
 	register_nav_menu( 'primary', 'Primary Menu' );
-}
-add_action('init', 'origami_init');
 
+	// Add support for custom backgrounds.
+	add_theme_support( 'custom-background' );
+	
+	global $content_width;
+	if ( ! isset( $content_width ) ) $content_width = 980;
+
+	// Set up the image sizes
+	set_post_thumbnail_size(900,300,true);
+	add_image_size('origami-slider', 904, 460, true);
+	add_image_size('thumbnail-mobile', 480, 420, true);
+}
+endif;
+add_action('after_setup_theme', 'origami_setup');
+
+if(!function_exists('origami_widgets_init')) :
 /**
  * Registers Origami's Sidebars
  * 
  * @action register_sidebar
  */
-function origami_register_sidebars(){
+function origami_widgets_init(){
 	register_sidebar( array(
 		'id'          => 'site-footer',
 		'name'        => __( 'Footer', 'origami' ),
@@ -53,8 +67,10 @@ function origami_register_sidebars(){
 		'cell_padding' => 10,
 	));
 }
-add_action('widgets_init', 'origami_register_sidebars');
+endif;
+add_action('widgets_init', 'origami_widgets_init');
 
+if(!function_exists('origami_enqueue_scripts')) :
 /**
  * Enqueue Origami's scripts
  * 
@@ -63,8 +79,8 @@ add_action('widgets_init', 'origami_register_sidebars');
  */
 function origami_enqueue_scripts(){
 	wp_enqueue_script('modernizr', get_template_directory_uri().'/js/modernizr.js', array(), '2.0.6');
-	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'), SO_THEME_VERSION);
 	wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'), '1.0');
+	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'), SO_THEME_VERSION);
 	
 	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '1.8');
 	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '1.8');
@@ -73,20 +89,24 @@ function origami_enqueue_scripts(){
 		'polyfills' => get_template_directory_uri().'/js/polyfills'
 	));
 }
+endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_scripts');
 
+if(!function_exists('origami_add_meta_boxes')) :
 /**
  * Add post metaboxes
  * 
  * @action add_meta_boxes
  */
 function origami_add_meta_boxes(){
-	// Add the column metaboxes
+	// Add the column metaboxes to posts and pages
 	add_meta_box('post-columns', __('Columns', 'origami'), 'origami_render_metabox_columns', 'post', 'side');
 	add_meta_box('post-columns', __('Columns', 'origami'), 'origami_render_metabox_columns', 'page', 'side');
 }
+endif;
 add_action('add_meta_boxes', 'origami_add_meta_boxes');
 
+if(!function_exists('origami_render_metabox_columns')) :
 /**
  * Render the columns metabox.
  */
@@ -96,7 +116,9 @@ function origami_render_metabox_columns(){
 	if(empty($columns)) $columns = 2;
 	include(dirname(__FILE__).'/admin/metabox-columns.php');
 }
+endif;
 
+if(!function_exists('origami_save_post')) :
 /**
  * Save the post
  * 
@@ -108,10 +130,12 @@ function origami_save_post($post_id){
 
 	update_post_meta($post_id, 'content_columns', intval($_REQUEST['content_columns']));
 }
+endif;
 add_action('save_post', 'origami_save_post');
 
+if(!function_exists('origami_attribution_footer')) :
 /**
- * Display the origami headder
+ * Display the origami header. This is mainly used to display the favicon if one has been set.
  * 
  * @action wp_head
  */
@@ -123,17 +147,8 @@ function origami_head(){
 	
 	?><link rel="icon" href="<?php print $src[0] ?>" /><?php
 }
+endif;
 add_action('wp_head', 'origami_head');
-
-/**
- * Displays some stuff in the footer
- * 
- * @action wp_footer
- */
-function origami_footer(){
-	
-}
-add_action('wp_print_footer_scripts', 'origami_footer');
 
 if(!function_exists('origami_attribution_footer')) :
 /**
