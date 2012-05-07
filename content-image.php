@@ -1,7 +1,11 @@
 <?php if(has_post_thumbnail()) : ?>
 	<div class="featured-image">
-		<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
-		<?php print wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail-mobile', false, array('class' => 'main-image mobile')); ?>
+		<?php if(is_singular()) : ?>
+			<?php the_post_thumbnail('post-thumbnail-full', array('class' => 'main-image')) ?>
+		<?php else : ?>
+			<?php the_post_thumbnail('post-thumbnail', array('class' => 'main-image desktop')) ?>
+			<?php the_post_thumbnail('post-thumbnail-mobile', array('class' => 'main-image mobile')) ?>
+		<?php endif; ?>
 	</div>
 <?php endif; ?>
 
@@ -16,6 +20,15 @@
 	<?php if(simple_options_get('display', 'comment_counts')) printf(__('<strong>%u</strong> Comments', 'origami'), $post->comment_count); ?>
 </div>
 
-<div class="content">
+<?php
+if(simple_options_get('display', 'use_columns')){
+	$columns = get_post_meta($post->ID, 'content_columns', true);
+	if($columns === false) $columns = 2;
+}
+else{
+	$columns = 1;
+}
+?>
+<div class="content column-<?php print $columns ?>">
 	<?php the_content(); ?>
 </div>
