@@ -49,6 +49,12 @@ function origiami_options_init(){
 		'placeholder' => __('display', 'origami'),
 		'default' => true,
 	));
+
+	simple_options_add('display', 'use_columns', 'checkbox', array(
+		'title' => __('Use Content Columns', 'origami'),
+		'placeholder' => __('use', 'origami'),
+		'default' => true,
+	));
 }
 endif;
 add_action('simple_options_init', 'origiami_options_init');
