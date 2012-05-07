@@ -5,7 +5,7 @@
 	</div>
 <?php endif; ?>
 
-<h1 class="entry-title <?php if(!(simple_options_get('display', 'comment_counts') || simple_options_get('display', 'post_author'))) print 'noinfo'  ?>">
+<h1 class="entry-title">
 	<a href="<?php print get_post_permalink() ?>"><?php the_title() ?></a>
 </h1>
 

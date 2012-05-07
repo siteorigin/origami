@@ -1,3 +1,5 @@
+/* @override http://wpdev.dynalias.com/origami/wp-content/themes/origami/style.css */
+
 /*
 Theme Name: Origami
 Theme URI: http://siteorigin.com/theme/origami
@@ -9,8 +11,6 @@ Version: trunk
 License: GPL
 License URI: http://wordpress.org/about/gpl/
 */
-
-@import url(http://fonts.googleapis.com/css?family=Terminal+Dosis:400);
 
 /* @group Reset */
 
@@ -75,9 +75,9 @@ blockquote, q {
 
 body{
 	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-    background: #f0eeeb url(images/bg.png) center center;
-    font-size: 13px;
-    font-weight: 400;
+	background: #f0eeeb url(images/bg.png) center center;
+	font-size: 13px;
+	font-weight: 400;
 }
 
 .container {
@@ -103,18 +103,18 @@ body{
 #page-container {
 	width: 100%;
 	padding: 4.5%;
-	background: #FEFEFE;
-	margin: 30px 0;
+	background: #fdfdfd;
+	margin: 30px 0 35px 0;
 	
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 	
-	box-shadow:0 1px 2px rgba(0,0,0,0.15);
-	
-	background: #FBFBFB;
-    border: 1px solid #CCCAC8;
-    padding: 2.25% 4.5%;
+	-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:0 1px 2px rgba(0,0,0,0.1);
+	box-shadow:0 1px 2px rgba(0,0,0,0.1), inset 0 0 2px rgba(0,0,0,0.1125);
+	border: 1px solid #cbc9c7;
+	padding: 2.25% 4.5%;
 }
 
 
@@ -125,7 +125,7 @@ body{
 
 #logo {
 	position: relative;
-    margin: 25px 0;
+	margin: 20px 0 25px 0;
 }
 
 #logo a.logo-link{
@@ -133,15 +133,15 @@ body{
 }
 
 #logo h1{
-	color: #333333;
-    font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
-    font-size: 52px;
-    font-weight: 200;
-    margin-bottom: 0.2em;
+	color: #555;
+	font-family: "Terminal Dosis", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 52px;
+	font-weight: 200;
+	margin-bottom: 0.2em;
 }
 
 #logo h3{
-	color: #555555;
+	color: #666;
 	font-size: 13px;
 }
 
@@ -151,7 +151,7 @@ body{
 	position: absolute;
 	top: 50%;
 	right: 0;
-	margin-top: -18px;
+	margin-top: -12px;
 }
 
 #logo #searchform label{
@@ -171,9 +171,9 @@ body{
 	
 	font-weight: 200;
 	
-	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
 	
 	-webkit-transition: all 0.275s ease-in-out;
 	-moz-transition: all 0.275s ease-in-out;
@@ -185,7 +185,7 @@ body{
 	
 	padding-left: 30px;
 	
-    color: #666666;
+	color: #777;
 }
 
 #logo #searchform #s:focus{
@@ -203,23 +203,23 @@ body{
 #menu ul {
 	padding: 0;
 	text-align: center;
-	border: 1px solid #EEEEEE;
-	border-width: 1px 0;
 	margin-bottom: 25px;
 	
-    background: #F9F9F9;
+	border: 1px solid #EEEEEE;
+	border-width: 1px 0;
+	background: #F9F9F9;
 }
 
-#menu ul > li{
+#menu ul li{
 	display: inline-block;
-	padding: 25px;
+	padding: 22px 25px;
 	position: relative;
 }
 
-#menu ul > li a{
+#menu ul li a{
 	text-decoration: none;
-	font-size: 1.075em;
-	color: #444444;
+	font-size: 1em;
+	color: #505050;
 }
 
 #menu ul li ul{
@@ -227,21 +227,22 @@ body{
 	display: block;
 	
 	position: absolute;
-	background: #F4F4F4;
+	background: #F5F5F5;
 	
 	z-index: 10;
 	
 	top: 100%;
 	left: 0px;
 	width: 135px;
-	border-top: 1px solid #DDD;
+	border-top: 1px solid #E4E4E4;
 	
 	background-color: #F4F4F4;
-    border-color: #DDDDDD;
+	border-color: #DDDDDD;
 }
 
-#menu ul > li > ul > a{
-	color: #666666;
+#menu ul li ul li a{
+	padding: 25px;
+	color: #606060;
 	font-size: 0.9em;
 }
 
@@ -269,13 +270,13 @@ body{
 
 h1.entry-title,
 h1.archive-title{
-	font-size: 2.1em;
+	font-size: 2.2em;
 	margin: 1em 0 0.5em 0;
 	text-align: center;
-	color: #262626;
-    font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
-    font-size: 28px;
-    font-weight: 200;
+	color: #333;
+	font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 28px;
+	font-weight: 200;
 }
 
 h1.entry-title.noinfo{
@@ -299,7 +300,7 @@ h1.entry-title a{
 	margin-bottom: 30px;
 	text-align: center;
 	color: #A6A6A6;
-    font-size: 11.5px;
+	font-size: 11.5px;
 }
 
 .post .post-info strong,
@@ -311,8 +312,8 @@ h1.entry-title a{
 
 .post .content{
 	margin-bottom: 20px;
-	color: #4D4D4D;
-    font-size: 13px;
+	color: #525252;
+	font-size: 13px;
 }
 
 .post .content.column-2 {
@@ -350,16 +351,6 @@ h1.entry-title a{
 	}
 }
 
-.post .content p{
-	margin-bottom: 1.5em;
-}
-
-/* @group Gallery */
-
-
-
-/* @end */
-
 /* @group Featured Image */
 
 .post .featured-image{
@@ -394,15 +385,15 @@ h1.entry-title a{
 	text-align: right;
 	border-style: solid;
 	background: #FAFAFA;
-	border-width: 1px 0;
 	margin-top: 30px;
 	
-	background-color: #F9F9F9;
-    border-color: #EEEEEE;
+	border: 1px solid #EEEEEE;
+	border-width: 1px 0;
+	background: #F9F9F9;
 }
 
 .post .below-content svg{
-	fill: #666666;
+	fill: #999;
 	display: inline-block;
 	margin-bottom: -4px;
 	margin-right: 6px;
@@ -446,25 +437,6 @@ h1.entry-title a{
 
 /* @end */
 
-/* @group Comments */
-
-.comment-reply-link{
-	text-decoration: none;
-	font-style: italic;
-}
-
-#comments .author,
-#comments .date{
-	display: block !important;
-}
-
-#comments .separator{
-	display: none !important;
-}
-
-/* @end */
-
-
 
 /* @end */
 
@@ -473,92 +445,92 @@ h1.entry-title a{
 /* @group WP Core */
 
 .alignnone {
-    margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 .aligncenter, div.aligncenter {
-    display:block;
-    margin: 20px auto 20px auto;
+	display:block;
+	margin: 20px auto 20px auto;
 }
 
 .alignright {
-    float:right;
-    margin: 5px 0 20px 20px;
+	float:right;
+	margin: 5px 0 20px 20px;
 }
 
 .alignleft {
-    float:left;
-    margin: 5px 20px 20px 0;
+	float:left;
+	margin: 5px 20px 20px 0;
 }
 
 .aligncenter {
-    display: block;
-    margin: 5px auto 5px auto;
+	display: block;
+	margin: 5px auto 5px auto;
 }
 
 a img.alignright {
-    float:right;
-    margin: 5px 0 20px 20px;
+	float:right;
+	margin: 5px 0 20px 20px;
 }
 
 a img.alignnone {
-    margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 a img.alignleft {
-    float:left;
-    margin: 5px 20px 20px 0;
+	float:left;
+	margin: 5px 20px 20px 0;
 }
 
 a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+	display: block;
+	margin-left: auto;
+	margin-right: auto
 }
 
 .wp-caption {
-    background: #EFEFEF;
-    border: 1px solid #C0C0C0;
-    max-width: 100%; /* Image does not overflow the content area */
-    padding: 5px 3px 10px 3px;
-    text-align: center;
-    
-    box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
-    -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+	background: #EFEFEF;
+	border: 1px solid #C0C0C0;
+	max-width: 100%; /* Image does not overflow the content area */
+	padding: 5px 3px 10px 3px;
+	text-align: center;
+	
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
 }
 
 .wp-caption.alignnone {
-    margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 .wp-caption.alignleft {
-    margin: 5px 20px 20px 0;
+	margin: 5px 20px 20px 0;
 }
 
 .wp-caption.alignright {
-    margin: 5px 0 20px 20px;
+	margin: 5px 0 20px 20px;
 }
 
 .wp-caption img {
-    border: 0 none;
-    height: auto;
-    margin:0;
-    max-width: 98.5%;
-    padding:0;
-    width: auto;
+	border: 0 none;
+	height: auto;
+	margin:0;
+	max-width: 98.5%;
+	padding:0;
+	width: auto;
 }
 
 .wp-caption p.wp-caption-text {
-    font-size: 11px;
-    margin:0;
-    line-height: 1;
-    padding: 4px 5px 0 5px;
-    color: #666;
+	font-size: 11px;
+	margin:0;
+	line-height: 1;
+	padding: 4px 5px 0 5px;
+	color: #666;
 	font-style: italic;
 }
 
@@ -582,14 +554,14 @@ a img.aligncenter {
 }
 
 .content a {
-    color: #36659f;
+	color: #36659f;
 }
 
 .content p,
 .content ul,
 .content ol {
-    line-height: 1.5em;
-    margin: 1.5em 0;
+	line-height: 1.6em;
+	margin: 2em 0;
 }
 
 .content ul li{
@@ -653,32 +625,32 @@ a img.aligncenter {
 .content h5,
 .content h6,
 .content strong {
-    color: #333333;
-    margin: 1.5em 0;
+	color: #333333;
+	margin: 1.5em 0;
 }
 
 .content h1 {
-    font-size: 24px;
+	font-size: 24px;
 }
 
 .content h2 {
-    font-size: 20.4px;
+	font-size: 20.4px;
 }
 
 .content h3 {
-    font-size: 18.48px;
+	font-size: 18.48px;
 }
 
 .content h4 {
-    font-size: 16.32px;
+	font-size: 16.32px;
 }
 
 .content h5 {
-    font-size: 13.92px;
+	font-size: 13.92px;
 }
 
 .content h6 {
-    font-size: 12.48px;
+	font-size: 12.48px;
 }
 
 
@@ -714,7 +686,8 @@ a img.aligncenter {
 #comments h3.comments-title{
 	margin: 20px 0;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 400;
+	color: #333;
 }
 
 /* @group Comments */
@@ -729,9 +702,10 @@ a img.aligncenter {
 
 .comment-wrapper.comment-depth-1 .avatar-container{
 	line-height: 0;
-	padding: 3px;
-	border: 1px solid #D0D0D0;
-	background: #EFEFEF;
+	padding: 2px;
+	
+	border: 1px solid #E8E8E8;
+	background: #F2F2F2;
 }
 
 .comment-wrapper .comment-container{
@@ -766,12 +740,21 @@ a img.aligncenter {
 	font-size: 12px;
 }
 
+.comment-reply-link{
+	text-decoration: none;
+	font-style: italic;
+}
+
 .comment-container .info .author{
-	display: inline-block;
-	margin-right: 5px;
-	font-size: 13px;
-	color: #333;
-	font-weight: bold;
+	display: block;
+	color: #444;
+	margin-bottom: 0.25em;
+	font-weight: 400;
+}
+
+.comment-container .info .date{
+	display: block;
+	color: #888;
 }
 
 .comment-container a.comment-reply-link{
@@ -809,15 +792,18 @@ a img.aligncenter {
 	width: 420px;
 	max-width: 100%;
 	
+	color: #606060;
+	
 	margin-bottom: 7px;
 	
 	font-size: 13px;
 	
-	padding: 5px;
-	border: 1px solid #C0C0C0;
-	box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
-	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
+	padding: 4px;
+	border: 1px solid #CCC;
+	
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 	
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -832,11 +818,13 @@ a img.aligncenter {
 	display: block;
 	width: 100%;
 	padding: 10px;
-	border: 1px solid #C0C0C0;
+	border: 1px solid #CCC;
 	
-	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
-	box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
+	color: #606060;
+	
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 	
 	font-size: 13px;
 	
@@ -897,19 +885,24 @@ a img.aligncenter {
 	margin-top: 30px;
 	border-top: 1px solid;
 	background-color: #F9F9F9;
-    border-color: #EEEEEE;
-    color: #666666;
+	border-color: #EEEEEE;
+}
+
+#footer-widgets .widget{
+	color: #777;
 }
 
 #footer-widgets h2.widgettitle{
-	font-size: 1.1em;
+	font-family: "Terminal Dosis";
+	font-weight: 400;
+	font-size: 1.2em;
 	margin-bottom: 15px;
 	color: #333;
 }
 
 #footer-widgets a{
 	text-decoration: none;
-    color: #444444;
+	color: #505050;
 }
 
 #footer-widgets li{
@@ -919,26 +912,28 @@ a img.aligncenter {
 /* @end */
 
 #footer {
-	margin-bottom: 30px;
-	color: #999;
+	margin-bottom: 35px;
+	color: #888;
 	font-size: 0.85em;
 	border: transparent;
-    border-width: 0 1px;
-    color: #999999;
-    padding: 0px 4.5%;
+	border-width: 0 1px;
+	color: #999999;
+	padding: 0px 20px;
+	
+	text-align: center;
 }
 
 #footer .copyright{
-	float: left;
+	margin-bottom: 0.75em;
 }
 
 #footer .designed{
-	float: right;
+
 }
 
 #footer a{
 	text-decoration: none;
-	color: #999999;
+	color: #777;
 }
 
 
@@ -990,7 +985,7 @@ h1.archive-title {
 }
 
 #posts-nav a{
-	color: #666;
+	color: #505050;
 	text-decoration: none;
 }
 

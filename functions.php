@@ -182,6 +182,27 @@ function origami_head(){
 endif;
 add_action('wp_head', 'origami_head');
 
+if(!function_exists('origami_google_webfonts')) :
+/**
+ * This just displays the Google web fonts
+ */
+function origami_enqueue_google_webfonts(){
+	$logo = simple_options_get('general', 'logo');
+	if(empty($logo)){
+		// Enqueue the logo font as well
+		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
+	}
+	else{
+		// Enqueue only the text fonts that we need
+		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:400');
+	}
+}
+endif;
+add_action('wp_enqueue_scripts', 'origami_enqueue_google_webfonts');
+
+// Register origami_enqueue_google_webfonts as the origin web font enqueuer - if Origin exists.
+if(function_exists('origin_register_webfont_enqueue')) origin_register_webfont_enqueue('origami_enqueue_google_webfonts');
+
 if(!function_exists('origami_attribution_footer')) :
 /**
  * Renders the theme attribution. This is used in your site's footer.
