@@ -70,6 +70,38 @@ function origami_widgets_init(){
 endif;
 add_action('widgets_init', 'origami_widgets_init');
 
+if(!function_exists('origami_title')) :
+/**
+ * Give Origami a nice title.
+ * 
+ * @param string $title The starting title
+ * @param $sep
+ * @param $seplocation
+ * @return string
+ * 
+ * @filter wp_title
+ */
+function origami_title($title, $sep, $seplocation){
+	global $page, $paged;
+
+	// Add the blog name.
+	$title = $title.get_bloginfo( 'name' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		$title = "$title $sep $site_description";
+
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 )
+		$title .= ' | ' . sprintf( __( 'Page %s', 'renown' ), max( $paged, $page ) );
+
+	return $title;
+}
+endif;
+add_filter('wp_title', 'origami_title', 10, 3);
+
+
 if(!function_exists('origami_enqueue_scripts')) :
 /**
  * Enqueue Origami's scripts

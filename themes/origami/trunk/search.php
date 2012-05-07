@@ -4,14 +4,15 @@
 	<?php printf( __( 'Search Results for: %s', 'origami' ), '<span>' . get_search_query() . '</span>' ); ?>
 </h1>
 
-<?php get_template_part('loop', 'index') ?>
-
-<div id="posts-nav">
-	<?php if(function_exists('wp_pagenavi')) : ?>
-	<?php wp_pagenavi() ?>
-	<?php else : ?>
-	<?php posts_nav_link('','newer entries','older entries'); ?>
-	<?php endif; ?>
-</div>
+<?php if(have_posts()) : ?>
+	<?php get_template_part('loop', 'index') ?>
+	<div id="posts-nav">
+		<?php posts_nav_link('', __('newer entries', 'origami', 'navigation'), __('older entries', 'origami', 'navigation')); ?>
+	</div>
+<?php else : ?>
+	<div class="content">
+		<?php print simple_options_get('messages', 'no_results') ?>
+	</div>
+<?php endif ?>
 
 <?php get_footer() ?>
