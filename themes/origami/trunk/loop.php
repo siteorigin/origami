@@ -14,15 +14,13 @@
 			<?php $tags = wp_get_post_tags($post->ID); ?>
 			<?php if(!empty($tags) || !is_singular()) : ?>
 				<div class="below-content">
-					<?php if(!empty($tags)) : ?>
+					<?php if(has_tag()) : ?>
 						<div class="tags">
 							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48">
 								<path d="M 41.29511 48 L 41.29511 .091884613 L 6.999998 .091884613 L 6.999998 47.78994 L 24.042513 30.74741 Z" />
 							</svg>
 							<div class="the_tags">
-								<?php foreach($tags as $tag) : ?>
-									<a href="<?php print get_tag_link( $tag->term_id ) ?>"><?php print $tag->name	?></a>
-								<?php endforeach; ?>
+								<?php the_tags('') ?>
 							</div>
 						</div>
 					<?php endif ?>
