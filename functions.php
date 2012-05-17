@@ -3,7 +3,7 @@
 define('SO_THEME_VERSION', 'trunk');
 
 // Inlude all the SiteOrigine extras
-require_once(dirname(__FILE__).'/extras/firstrun/firstrun.php');
+require_once(dirname(__FILE__).'/extras/admin/admin.php');
 require_once(dirname(__FILE__).'/extras/simple-options-lite.php');
 require_once(dirname(__FILE__).'/extras/responsive.php');
 
