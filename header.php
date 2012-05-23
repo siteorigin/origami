@@ -11,8 +11,6 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	<?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
-
 	<?php wp_head(); ?>
 </head>
 
@@ -20,7 +18,7 @@
 <div class="container">
 	<div id="page-container">
 		<div id="logo">
-			<a href="<?php print site_url() ?>" title="<?php _e('Go Home', 'origami') ?>" class="logo-link">
+			<a href="<?php print site_url() ?>" title="<?php print esc_attr(get_bloginfo('description')) ?>" class="logo-link">
 				<?php
 				$logo = simple_options_get('general', 'logo');
 				if(!empty($logo)){

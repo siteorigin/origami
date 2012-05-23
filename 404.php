@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div <?php post_class('post') ?>>
-	<h1 class="entry-title noinfo"><?php _e('Not Found', 'origami', 'foo') ?></h1>
+	<h1 class="entry-title noinfo"><?php _e('Not Found', 'origami') ?></h1>
 	
 	<div class="content" id="blog-archives">
 		<?php print wpautop(simple_options_get('messages', 'not_found')) ?>
