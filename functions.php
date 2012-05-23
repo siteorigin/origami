@@ -31,7 +31,8 @@ function origami_setup(){
 	register_nav_menu( 'primary', 'Primary Menu' );
 
 	// Add support for custom backgrounds.
-	add_theme_support( 'custom-background' );
+	// TODO change for WordPress 3.4 - add_theme_support( 'custom-background' );
+	add_custom_background();
 	
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 980;
@@ -58,13 +59,6 @@ function origami_widgets_init(){
 
 		'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
 		'after_widget'  => '</div>',
-
-		// Responsive stuff, from the grid engine
-		'responsive' => true,
-		'grid_selector' => '#footer-widgets',
-		'grid_responds' => '640=50%&420=1',
-		'cell_margin' => 25,
-		'cell_padding' => 10,
 	));
 }
 endif;
