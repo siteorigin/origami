@@ -269,12 +269,13 @@ body{
 h1.entry-title,
 h1.archive-title{
 	font-size: 2.2em;
-	margin: 1em 0 0.5em 0;
+	margin: 1em 0 0.4em 0;
 	text-align: center;
 	color: #333;
 	font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
 	font-size: 28px;
 	font-weight: 200;
+	line-height: 1.25em;
 }
 
 h1.entry-title.noinfo{
@@ -554,16 +555,17 @@ a img.aligncenter {
 
 .content p,
 .content ul,
-.content ol {
+.content ol,
+.content dl {
 	line-height: 1.6em;
 	margin: 2em 0;
 }
 
 .content ul li{
-	display: block;
-	padding-left: 1.5em;
-	margin-bottom: 0.5em;
-	background: url(images/bullet.png) no-repeat left center;
+	display: list-item;
+	line-height: 1.75em;
+	list-style: url(images/bullet.png);
+	list-style-position: outside;
 }
 
 .content ol{
@@ -574,7 +576,7 @@ a img.aligncenter {
 
 .content ol li{
 	display: list-item;
-	margin-bottom: 0.5em;
+	line-height: 1.75em;
 }
 
 .content blockquote{
@@ -583,6 +585,11 @@ a img.aligncenter {
 	color: #666;
 	position: relative;
 	background: url(images/quote.png) no-repeat 10px center;
+}
+
+.content blockquote cite{
+	font-weight: bold;
+	color: #333;
 }
 
 .content blockquote p:first-child{
@@ -612,6 +619,36 @@ a img.aligncenter {
 	border: 0px;
 	border-top: 1px solid #CCC;
 }
+
+.content sup,
+.content sub {
+	font-size: 10px;
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+}
+.content sup {
+	bottom: 1ex;
+}
+.content sub {
+	top: .5ex;
+}
+
+/* @group Definition list */
+
+.content dl dt{
+	font-weight: bold;
+}
+
+.content dl dd{
+	padding-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+/* @end */
+
+/* @group Headings */
 
 .content h1,
 .content h2,
@@ -647,6 +684,10 @@ a img.aligncenter {
 .content h6 {
 	font-size: 12.48px;
 }
+
+
+
+/* @end */
 
 
 
@@ -704,27 +745,28 @@ a img.aligncenter {
 }
 
 .comment .comment-container{
-	margin-left: 55px;
+	margin-left: 86px;
 }
 
-.comment.depth-1 .comment-container{
-	margin-left: 80px;
+.comment .children .comment .comment-container{
+	margin-left: 71px;
 }
 
 .comment{
-	margin-left: 55px;
+
+}
+
+.comment .children{
+	margin-top: 45px;
+	margin-left: 86px;
+}
+
+.comment .children .children{
+	margin-left: 71px;
 }
 
 .comment.type-pingback .comment-container{
 	margin-left: 0;
-}
-
-.comment.depth-2{
-	margin-left: 80px;
-}
-
-.comment.depth-1{
-	margin-left: 0px;
 }
 
 /* @group Comment Style */
@@ -742,9 +784,10 @@ a img.aligncenter {
 
 .comment-container .info .author{
 	display: block;
+	font-size: 13px;
 	color: #444;
-	margin-bottom: 0.25em;
-	font-weight: 400;
+	margin-bottom: 0.5em;
+	font-weight: bold;
 }
 
 .comment-container .info .author a{
@@ -754,6 +797,7 @@ a img.aligncenter {
 .comment-container .info .date{
 	display: block;
 	color: #888;
+	margin-bottom: 1em;
 }
 
 .comment-container a.comment-reply-link{
@@ -773,6 +817,63 @@ a img.aligncenter {
 /* @end */
 
 /* @group Respond */
+
+#comments .commentlist #respond{
+	/* Style comment for when replying to another post */
+	border: 1px solid #EEEEEE;
+	margin-bottom: 45px;
+	padding: 30px;
+	background: #F9F9F9;
+	margin-left: 86px;
+}
+
+#comments .commentlist .children #respond{
+	margin-left: 71px;
+}
+
+#respond #reply-title{
+	margin: 20px 0;
+	font-size: 16px;
+	font-weight: 400;
+	color: #333;
+	position: relative;
+}
+
+#comments .commentlist #respond #reply-title{
+	margin-top: 0;
+}
+
+#respond #reply-title #cancel-comment-reply-link{
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -10px;
+	text-decoration: none;
+	
+	cursor: pointer;
+	padding: 4px 18px;
+	color: #666;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.75);
+	font-size: 11px;
+	
+	border: 1px solid #c3c3c3;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	
+	background: rgb(249,249,249);
+	background: -moz-linear-gradient(top,  rgba(249,249,249,1) 0%, rgba(237,237,237,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(249,249,249,1)), color-stop(100%,rgba(237,237,237,1)));
+	background: -webkit-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(237,237,237,1) 100%);
+	background: -o-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(237,237,237,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(237,237,237,1) 100%);
+	background: linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(237,237,237,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#ededed',GradientType=0 );
+	
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1), inset 0px -1px 0px rgba(255,255,255,0.5);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.1), inset 0px -1px 0px rgba(255,255,255,0.5);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1), inset 0px -1px 0px rgba(255,255,255,0.5);
+}
 
 #respond .logged-in-as,
 #respond .comment-notes{
@@ -856,9 +957,9 @@ a img.aligncenter {
 	background: linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(237,237,237,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#ededed',GradientType=0 );
 	
-	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.15), inset 0px -1px 0px rgba(255,255,255,0.5);
-	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.15), inset 0px -1px 0px rgba(255,255,255,0.5);
-	box-shadow: 0px 1px 1px rgba(0,0,0,0.15), inset 0px -1px 0px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1), inset 0px -1px 0px rgba(255,255,255,0.5);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.1), inset 0px -1px 0px rgba(255,255,255,0.5);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1), inset 0px -1px 0px rgba(255,255,255,0.5);
 }
 
 #respond .form-allowed-tags{
