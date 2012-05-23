@@ -3,10 +3,10 @@
 		<div <?php post_class() ?>>
 
 			<?php if(has_post_thumbnail()) : ?>
-			<div class="featured-image">
-				<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
-				<?php the_post_thumbnail('post-thumbnail-mobile', array('class' => 'main-image mobile')) ?>
-			</div>
+				<div class="featured-image">
+					<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
+					<?php the_post_thumbnail('post-thumbnail-mobile', array('class' => 'main-image mobile')) ?>
+				</div>
 			<?php endif; ?>
 
 			<?php if(!in_array(get_post_format(), array('aside', 'link', 'status'))) : ?>

@@ -139,10 +139,7 @@ if(!function_exists('origami_render_metabox_columns')) :
  * Render the columns metabox.
  */
 function origami_render_metabox_columns(){
-	global $post;
-	$columns = get_post_meta($post->ID, 'content_columns', true);
-	if(empty($columns)) $columns = 2;
-	include(dirname(__FILE__).'/admin/metabox-columns.php');
+	get_template_part('admin/metabox', 'columns');
 }
 endif;
 
