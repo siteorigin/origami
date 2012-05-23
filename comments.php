@@ -48,14 +48,6 @@
 				'url' => sprintf('<input name="author" type="text" placeholder="%s" />', __('Website', 'origami')),
 			),
 			'comment_field' => '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>',
-			'title_reply' => sprintf(
-				'<h3 class="comments-title">%s</h3>',
-				__( 'Leave a Reply' , 'origami')
-			),
-			'title_reply_to' => sprintf(
-				'<div class="section-title decorated-title"><div class="wrap"><div class="title">%s</div><div class="after-pattern"><div></div></div></div></div>',
-				__( 'Leave a Reply To %s' , 'origami')
-			)
 		));
 		?>
 	</div>
