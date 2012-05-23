@@ -532,7 +532,6 @@ a img.aligncenter {
 
 .sticky{}
 .gallery-caption{}
-.bypostauthor{}
 
 /* @end */
 
@@ -793,6 +792,10 @@ a img.aligncenter {
 	color: #444;
 	margin-bottom: 0.5em;
 	font-weight: bold;
+}
+
+.bypostauthor .info .author{
+	font-style: italic;
 }
 
 .comment-container .info .author a{
