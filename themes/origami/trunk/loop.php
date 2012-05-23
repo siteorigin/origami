@@ -25,7 +25,7 @@
 						</div>
 					<?php endif ?>
 					
-					<?php if(!is_singular()) : ?>
+					<?php if(!is_singular() && preg_match( '/<!--more(.*?)?-->/', $post->post_content )) : ?>
 						<div class="read-more">
 							<a href="<?php print get_post_permalink() ?>"><?php _e('Continue Reading', 'origami') ?></a>
 							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48">

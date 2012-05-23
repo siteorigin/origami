@@ -2,13 +2,12 @@
 
 define('SO_THEME_VERSION', 'trunk');
 
-// Inlude all the SiteOrigine extras
+// Include all the SiteOrigin extras
 require_once(dirname(__FILE__).'/extras/admin/admin.php');
 require_once(dirname(__FILE__).'/extras/simple-options-lite.php');
-require_once(dirname(__FILE__).'/extras/responsive.php');
 
 // Initialize all the options
-require_once(dirname(__FILE__).'/simple-options.php'); 
+require_once(dirname(__FILE__).'/functions/options.php'); 
 
 if(!function_exists('origami_setup')) :
 /**
@@ -23,7 +22,7 @@ function origami_setup(){
 	add_theme_support( 'automatic-feed-links' );
 	
 	// Origami supports post formats
-	add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status') );
+	add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' , 'aside', 'link', 'quote', 'status', 'chat') );
 	
 	// Origami supports post thumbnails
 	add_theme_support( 'post-thumbnails');
@@ -117,6 +116,8 @@ function origami_enqueue_scripts(){
 	
 	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '1.8');
 	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '1.8');
+
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
 	wp_localize_script('origami', 'origami', array(
 		'polyfills' => get_template_directory_uri().'/js/polyfills'
@@ -222,3 +223,104 @@ function origami_attribution_footer($before, $after){
 	print $after;
 }
 endif;
+
+
+if(!function_exists('origami_comment')) :
+/**
+ * Display a comment
+ * 
+ * @param $comment The comment
+ * @param $args The arguments
+ * @param $depth The depth
+ */
+function origami_comment($comment, $args, $depth){
+	$GLOBALS['comment'] = $comment;
+	?>
+	<li <?php comment_class() ?> id="comment-<?php comment_ID() ?>">
+		<div class="comment-wrapper">
+			<?php if(empty($comment->comment_type)) : ?>
+			<div class="avatar-container">
+				<?php print get_avatar(get_comment_author_email(), $depth == 1 ? 60 : 45) ?>
+			</div>
+			<?php endif; ?>
+	
+			<div class="comment-container">
+				<?php if($depth <= $args['max_depth']) : ?>
+					<?php comment_reply_link(array('depth' => $depth, 'max_depth' => $args['max_depth'])) ?>
+				<?php endif; ?>
+	
+				<div class="info">
+					<span class="author"><?php comment_author_link() ?></span>
+					<span class="date"><?php comment_date() ?></span>
+				</div>
+	
+				<div class="comment-content content">
+					<?php comment_text() ?>
+				</div>
+			</div>
+	
+			<div class="clear"></div>
+		</div>
+	<?php
+}
+endif;
+
+
+if(!function_exists('pitch_footer_widget_params')) :
+function origami_footer_widget_params($params){
+	// Check that this is the footer
+	if($params[0]['id'] != 'site-footer') return $params;
+
+	$sidebars_widgets = wp_get_sidebars_widgets();
+	$count = count($sidebars_widgets[$params[0]['id']]);
+	$params[0]['before_widget'] = preg_replace('/\>$/', 'style="width:'.round(100/$count,4).'%" >', $params[0]['before_widget']);
+
+	return $params;
+}
+endif;
+add_action('dynamic_sidebar_params', 'origami_footer_widget_params');
+
+
+if(!function_exists('origami_gallery')) :
+function origami_gallery($atts){
+	if(empty($atts['id'])) $atts['id'] = get_the_ID();
+
+	$attachments = get_children(array(
+		'post_parent' => $atts['id'],
+		'post_type' => 'attachment',
+		'post_mime_type' => 'image',
+		'orderby' => 'menu_order ASC, ID',
+		'order' => 'DESC'
+	));
+	
+	// Create the gallery content
+	$return = '</div>'; // close the content div
+	$return .= '<div class="flexslider">';
+	$return .= '<ul class="slides">';
+	foreach($attachments as $attachment){
+		$return .= '<li>';
+		$return .= wp_get_attachment_image($attachment->ID, 'origami-slider', false, array('class' => 'slide-image'));
+		$return .= '</li>';
+	}
+	$return .= '</ul>';
+	$return .= '</div>';
+	$return .= '<div class="content">'; // Reopen the content div
+	
+	return $return;
+}
+endif;
+add_filter('post_gallery', 'origami_gallery', 10);
+
+
+if(!function_exists('origami_content_filter')):
+function origami_content_filter($content){
+	global $post;
+	switch(get_post_format($post->ID)){
+		case 'chat':
+			$content = preg_replace('/(.*)\:/', '<strong>$1</strong>: ', $content);
+	}
+	
+	return $content;
+}
+endif;
+add_filter('the_content', 'origami_content_filter', 8);

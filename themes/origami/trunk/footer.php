@@ -2,8 +2,9 @@
 		
 		<?php if(!empty($sidebars_widgets['site-footer'])) : ?>
 			<div id="footer-widgets">
-				<?php dynamic_sidebar('Footer') ?>
-				<div class="clear"></div>
+				<div id="footer-widgets-wrapper">
+					<?php dynamic_sidebar('Footer') ?>
+				</div>
 			</div>
 		<?php endif; ?>
 	</div>

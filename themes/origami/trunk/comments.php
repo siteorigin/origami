@@ -34,10 +34,7 @@
 			<?php
 			// List comments
 			wp_list_comments(array(
-				'callback' => create_function(
-					'$this_comment, $args, $depth',
-					'the_comment(); global $comment; $comment = $this_comment; include("' . dirname(__FILE__) . '/comment-single.php");'
-				)
+				'callback' => 'origami_comment'
 			));
 			?>
 		</ol>
@@ -64,7 +61,7 @@
 	</div>
 <?php endif; ?>
 
-<?php if(!comments_open()) : ?>
+<?php if(!comments_open() && !is_page() && post_type_supports(get_post_type(), 'comments')) : ?>
 	<div id="comments" class="comments-disabled content">
 		<p><?php _e('Comments are Disabled', 'origami') ?></p>
 	</div>

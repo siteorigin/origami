@@ -687,15 +687,15 @@ a img.aligncenter {
 
 /* @group Comments */
 
-.comment-wrapper{
+.comment{
 	margin-bottom: 45px;
 }
 
-.comment-wrapper .avatar-container{
+.comment .avatar-container{
 	float: left;
 }
 
-.comment-wrapper.comment-depth-1 .avatar-container{
+.comment.depth-1 .avatar-container{
 	line-height: 0;
 	padding: 2px;
 	
@@ -703,27 +703,27 @@ a img.aligncenter {
 	background: #F2F2F2;
 }
 
-.comment-wrapper .comment-container{
+.comment .comment-container{
 	margin-left: 55px;
 }
 
-.comment-wrapper.comment-depth-1 .comment-container{
+.comment.depth-1 .comment-container{
 	margin-left: 80px;
 }
 
-.comment-wrapper{
+.comment{
 	margin-left: 55px;
 }
 
-.comment-wrapper.comment-type-pingback .comment-container{
+.comment.type-pingback .comment-container{
 	margin-left: 0;
 }
 
-.comment-wrapper.comment-depth-2{
+.comment.depth-2{
 	margin-left: 80px;
 }
 
-.comment-wrapper.comment-depth-1{
+.comment.depth-1{
 	margin-left: 0px;
 }
 
@@ -880,21 +880,30 @@ a img.aligncenter {
 /* @group Footer Widgets */
 
 #footer-widgets {
+	display: table;
 	padding: 20px 0;
 	margin-top: 30px;
 	border-top: 1px solid #EEEEEE;
 	background-color: #F9F9F9;
+	width: 100%;
+}
+
+#footer-widgets-wrapper{
+	display: table-row;
+	margin: 0 -15px;
 }
 
 #footer-widgets .widget{
+	display: table-cell;
 	color: #777;
+	padding: 0 15px;
 }
 
 #footer-widgets h2.widgettitle{
 	font-family: "Terminal Dosis";
 	font-weight: 400;
 	font-size: 1.2em;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	color: #333;
 }
 
@@ -916,7 +925,7 @@ a img.aligncenter {
 	border: transparent;
 	border-width: 0 1px;
 	color: #999999;
-	padding: 0px 20px;
+	padding: 0px 5px;
 	
 	text-align: center;
 }
