@@ -2,9 +2,9 @@
 License:
 -----------------------------------------------
 
-Origami WordPress Theme, Copyright 2011 WordPress.org
+Origami WordPress Theme, Copyright 2012 SiteOrigin.com
 
-Origami a GPL theme. See the readme.txt in the origin folder to read about the licenses of Origin framework (also GPL) and its included libraries.  
+Origami a GPL theme. See license.txt  
 
 This theme includes the following external libraries
 
@@ -19,4 +19,4 @@ Change Log:
 -----------------------------------------------
 
 1.0 Initial Release
-1.0.1 Bug fixes
+1.0.1 Various bug fixes and updates
