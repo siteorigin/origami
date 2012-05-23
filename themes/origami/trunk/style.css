@@ -579,6 +579,11 @@ a img.aligncenter {
 	line-height: 1.75em;
 }
 
+.content ul ul,
+.content ol ol{
+	margin-bottom: 0;
+}
+
 .content blockquote{
 	padding: 1.5em 20px 1.5em 60px;
 	font-style: italic;
