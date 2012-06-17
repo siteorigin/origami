@@ -4,7 +4,7 @@ define('SO_THEME_VERSION', 'trunk');
 
 // Include all the SiteOrigin extras
 require_once(dirname(__FILE__).'/extras/admin/admin.php');
-require_once(dirname(__FILE__).'/extras/simple-options-lite.php');
+require_once(dirname(__FILE__).'/functions/simple-options-lite.php');
 
 // Initialize all the options
 require_once(dirname(__FILE__).'/functions/options.php'); 
@@ -31,8 +31,7 @@ function origami_setup(){
 	register_nav_menu( 'primary', 'Primary Menu' );
 
 	// Add support for custom backgrounds.
-	// TODO change for WordPress 3.4 - add_theme_support( 'custom-background' );
-	add_custom_background();
+	add_theme_support( 'custom-background' );
 	
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 980;

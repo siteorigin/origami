@@ -44,8 +44,8 @@
 		comment_form(array(
 			'fields' => array(
 				'author' => sprintf('<input name="author" type="text" placeholder="%s" />', __('Name', 'origami')),
-				'email' => sprintf('<input name="author" type="text" placeholder="%s" />', __('Email', 'origami')),
-				'url' => sprintf('<input name="author" type="text" placeholder="%s" />', __('Website', 'origami')),
+				'email' => sprintf('<input name="email" type="text" placeholder="%s" />', __('Email', 'origami')),
+				'url' => sprintf('<input name="url" type="text" placeholder="%s" />', __('Website', 'origami')),
 			),
 			'comment_field' => '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>',
 		));
