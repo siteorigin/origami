@@ -345,7 +345,7 @@ if(!function_exists('origami_theme_docs_page')) :
  * Add the documentation link to the admin menu
  */
 function origami_admin_menu(){
-	add_theme_page(__('Theme Docs', 'origami'), __('Theme Docs', 'origami'), 'manage_theme_options', 'theme-documentation', 'origami_theme_docs_page');
+	add_theme_page(__('Theme Help', 'origami'), __('Theme Help', 'origami'), 'manage_theme_options', 'theme-help', 'origami_theme_help_page');
 }
 endif;
 add_action('admin_menu', 'origami_admin_menu');
@@ -354,10 +354,10 @@ if(!function_exists('origami_theme_docs_page')) :
 /**
  * Render the theme page
  */
-function origami_theme_docs_page(){
+function origami_theme_help_page(){
 	?>
 	<div class="wrap">
-		<h2><?php _e('Origami Documentation', 'origami') ?></h2>
+		<h2><?php _e('Origami Help', 'origami') ?></h2>
 		<p>
 			<?php _e("Origami's full, PDF documentation is available for free download from SiteOrigin.", 'origami') ?>
 		</p>
