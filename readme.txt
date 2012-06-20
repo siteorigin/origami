@@ -33,3 +33,4 @@ Added editor-style.css
 Improved W3C HTML validation
 Code quality improvement
 Fixed content columns
+Added link to documentation in admin
