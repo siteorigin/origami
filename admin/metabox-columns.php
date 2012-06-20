@@ -10,4 +10,3 @@ if(empty($columns)) $columns = 1;
 		<option value="<?php print $i ?>" <?php selected($columns, $i) ?>><?php printf(_n('%1$s Column', '%1$s Columns', $i, 'origami'),$i) ?></option>
 	<?php endfor ?>
 </select>
-<?php wp_nonce_field('save-columns', '_wpnonce_cm') ?>

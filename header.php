@@ -2,7 +2,6 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale = 1.0, user-scalable=0' />
 
 	<title><?php wp_title('|', true, 'right'); ?></title>
@@ -21,7 +20,7 @@
 			<a href="<?php print site_url() ?>" title="<?php print esc_attr(get_bloginfo('description')) ?>" class="logo-link">
 				<?php
 				$logo = simple_options_get('general', 'logo');
-				if(!empty($logo)){
+				if(!empty($logo) && !empty($logo['attachment_id'])){
 					print wp_get_attachment_image($logo, 'full', false, array(
 						'title' => get_bloginfo('name'), 
 						'alt' => get_bloginfo('name').' - '.get_bloginfo('description'), 
@@ -29,7 +28,7 @@
 				}
 				else{
 					?>
-					<h1 class="logo"><?php bloginfo('name') ?></h1>
+					<h1 class="logo"><?php bloginfo('name') ?></h1><br/>
 					<h3 class="logo"><?php bloginfo('description') ?></h3>
 					<?php
 				}
