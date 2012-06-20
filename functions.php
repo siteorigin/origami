@@ -359,10 +359,10 @@ function origami_theme_docs_page(){
 	<div class="wrap">
 		<h2><?php _e('Origami Documentation', 'origami') ?></h2>
 		<p>
-			<?php _e("Origami's full, PDF documentation is available for download from SiteOrigin.", 'origami') ?>
+			<?php _e("Origami's full, PDF documentation is available for free download from SiteOrigin.", 'origami') ?>
 		</p>
 		<p>
-			<a href="http://siteorigin.com/theme/origami/origami-documentation/" class="button-primary"><?php _e('Free Origami Documentation', 'origami') ?></a>
+			<a href="http://siteorigin.com/theme/origami/origami-documentation/" class="button-primary"><?php _e('Download', 'origami') ?></a>
 		</p>
 	</div>
 	<?php
