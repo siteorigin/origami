@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div <?php post_class('post') ?>>
+<div class="post">
 	<h1 class="entry-title noinfo"><?php _e('Not Found', 'origami') ?></h1>
 	
 	<div class="content" id="blog-archives">
@@ -24,6 +24,8 @@
 
 		<h2><?php _e('Categories', 'origami') ?></h2>
 		<ul><?php wp_list_categories(array('title_li' => false )); ?></ul>
+		
+		<div class="clear"></div>
 	</div>
 </div>
 

@@ -18,5 +18,18 @@ This theme includes the following external libraries
 Change Log:
 -----------------------------------------------
 
-1.0 Initial Release
-1.0.1 Various bug fixes and updates
+1.0
+Initial Release
+
+1.0.1
+Various bug fixes and updates
+
+1.0.2
+Critical fix in comment form
+
+1.0.3
+Fixed bug with logo
+Added editor-style.css
+Improved W3C HTML validation
+Code quality improvement
+Fixed content columns

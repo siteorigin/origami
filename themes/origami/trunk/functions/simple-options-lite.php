@@ -24,8 +24,8 @@ if(!function_exists('simple_options_get')) :
 		if(!current_user_can('edit_theme_options')) return;
 
 		add_theme_page(
-			__('Theme Options', 'siteorigin'),
-			__('Theme Options', 'siteorigin'),
+			__('Theme Options', 'origami'),
+			__('Theme Options', 'origami'),
 			'edit_theme_options',
 			'simple-options',
 			'_simple_options_install_info_render'
@@ -48,22 +48,23 @@ if(!function_exists('simple_options_get')) :
 			'height' => 773
 		), $url);
 
-		$info = get_theme_data(get_template_directory().'/style.css');
+		$info = wp_get_theme();
+		var_dump($info);
 
 		?>
-	<div class="wrap">
-		<div id="icon-themes" class="icon32"><br></div>
-		<h2><?php _e('Install Simple Options', 'siteorigin') ?></h2>
-		<p>
-			<?php printf(__('%s uses the Simple Options plugin to handle theme options.', 'siteorigin'), $info['Name']) ?>
-			<?php _e("It's a free plugin that only takes a few seconds to install.", 'siteorigin') ?>
-		</p>
-		<br/>
-		<p>
-			<a href="<?php print $url ?>" class="thickbox button-primary"><?php _e('Install Simple Options', 'siteorigin') ?></a>
-		</p>
-	</div>
-	<?php
+		<div class="wrap">
+			<div id="icon-themes" class="icon32"><br></div>
+			<h2><?php _e('Install Simple Options', 'origami') ?></h2>
+			<p>
+				<?php printf(__('%s uses the Simple Options plugin to handle theme options.', 'origami'), $info['Name']) ?>
+				<?php _e("It's a free plugin that only takes a few seconds to install.", 'origami') ?>
+			</p>
+			<br/>
+			<p>
+				<a href="<?php print $url ?>" class="thickbox button-primary"><?php _e('Install Simple Options', 'origami') ?></a>
+			</p>
+		</div>
+		<?php
 	}
 
 	/**

@@ -3,11 +3,12 @@
 define('SO_THEME_VERSION', 'trunk');
 
 // Include all the SiteOrigin extras
-require_once(dirname(__FILE__).'/extras/admin/admin.php');
-require_once(dirname(__FILE__).'/functions/simple-options-lite.php');
+require_once(get_template_directory().'/extras/admin/admin.php');
+require_once(get_template_directory().'/functions/simple-options-lite.php');
 
 // Initialize all the options
-require_once(dirname(__FILE__).'/functions/options.php'); 
+
+require_once(get_template_directory().'/functions/options.php'); 
 
 if(!function_exists('origami_setup')) :
 /**
@@ -16,9 +17,6 @@ if(!function_exists('origami_setup')) :
  * @action after_setup_theme
  */
 function origami_setup(){
-	// Make Renown available for translation.
-	load_theme_textdomain( 'renown', get_template_directory() . '/languages' );
-	
 	add_theme_support( 'automatic-feed-links' );
 	
 	// Origami supports post formats
@@ -31,19 +29,25 @@ function origami_setup(){
 	register_nav_menu( 'primary', 'Primary Menu' );
 
 	// Add support for custom backgrounds.
-	add_theme_support( 'custom-background' );
+	add_theme_support( 'custom-background' , array(
+		'default-color' => '#f0eeeb',
+		'default-image' => get_template_directory_uri().'/images/bg.png'
+	));
 	
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 980;
 
+	add_editor_style();
+	
 	// Set up the image sizes
-	set_post_thumbnail_size(900,400,true);
+	set_post_thumbnail_size(904,400,true);
 	add_image_size('post-thumbnail-mobile', 480, 420, true);
-	add_image_size('post-thumbnail-full', 910, 910, false);
-	add_image_size('origami-slider', 910, 500, true);
+	add_image_size('post-thumbnail-full', 904, 904, false);
+	add_image_size('origami-slider', 904, 500, true);
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
+
 
 if(!function_exists('origami_widgets_init')) :
 /**
@@ -62,6 +66,7 @@ function origami_widgets_init(){
 }
 endif;
 add_action('widgets_init', 'origami_widgets_init');
+
 
 if(!function_exists('origami_title')) :
 /**
@@ -87,7 +92,7 @@ function origami_title($title, $sep, $seplocation){
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 )
-		$title .= ' | ' . sprintf( __( 'Page %s', 'renown' ), max( $paged, $page ) );
+		$title .= ' | ' . sprintf( __( 'Page %s', 'origami' ), max( $paged, $page ) );
 
 	return $title;
 }
@@ -119,6 +124,7 @@ function origami_enqueue_scripts(){
 endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_scripts');
 
+
 if(!function_exists('origami_add_meta_boxes')) :
 /**
  * Add post metaboxes
@@ -133,6 +139,7 @@ function origami_add_meta_boxes(){
 endif;
 add_action('add_meta_boxes', 'origami_add_meta_boxes');
 
+
 if(!function_exists('origami_render_metabox_columns')) :
 /**
  * Render the columns metabox.
@@ -142,6 +149,7 @@ function origami_render_metabox_columns(){
 }
 endif;
 
+
 if(!function_exists('origami_save_post')) :
 /**
  * Save the post
@@ -149,13 +157,14 @@ if(!function_exists('origami_save_post')) :
  * @action save_post
  */
 function origami_save_post($post_id){
-	if(!isset($_REQUEST['_wpnonce_cm']) || !wp_verify_nonce($_REQUEST['_wpnonce_cm'], 'save-columns')) return;
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 	if(!current_user_can('edit_post', $post_id)) return;
 
 	update_post_meta($post_id, 'content_columns', intval($_REQUEST['content_columns']));
 }
 endif;
 add_action('save_post', 'origami_save_post');
+
 
 if(!function_exists('origami_attribution_footer')) :
 /**
@@ -165,7 +174,7 @@ if(!function_exists('origami_attribution_footer')) :
  */
 function origami_head(){
 	$favicon = simple_options_get('general', 'favicon');
-	if(empty($favicon)) return;
+	if(empty($favicon) || empty($favicon['attachment_id'])) return;
 	
 	$src = wp_get_attachment_image_src($favicon, 'full');
 	
@@ -173,6 +182,7 @@ function origami_head(){
 }
 endif;
 add_action('wp_head', 'origami_head');
+
 
 if(!function_exists('origami_google_webfonts')) :
 /**
@@ -192,8 +202,6 @@ function origami_enqueue_google_webfonts(){
 endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_google_webfonts');
 
-// Register origami_enqueue_google_webfonts as the origin web font enqueuer - if Origin exists.
-if(function_exists('origin_register_webfont_enqueue')) origin_register_webfont_enqueue('origami_enqueue_google_webfonts');
 
 if(!function_exists('origami_attribution_footer')) :
 /**
@@ -207,9 +215,9 @@ if(!function_exists('origami_attribution_footer')) :
  */
 function origami_attribution_footer($before, $after){
 	print $before;
-	printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org" rel="generator">WordPress</a>');
+	printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org">WordPress</a>');
 	print ' - ';
-	printf(__('Theme By %s', 'origami'), '<a href="http://siteorigin.com" rel="designer">SiteOrigin</a>');
+	printf(__('Theme By %s', 'origami'), '<a href="http://siteorigin.com">SiteOrigin</a>');
 	print $after;
 }
 endif;
@@ -256,14 +264,20 @@ function origami_comment($comment, $args, $depth){
 endif;
 
 
-if(!function_exists('pitch_footer_widget_params')) :
+if(!function_exists('origami_footer_widget_params')) :
+/**
+ * Filter the footer widgets to add widths.
+ * 
+ * @param $params
+ * @return mixed
+ */
 function origami_footer_widget_params($params){
 	// Check that this is the footer
 	if($params[0]['id'] != 'site-footer') return $params;
 
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	$count = count($sidebars_widgets[$params[0]['id']]);
-	$params[0]['before_widget'] = preg_replace('/\>$/', 'style="width:'.round(100/$count,4).'%" >', $params[0]['before_widget']);
+	$params[0]['before_widget'] = preg_replace('/\>$/', ' style="width:'.round(100/$count,4).'%" >', $params[0]['before_widget']);
 
 	return $params;
 }
@@ -272,6 +286,11 @@ add_action('dynamic_sidebar_params', 'origami_footer_widget_params');
 
 
 if(!function_exists('origami_gallery')) :
+/**
+ * Display a special Origami image gallery
+ * @param $atts
+ * @return string
+ */
 function origami_gallery($atts){
 	if(empty($atts['id'])) $atts['id'] = get_the_ID();
 
@@ -303,6 +322,11 @@ add_filter('post_gallery', 'origami_gallery', 10);
 
 
 if(!function_exists('origami_content_filter')):
+/**
+ * Filter the content for certain post formats
+ * @param $content
+ * @return mixed
+ */
 function origami_content_filter($content){
 	global $post;
 	switch(get_post_format($post->ID)){
@@ -314,3 +338,33 @@ function origami_content_filter($content){
 }
 endif;
 add_filter('the_content', 'origami_content_filter', 8);
+
+
+if(!function_exists('origami_theme_docs_page')) :
+/**
+ * Add the documentation link to the admin menu
+ */
+function origami_admin_menu(){
+	add_theme_page(__('Theme Docs', 'origami'), __('Theme Docs', 'origami'), 'manage_theme_options', 'theme-documentation', 'origami_theme_docs_page');
+}
+endif;
+add_action('admin_menu', 'origami_admin_menu');
+
+if(!function_exists('origami_theme_docs_page')) :
+/**
+ * Render the theme page
+ */
+function origami_theme_docs_page(){
+	?>
+	<div class="wrap">
+		<h2><?php _e('Origami Documentation', 'origami') ?></h2>
+		<p>
+			<?php _e("Origami's full, PDF documentation is available for download from SiteOrigin.", 'origami') ?>
+		</p>
+		<p>
+			<a href="http://siteorigin.com/theme/origami/origami-documentation/" class="button-primary"><?php _e('Free Origami Documentation', 'origami') ?></a>
+		</p>
+	</div>
+	<?php
+}
+endif;

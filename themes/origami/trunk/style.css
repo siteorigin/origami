@@ -73,7 +73,6 @@ blockquote, q {
 
 body{
 	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	background: #f0eeeb url(images/bg.png) center center;
 	font-size: 13px;
 	font-weight: 400;
 }
@@ -131,6 +130,7 @@ body{
 }
 
 #logo h1{
+	display: inline-block;
 	color: #555;
 	font-family: "Terminal Dosis", Arial, Helvetica, Geneva, sans-serif;
 	font-size: 52px;
@@ -139,6 +139,7 @@ body{
 }
 
 #logo h3{
+	display: inline-block;
 	color: #666;
 	font-size: 13px;
 }
@@ -1006,6 +1007,12 @@ a img.aligncenter {
 	display: table-cell;
 	color: #777;
 	padding: 0 15px;
+	word-wrap: break-word;
+}
+
+#footer-widgets .widget img{
+	max-width: 100%;
+	height: auto;
 }
 
 #footer-widgets h2.widgettitle{
