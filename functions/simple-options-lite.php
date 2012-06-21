@@ -49,7 +49,6 @@ if(!function_exists('simple_options_get')) :
 		), $url);
 
 		$info = wp_get_theme();
-		var_dump($info);
 
 		?>
 		<div class="wrap">
