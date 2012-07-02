@@ -39,3 +39,5 @@ Added link to documentation in admin
 Removed dependence on Simple Options plugin
 Added more settings and options
 Referenced new Origami Premium
+Fixed gallery ordering
+Various bug fixes
