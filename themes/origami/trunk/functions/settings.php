@@ -3,10 +3,13 @@
 
 function origami_settings_init(){
 	so_settings_add_section('colors', __('Colors', 'origami'));
-	so_settings_add_teaser('colors', 'link_color', __('Link Color', 'origami'));
+	so_settings_add_field('colors', 'link_color', 'color', __('Link Color', 'origami'));
+	
 	so_settings_add_teaser('colors', 'page_border_color', __('Page Border Color', 'origami'), array(
 		'description' => __('Main page border color', 'origami')
 	));
+	so_settings_add_teaser('colors', 'footer_text', __('Footer Copyright Color', 'origami'));
+	so_settings_add_teaser('colors', 'footer_link', __('Footer Copyright Link Color', 'origami'));
 	
 	so_settings_add_section('text', __('Site Text', 'origami'));
 	so_settings_add_field('text', 'copyright', 'text', __('Copyright', 'origami'));
@@ -71,6 +74,8 @@ function origami_settings_defaults($defaults){
 	
 	$defaults['colors_link_color'] = '#36659f';
 	$defaults['colors_page_border_color'] = '#cbc9c7';
+	$defaults['colors_footer_text'] = '#999999';
+	$defaults['colors_footer_link'] = '#777777';
 	
 	$defaults['text_copyright'] = isset($simple_options['messages_copyright'])
 		? $simple_options['messages_copyright'] : sprintf(__('Copyright %s', 'origami'), get_bloginfo('name'));
