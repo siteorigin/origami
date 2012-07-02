@@ -2,7 +2,7 @@
 	<?php while(have_posts()) : the_post(); global $post; ?>
 		<div <?php post_class() ?>>
 
-			<?php if(has_post_thumbnail() && get_post_format() != 'image') : ?>
+			<?php if(has_post_thumbnail() && get_post_format() != 'image' && so_setting('display_featured_image')) : ?>
 				<div class="featured-image">
 					<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
 					<?php the_post_thumbnail('post-thumbnail-mobile', array('class' => 'main-image mobile')) ?>
@@ -83,7 +83,11 @@
 				</div>
 			<?php endif; ?>
 				
-			<?php if(is_singular()) comments_template(); ?>
+			<?php if(is_singular()) : ?>
+				<div id="single-comments-wrapper">
+					<?php comments_template() ?>
+				</div>
+			<?php endif; ?>
 			
 		</div>
 	<?php endwhile; ?>

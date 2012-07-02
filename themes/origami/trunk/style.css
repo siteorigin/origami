@@ -977,6 +977,20 @@ a img.aligncenter {
 	color: #999;
 }
 
+.commentform-error{
+	margin-bottom: 5px;
+	background: #f3dfdf;
+	border: 1px solid #dfb6b7;
+	padding: 5px;
+	
+	color: #946d6e;
+	font-size: 12px;
+	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
 /* @end */
 
 .comments-disabled {
