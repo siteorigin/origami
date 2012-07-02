@@ -30,6 +30,11 @@ function origami_settings_init(){
 	so_settings_add_teaser('comments', 'ajax', __('Ajax Comments', 'origami'), array(
 		'description' => __('Users can comment without leaving the page.', 'origami')
 	));
+
+	so_settings_add_section('responsive', __('Responsive Layout', 'origami'));
+	so_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
+		'description' => __('Widgets collapse for mobile devices.', 'origami')
+	));
 	
 	// We're using this to transfer the header image across from simple options
 	$simple_options = get_option('simple-options-'.basename(get_template_directory()), array());
@@ -89,7 +94,8 @@ function origami_settings_defaults($defaults){
 	$defaults['display_attribution'] = true;
 	$defaults['display_loop_comments'] = false;
 	
-	$defaults['comments_ajax'] = false;
+	$defaults['comments_ajax'] = true;
+	$defaults['responsive_footer'] = true;
 	
 	return $defaults;
 }
