@@ -3,12 +3,13 @@
 define('SO_THEME_VERSION', 'trunk');
 
 // Include all the SiteOrigin extras
+require_once(get_template_directory().'/extras/settings/settings.php');
 require_once(get_template_directory().'/extras/admin/admin.php');
-require_once(get_template_directory().'/functions/simple-options-lite.php');
 
-// Initialize all the options
+if(!defined('SO_IS_PREMIUM')) require_once(get_template_directory().'/extras/premium/premium.php');
 
-require_once(get_template_directory().'/functions/options.php'); 
+// Initialize all the theme settings
+require_once(get_template_directory().'/functions/settings.php'); 
 
 if(!function_exists('origami_setup')) :
 /**
@@ -17,6 +18,8 @@ if(!function_exists('origami_setup')) :
  * @action after_setup_theme
  */
 function origami_setup(){
+	so_settings_init();
+	
 	add_theme_support( 'automatic-feed-links' );
 	
 	// Origami supports post formats
@@ -30,8 +33,15 @@ function origami_setup(){
 
 	// Add support for custom backgrounds.
 	add_theme_support( 'custom-background' , array(
-		'default-color' => '#f0eeeb',
+		'default-color' => 'f0eeeb',
 		'default-image' => get_template_directory_uri().'/images/bg.png'
+	));
+	
+	// Use custom headers for site logo
+	add_theme_support( 'custom-header' , array(
+		'flex-height' => false,
+		'flex-width' => false,
+		'header-text' => false,
 	));
 	
 	global $content_width;
@@ -159,6 +169,7 @@ if(!function_exists('origami_save_post')) :
 function origami_save_post($post_id){
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 	if(!current_user_can('edit_post', $post_id)) return;
+	if(!isset($_REQUEST['content_columns'])) return;
 
 	update_post_meta($post_id, 'content_columns', intval($_REQUEST['content_columns']));
 }
@@ -166,31 +177,12 @@ endif;
 add_action('save_post', 'origami_save_post');
 
 
-if(!function_exists('origami_attribution_footer')) :
-/**
- * Display the origami header. This is mainly used to display the favicon if one has been set.
- * 
- * @action wp_head
- */
-function origami_head(){
-	$favicon = simple_options_get('general', 'favicon');
-	if(empty($favicon) || empty($favicon['attachment_id'])) return;
-	
-	$src = wp_get_attachment_image_src($favicon, 'full');
-	
-	?><link rel="icon" href="<?php print $src[0] ?>" /><?php
-}
-endif;
-add_action('wp_head', 'origami_head');
-
-
 if(!function_exists('origami_google_webfonts')) :
 /**
  * This just displays the Google web fonts
  */
 function origami_enqueue_google_webfonts(){
-	$logo = simple_options_get('general', 'logo');
-	if(empty($logo)){
+	if(!get_header_image()){
 		// Enqueue the logo font as well
 		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
 	}
@@ -214,6 +206,8 @@ if(!function_exists('origami_attribution_footer')) :
  * @param string $after Displayed after the attribution link
  */
 function origami_attribution_footer($before, $after){
+	if(!so_setting('display_attribution')) return false;
+	
 	print $before;
 	printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org">WordPress</a>');
 	print ' - ';
@@ -293,7 +287,9 @@ if(!function_exists('origami_gallery')) :
  */
 function origami_gallery($atts){
 	if(empty($atts['id'])) $atts['id'] = get_the_ID();
-
+	
+	// TODO fix gallery order
+	
 	$attachments = get_children(array(
 		'post_parent' => $atts['id'],
 		'post_type' => 'attachment',
@@ -339,32 +335,12 @@ function origami_content_filter($content){
 endif;
 add_filter('the_content', 'origami_content_filter', 8);
 
-
-if(!function_exists('origami_theme_docs_page')) :
-/**
- * Add the documentation link to the admin menu
- */
-function origami_admin_menu(){
-	add_theme_page(__('Theme Help', 'origami'), __('Theme Help', 'origami'), 'manage_theme_options', 'theme-help', 'origami_theme_help_page');
-}
-endif;
-add_action('admin_menu', 'origami_admin_menu');
-
-if(!function_exists('origami_theme_docs_page')) :
-/**
- * Render the theme page
- */
-function origami_theme_help_page(){
+function origami_print_styles(){
 	?>
-	<div class="wrap">
-		<h2><?php _e('Origami Help', 'origami') ?></h2>
-		<p>
-			<?php _e("Origami's full, PDF documentation is available for free download from SiteOrigin.", 'origami') ?>
-		</p>
-		<p>
-			<a href="http://siteorigin.com/theme/origami/origami-documentation/" class="button-primary"><?php _e('Download', 'origami') ?></a>
-		</p>
-	</div>
+	<style type="text/css">
+		.content a { color: <?php print so_setting('colors_link_color') ?> }
+		#page-container { border-color: <?php print so_setting('colors_page_border_color') ?>  }
+	</style>
 	<?php
 }
-endif;
+add_action('wp_print_styles', 'origami_print_styles');
