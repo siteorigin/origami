@@ -34,3 +34,8 @@ Improved W3C HTML validation
 Code quality improvement
 Fixed content columns
 Added link to documentation in admin
+
+1.1
+Removed dependence on Simple Options plugin
+Added more settings and options
+Referenced new Origami Premium

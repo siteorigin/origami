@@ -266,6 +266,8 @@ if(!function_exists('origami_footer_widget_params')) :
  * @return mixed
  */
 function origami_footer_widget_params($params){
+	return $params;
+	
 	// Check that this is the footer
 	if($params[0]['id'] != 'site-footer') return $params;
 
@@ -289,7 +291,6 @@ function origami_gallery($atts){
 	if(empty($atts['id'])) $atts['id'] = get_the_ID();
 	
 	// TODO fix gallery order
-	
 	$attachments = get_children(array(
 		'post_parent' => $atts['id'],
 		'post_type' => 'attachment',
@@ -336,10 +337,16 @@ endif;
 add_filter('the_content', 'origami_content_filter', 8);
 
 function origami_print_styles(){
+	// Create the footer widget CSS
+	$sidebars_widgets = wp_get_sidebars_widgets();
+	$count = count($sidebars_widgets['site-footer']);
+	$count = max($count,1);
+	
 	?>
 	<style type="text/css">
-		.content a { color: <?php print so_setting('colors_link_color') ?> }
-		#page-container { border-color: <?php print so_setting('colors_page_border_color') ?>  }
+		.content a { color: <?php print so_setting('colors_link_color') ?>; }
+		#page-container { border-color: <?php print so_setting('colors_page_border_color') ?>; }
+		#footer-widgets .widget { width: <?php print round(100/$count,5) ?>%; }
 	</style>
 	<?php
 }
