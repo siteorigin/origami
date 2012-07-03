@@ -11,7 +11,7 @@
 	</div>
 <?php else : ?>
 	<div class="content">
-		<?php print simple_options_get('messages', 'no_results') ?>
+		<?php print so_setting('messages_no_results') ?>
 	</div>
 <?php endif ?>
 

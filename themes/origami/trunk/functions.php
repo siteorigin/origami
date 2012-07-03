@@ -4,12 +4,10 @@ define('SO_THEME_VERSION', 'trunk');
 
 // Include all the SiteOrigin extras
 require_once(get_template_directory().'/extras/settings/settings.php');
+require_once(get_template_directory().'/functions/settings.php');
+
 require_once(get_template_directory().'/extras/admin/admin.php');
-
 if(!defined('SO_IS_PREMIUM')) require_once(get_template_directory().'/extras/premium/premium.php');
-
-// Initialize all the theme settings
-require_once(get_template_directory().'/functions/settings.php'); 
 
 if(!function_exists('origami_setup')) :
 /**
