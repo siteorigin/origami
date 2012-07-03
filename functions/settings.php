@@ -38,6 +38,11 @@ function origami_settings_init(){
 	so_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
 		'description' => __('Widgets collapse for mobile devices.', 'origami')
 	));
+
+	so_settings_add_section('social', __('Social', 'origami'));
+	so_settings_add_teaser('social', 'share', __('Share Post', 'origami'), array(
+		'description' => __('Display post sharing on the single post pages.', 'origami')
+	));
 	
 	// We're using this to transfer the header image across from simple options
 	$simple_options = get_option('simple-options-'.basename(get_template_directory()), array());

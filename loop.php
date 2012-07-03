@@ -20,9 +20,9 @@
 	
 				<div class="post-info">
 					<?php printf(__('On %s', 'origami'), get_the_date()) ?>
-					<?php if(simple_options_get('display', 'post_author')) printf(__('by %s', 'origami'), '<a href="'.get_author_posts_url(get_the_author_meta('ID')).'">'.get_the_author_meta('display_name').'</a>'); ?>
-					<?php if(simple_options_get('display', 'comment_counts') && simple_options_get('display', 'post_author')) _e('With', 'origami') ?>
-					<?php if(simple_options_get('display', 'comment_counts')) printf(__('<strong>%u</strong> Comments', 'origami'), $post->comment_count); ?>
+					<?php if(so_setting('display_post_author')) printf(__('by %s', 'origami'), '<a href="'.get_author_posts_url(get_the_author_meta('ID')).'">'.get_the_author_meta('display_name').'</a>'); ?>
+					<?php if(so_setting('display_comment_counts') && so_setting('display_post_author')) _e('With', 'origami') ?>
+					<?php if(so_setting('display_comment_counts')) printf(__('<strong>%u</strong> Comments', 'origami'), $post->comment_count); ?>
 	
 					<?php if(has_category()) :  ?>
 					- <?php the_category(', ') ?>
@@ -31,7 +31,7 @@
 			<?php endif; ?>
 
 			<?php
-			if(simple_options_get('display', 'use_columns') && get_post_format() === false){
+			if(so_setting('display_use_columns') && get_post_format() === false){
 				$columns = get_post_meta($post->ID, 'content_columns', true);
 				if($columns === false) $columns = 2;
 			}
@@ -81,6 +81,8 @@
 						</div>
 					<?php endif; ?>
 					<div class="clear"></div>
+					
+					<?php if(is_singular() && so_setting('social_share')) locate_template('social-share.php', true); ?>
 				</div>
 			<?php endif; ?>
 				
