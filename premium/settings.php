@@ -19,7 +19,7 @@ function origami_premium_settings_init(){
 		'description' => __('Widgets collapse for mobile devices.', 'origami')
 	));
 	
-	so_settings_add_section('social', __('Social'));
+	so_settings_add_section('social', __('Social', 'origami'));
 
 	so_settings_add_field('social', 'share', 'checkbox', __('Display Social Sharing', 'origami'), array(
 		'description' => __('Display post sharing on post pages.', 'origami')
