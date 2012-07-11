@@ -84,7 +84,7 @@
 					
 					<?php if(is_singular() && so_setting('social_share')) locate_template('social-share.php', true); ?>
 				</div>
-			<?php endif; ?>
+			<?php elseif(so_setting('social_share') && function_exists('so_share_render')) : so_share_render(array('twitter' => so_setting('social_twitter'))); endif; ?>
 				
 			<?php if(is_singular()) : ?>
 				<div id="single-comments-wrapper">
