@@ -35,9 +35,7 @@
 				$columns = get_post_meta($post->ID, 'content_columns', true);
 				if($columns === false) $columns = 2;
 			}
-			else{
-				$columns = 1;
-			}
+			else $columns = 1;
 			?>
 			<div class="content column-<?php print $columns ?>">
 				<?php if(has_post_thumbnail() && get_post_format() == 'image') : ?>
