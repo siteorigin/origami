@@ -30,10 +30,3 @@ function origami_premium_settings_init(){
 	));
 }
 add_action('admin_init', 'origami_premium_settings_init', 11);
-
-function origami_premium_settings_defaults($defaults){
-	$defaults['social_share'] = true;
-	$defaults['social_twitter'] = '';
-	return $defaults;
-}
-add_filter('so_theme_default_settings', 'origami_premium_settings_defaults');
