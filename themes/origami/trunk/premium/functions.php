@@ -2,13 +2,13 @@
 
 define('SO_IS_PREMIUM', true);
 
-require_once(get_stylesheet_directory().'/functions/settings.php');
+require_once(get_stylesheet_directory().'/premium/settings.php');
 
-// Include all the premium features
-require_once(get_stylesheet_directory().'/extras/css/css.php');
-require_once(get_stylesheet_directory().'/extras/ajax-comments/ajax-comments.php');
-require_once(get_stylesheet_directory().'/extras/responsive-widgets/responsive-widgets.php');
-require_once(get_stylesheet_directory().'/extras/share/share.php');
+// Include all the premium extras
+require_once(get_stylesheet_directory().'/premium/extras/share/share.php');
+require_once(get_stylesheet_directory().'/premium/extras/css/css.php');
+require_once(get_stylesheet_directory().'/premium/extras/ajax-comments/ajax-comments.php');
+require_once(get_stylesheet_directory().'/premium/extras/responsive-widgets/responsive-widgets.php');
 
 /**
  * Setup Origami Premium. Runs after Origami is set up.
@@ -27,7 +27,7 @@ add_action('after_setup_theme', 'origami_premium_setup', 11);
  * Enqueue Origami Premium scripts
  */
 function origami_premium_enqueue(){
-	wp_enqueue_style('origami-premium', get_stylesheet_directory_uri().'/style.css', array(), SO_THEME_VERSION);
+	wp_enqueue_style('origami-premium', get_stylesheet_directory_uri().'/premium/premium.css', array(), SO_THEME_VERSION);
 }
 add_action('wp_enqueue_scripts', 'origami_premium_enqueue');
 
