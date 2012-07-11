@@ -3,7 +3,8 @@
 define('SO_THEME_VERSION', 'trunk');
 
 // Include premium functions if it exists
-include_once(get_template_directory().'/premium/functions.php');
+if(file_exists(get_template_directory().'/premium/functions.php'))
+	include_once(get_template_directory().'/premium/functions.php');
 
 // Include all the SiteOrigin extras
 require_once(get_template_directory().'/extras/settings/settings.php');
