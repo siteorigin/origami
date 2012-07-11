@@ -34,7 +34,7 @@
 				}
 				?>
 			</a>
-			<?php get_search_form() ?>
+			<?php if(so_setting('display_header_search')) get_search_form(); ?>
 		</div>
 		<div id="menu">
 			<?php
