@@ -7,6 +7,7 @@ include_once(get_template_directory().'/premium/functions.php');
 
 // Include all the SiteOrigin extras
 require_once(get_template_directory().'/extras/settings/settings.php');
+require_once(get_template_directory().'/extras/support/support.php');
 require_once(get_template_directory().'/extras/update.php');
 
 require_once(get_template_directory().'/functions/settings.php');
