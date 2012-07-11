@@ -111,6 +111,9 @@ function origami_settings_defaults($defaults){
 	
 	$defaults['comments_ajax'] = true;
 	$defaults['responsive_footer'] = true;
+
+	$defaults['social_share'] = true;
+	$defaults['social_twitter'] = '';
 	
 	return $defaults;
 }
