@@ -4,7 +4,7 @@ define('SO_THEME_VERSION', 'trunk');
 define('SO_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
 // Include premium functions if it exists
-if(file_exists(get_template_directory().'/premium/functions.php') && false)
+if(file_exists(get_template_directory().'/premium/functions.php'))
 	include_once(get_template_directory().'/premium/functions.php');
 
 // Include all the SiteOrigin extras
