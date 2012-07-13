@@ -76,7 +76,7 @@
 				<path d="M 0 32 L 0 16 L 26 16 L 26 8 L 48 24 L 26 40 L 26 32 Z" />
 			</svg>
 		</div>
-		<?php elseif(so_setting('social_share')) : so_share_render(array('twitter' => so_setting('social_twitter'))); endif; ?>
+		<?php elseif(so_setting('social_share') && function_exists('so_share_render')) : so_share_render(array('twitter' => so_setting('social_twitter'))); endif; ?>
 
 		<div class="clear"></div>
 	</div>
