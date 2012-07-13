@@ -4,7 +4,7 @@ License:
 
 Origami WordPress Theme, Copyright 2012 SiteOrigin.com
 
-Origami a GPL theme. See license.txt  
+Origami a GPL v3.0 theme. See license.txt  
 
 This theme includes the following external libraries
 
