@@ -1,20 +1,22 @@
 <?php
 
 define('SO_THEME_VERSION', 'trunk');
+define('SO_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
 // Include premium functions if it exists
-if(file_exists(get_template_directory().'/premium/functions.php'))
+if(file_exists(get_template_directory().'/premium/functions.php') && false)
 	include_once(get_template_directory().'/premium/functions.php');
 
 // Include all the SiteOrigin extras
+if(!defined('SO_IS_PREMIUM')) require_once(get_template_directory().'/extras/premium/premium.php');
 require_once(get_template_directory().'/extras/settings/settings.php');
-require_once(get_template_directory().'/extras/support/support.php');
 require_once(get_template_directory().'/extras/update.php');
+require_once(get_template_directory().'/extras/docs/docs.php');
 
 require_once(get_template_directory().'/functions/settings.php');
 
 require_once(get_template_directory().'/extras/admin/admin.php');
-if(!defined('SO_IS_PREMIUM')) require_once(get_template_directory().'/extras/premium/premium.php');
+
 
 if(!function_exists('origami_setup')) :
 /**
