@@ -215,7 +215,7 @@ if(!function_exists('origami_attribution_footer')) :
  * @param string $after Displayed after the attribution link
  */
 function origami_attribution_footer($before, $after){
-	if(!so_setting('display_attribution')) return false;
+	if(!so_setting('display_attribution') && defined('SO_IS_PREMIUM')) return false;
 	
 	print $before;
 	printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org">WordPress</a>');
