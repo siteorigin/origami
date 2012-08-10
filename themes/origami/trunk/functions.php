@@ -404,3 +404,17 @@ function origami_print_styles(){
 	<?php
 }
 add_action('wp_print_styles', 'origami_print_styles');
+
+if(!function_exists('origami_html_shiv')) :
+/**
+ * Display the HTML5 shiv code
+ */
+function origami_html_shiv(){
+	?>
+	<!--[if lt IE 9]>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js" type="text/javascript"></script>
+	<![endif]-->
+	<?php
+}
+endif;
+add_action('wp_head', 'origami_html_shiv');
