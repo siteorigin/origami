@@ -29,6 +29,10 @@ if(!function_exists('origami_setup')) :
 function origami_setup(){
 	so_settings_init();
 	
+	// Load the text domains
+	load_theme_textdomain( 'origami', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'siteorigin', get_template_directory() . '/languages' );
+	
 	add_theme_support( 'automatic-feed-links' );
 	
 	// Origami supports post formats
