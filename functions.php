@@ -239,7 +239,8 @@ function origami_comment($comment, $args, $depth){
 	?>
 	<li <?php comment_class() ?> id="comment-<?php comment_ID() ?>">
 		<div class="comment-wrapper">
-			<?php if(empty($comment->comment_type)) : ?>
+			<?php $type = get_comment_type($comment->comment_ID); ?>
+			<?php if($type == 'comment') : ?>
 			<div class="avatar-container">
 				<?php print get_avatar(get_comment_author_email(), $depth == 1 ? 60 : 45) ?>
 			</div>
