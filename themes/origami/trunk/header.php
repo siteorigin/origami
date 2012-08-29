@@ -17,7 +17,7 @@
 <div class="container">
 	<div id="page-container">
 		<div id="logo">
-			<a href="<?php print esc_url(home_url()) ?>" title="<?php print esc_attr(get_bloginfo('description')) ?>" class="logo-link">
+			<a href="<?php print esc_url(home_url('/')) ?>" title="<?php print esc_attr(get_bloginfo('description')) ?>" class="logo-link">
 				<?php
 				if(get_header_image()){
 					?><img src="<?php esc_url(header_image()); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="<?php print esc_attr(get_bloginfo('name')) ?>" /><?php
