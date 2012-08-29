@@ -28,10 +28,12 @@ if(!function_exists('origami_setup')) :
  */
 function origami_setup(){
 	so_settings_init();
+
+	global $content_width;
+	if ( ! isset( $content_width ) ) $content_width = 904;
 	
 	// Load the text domains
 	load_theme_textdomain( 'origami', get_template_directory() . '/languages' );
-	load_theme_textdomain( 'siteorigin', get_template_directory() . '/languages' );
 	
 	add_theme_support( 'automatic-feed-links' );
 	
@@ -52,14 +54,11 @@ function origami_setup(){
 	
 	// Use custom headers for site logo
 	add_theme_support( 'custom-header' , array(
-		'flex-height' => false,
-		'flex-width' => false,
+		'flex-height' => true,
+		'flex-width' => true,
 		'header-text' => false,
 	));
 	
-	global $content_width;
-	if ( ! isset( $content_width ) ) $content_width = 904;
-
 	add_editor_style();
 	
 	// Set up the image sizes
@@ -414,7 +413,10 @@ function origami_html_shiv(){
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js" type="text/javascript"></script>
 	<![endif]-->
+	<!--[if (gte IE 6)&(lte IE 8)]>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/selectivizr.js"></script>
+	<![endif]-->
 	<?php
 }
 endif;
-add_action('wp_head', 'origami_html_shiv');
+add_action('wp_head', 'origami_html_shiv', 15);
