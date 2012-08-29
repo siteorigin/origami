@@ -13,6 +13,7 @@ This theme includes the following external libraries
 * FitVids 1.0 by Chris Coyier under WTFPL license
 * FlexSlider by Tyler Smith under MIT license
 * Modernizr under MIT & BSD licenses
+* Selectivizr by Keith Clark under MIT license
 
 -----------------------------------------------
 Change Log:
@@ -41,3 +42,10 @@ Added more settings and options
 Referenced new Origami Premium
 Fixed gallery ordering
 Various bug fixes
+
+1.2.4
+Various bug fixes
+
+1.2.5
+Added Selectivizr
+Various minor fixes
