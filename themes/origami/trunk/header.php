@@ -6,7 +6,6 @@
 
 	<title><?php wp_title('|', true, 'right'); ?></title>
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php print get_stylesheet_uri() ?>" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -16,7 +15,7 @@
 <body <?php body_class() ?>>
 <div class="container">
 	<div id="page-container">
-		<div id="logo">
+		<div id="logo" <?php if(so_setting('display_logo_centered')) print 'class="logo-centered"' ?>>
 			<a href="<?php print esc_url(home_url('/')) ?>" title="<?php print esc_attr(get_bloginfo('description')) ?>" class="logo-link">
 				<?php
 				if(get_header_image()){

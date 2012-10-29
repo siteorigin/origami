@@ -130,6 +130,8 @@ if(!function_exists('origami_enqueue_scripts')) :
  * @return void
  */
 function origami_enqueue_scripts(){
+	wp_enqueue_style('origami', get_stylesheet_uri(), array(), SO_THEME_VERSION);
+	
 	wp_enqueue_script('modernizr', get_template_directory_uri().'/js/modernizr.js', array(), '2.0.6');
 	wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'), '1.0');
 	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'), SO_THEME_VERSION);
