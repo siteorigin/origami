@@ -4,7 +4,7 @@ License:
 
 Origami WordPress Theme, Copyright 2012 SiteOrigin.com
 
-Origami a GPL v3.0 theme. See license.txt  
+Origami a GPL v2.0 theme. See license.txt  
 
 This theme includes the following external libraries
 
@@ -49,3 +49,8 @@ Various bug fixes
 1.2.5
 Added Selectivizr
 Various minor fixes
+
+1.2.6
+Added option to center logo
+Fixed logo scaling for responsive layout
+Using wp_enqueue_style to enqueue style.css

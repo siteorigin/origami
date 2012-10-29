@@ -20,7 +20,7 @@ function origami_settings_init(){
 	so_settings_add_field('display', 'post_author', 'checkbox', __('Display Post Author', 'origami'));
 	so_settings_add_field('display', 'comment_counts', 'checkbox', __('Display Comment Count', 'origami'));
 	so_settings_add_field('display', 'use_columns', 'checkbox', __('Use Columns', 'origami'));
-	
+
 	so_settings_add_field('display', 'featured_image', 'checkbox', __('Display featured Image', 'origami'), array(
 		'description' => __('Featured image above posts', 'origami')
 	));
@@ -31,6 +31,10 @@ function origami_settings_init(){
 
 	so_settings_add_teaser('display', 'attribution', __('Footer Attribution Link', 'origami'), array(
 		'description' => __('Remove the "theme by SiteOrigin" in your footer.', 'origami')
+	));
+
+	so_settings_add_field('display', 'logo_centered', 'checkbox', __('Center Logo', 'origami'), array(
+		'description' => __('Center the main logo', 'origami')
 	));
 
 	so_settings_add_section('comments', __('Comments', 'origami'));
@@ -108,6 +112,7 @@ function origami_settings_defaults($defaults){
 	$defaults['display_header_search'] = true;
 	$defaults['display_attribution'] = true;
 	$defaults['display_loop_comments'] = false;
+	$defaults['display_logo_centered'] = false;
 	
 	$defaults['comments_ajax'] = true;
 	$defaults['responsive_footer'] = true;

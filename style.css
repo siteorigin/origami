@@ -6,8 +6,8 @@ Tags: one-column, flexible-width, post-formats, custom-menu, theme-options, thre
 Author: SiteOrigin
 Author URI: http://siteorigin.com/
 Version: trunk
-License: GPL v3.0
-License URI: http://www.gnu.org/copyleft/gpl.html
+License: GPL v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* @group Reset */
@@ -125,6 +125,10 @@ body{
 	margin: 20px 0 25px 0;
 }
 
+#logo.logo-centered{
+	text-align: center;
+}
+
 #logo a.logo-link{
 	text-decoration: none;
 }
@@ -142,6 +146,11 @@ body{
 	display: inline-block;
 	color: #666;
 	font-size: 13px;
+}
+
+#logo img {
+	max-width: 100%;
+	height: auto;
 }
 
 /* @group Search Form */
