@@ -54,3 +54,6 @@ Various minor fixes
 Added option to center logo
 Fixed logo scaling for responsive layout
 Using wp_enqueue_style to enqueue style.css
+
+1.2.7
+Fixed theme endpoint and version number

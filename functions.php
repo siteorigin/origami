@@ -1,20 +1,20 @@
 <?php
 
-define('SO_THEME_VERSION', 'trunk');
-define('SO_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
+define('SITEORIGIN_THEME_VERSION', 'trunk');
+define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
 // Include premium functions if it exists
 if(file_exists(get_template_directory().'/premium/functions.php'))
 	include_once(get_template_directory().'/premium/functions.php');
 
 // Include all the SiteOrigin extras
-if(!defined('SO_IS_PREMIUM')) {
-	require_once(get_template_directory().'/extras/premium/premium.php');
+if(!defined('SITEORIGIN_IS_PREMIUM')) {
 	require_once(get_template_directory().'/upgrade/upgrade.php');
 }
 
+require_once(get_template_directory().'/extras/premium/premium.php');
 require_once(get_template_directory().'/extras/settings/settings.php');
-require_once(get_template_directory().'/extras/update.php');
+require_once(get_template_directory().'/extras/update/update.php');
 require_once(get_template_directory().'/extras/admin/admin.php');
 
 require_once(get_template_directory().'/functions/settings.php');
@@ -27,7 +27,7 @@ if(!function_exists('origami_setup')) :
  * @action after_setup_theme
  */
 function origami_setup(){
-	so_settings_init();
+	siteorigin_settings_init();
 
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 904;
@@ -130,11 +130,11 @@ if(!function_exists('origami_enqueue_scripts')) :
  * @return void
  */
 function origami_enqueue_scripts(){
-	wp_enqueue_style('origami', get_stylesheet_uri(), array(), SO_THEME_VERSION);
+	wp_enqueue_style('origami', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION);
 	
 	wp_enqueue_script('modernizr', get_template_directory_uri().'/js/modernizr.js', array(), '2.0.6');
 	wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'), '1.0');
-	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'), SO_THEME_VERSION);
+	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery', 'modernizr'), SITEORIGIN_THEME_VERSION);
 	
 	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '1.8');
 	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '1.8');
@@ -220,7 +220,7 @@ if(!function_exists('origami_attribution_footer')) :
  * @param string $after Displayed after the attribution link
  */
 function origami_attribution_footer($before, $after){
-	if(!so_setting('display_attribution') && defined('SO_IS_PREMIUM')) return false;
+	if(!siteorigin_setting('display_attribution')) return false;
 	
 	print $before;
 	printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org">WordPress</a>');
@@ -396,11 +396,11 @@ function origami_print_styles(){
 	
 	?>
 	<style type="text/css" media="screen">
-		.content a { color: <?php print so_setting('colors_link_color') ?>; }
-		#page-container { border-color: <?php print so_setting('colors_page_border_color') ?>; }
+		.content a { color: <?php print siteorigin_setting('colors_link_color') ?>; }
+		#page-container { border-color: <?php print siteorigin_setting('colors_page_border_color') ?>; }
 		#footer-widgets .widget { width: <?php print round(100/$count,5) ?>%; }
-		#footer { color: <?php print so_setting('colors_footer_text') ?>; }
-		#footer a { color: <?php print so_setting('colors_footer_link') ?>; }
+		#footer { color: <?php print siteorigin_setting('colors_footer_text') ?>; }
+		#footer a { color: <?php print siteorigin_setting('colors_footer_link') ?>; }
 	</style>
 	<?php
 }
