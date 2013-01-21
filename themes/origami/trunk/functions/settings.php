@@ -43,13 +43,19 @@ function origami_settings_init(){
 	));
 
 	siteorigin_settings_add_section('responsive', __('Responsive Layout', 'origami'));
+	
 	siteorigin_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
 		'description' => __('Widgets collapse for mobile devices.', 'origami')
 	));
 
 	siteorigin_settings_add_section('social', __('Social', 'origami'));
+	
 	siteorigin_settings_add_teaser('social', 'share', __('Share Post', 'origami'), array(
 		'description' => __('Display post sharing on the single post pages.', 'origami')
+	));
+
+	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Username', 'origami'), array(
+		'description' => __('Recommend your Twitter account after someone tweets your post.', 'origami')
 	));
 	
 	// We're using this to transfer the header image across from simple options
