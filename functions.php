@@ -424,6 +424,7 @@ function origami_html_shiv(){
 endif;
 add_action('wp_head', 'origami_html_shiv', 15);
 
+if(!function_exists('so_setting')) :
 /**
  * This is a wrapper for siteorigin_setting to support legacy child themes.
  *
@@ -434,3 +435,4 @@ add_action('wp_head', 'origami_html_shiv', 15);
 function so_setting($name, $default = null){
 	return siteorigin_setting($name, $default);
 }
+endif;
