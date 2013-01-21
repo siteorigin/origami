@@ -367,7 +367,7 @@ h1.entry-title a{
 }
 
 .post img.main-image {
-	width: 100%;
+	max-width: 100%;
 	height: auto;
 }
 
