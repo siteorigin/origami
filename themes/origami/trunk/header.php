@@ -15,7 +15,7 @@
 <body <?php body_class() ?>>
 <div class="container">
 	<div id="page-container">
-		<div id="logo" <?php if(so_setting('display_logo_centered')) print 'class="logo-centered"' ?>>
+		<div id="logo" <?php if(siteorigin_setting('display_logo_centered')) print 'class="logo-centered"' ?>>
 			<a href="<?php print esc_url(home_url('/')) ?>" title="<?php print esc_attr(get_bloginfo('description')) ?>" class="logo-link">
 				<?php
 				if(get_header_image()){
@@ -29,7 +29,7 @@
 				}
 				?>
 			</a>
-			<?php if(so_setting('display_header_search')) get_search_form(); ?>
+			<?php if(siteorigin_setting('display_header_search')) get_search_form(); ?>
 		</div>
 		<div id="menu">
 			<?php

@@ -11,8 +11,8 @@
 	</div>
 	
 	<div id="footer">
-		<?php if(so_setting('text_copyright') != '') : ?>
-			<div class="copyright"><?php print so_setting('text_copyright') ?></div>
+		<?php if(siteorigin_setting('text_copyright') != '') : ?>
+			<div class="copyright"><?php print siteorigin_setting('text_copyright') ?></div>
 		<?php endif; ?>
 
 		<?php origami_attribution_footer('<div class="designed">', '</div>') ?>

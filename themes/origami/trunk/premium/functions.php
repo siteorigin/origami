@@ -1,6 +1,6 @@
 <?php
 
-define('SO_IS_PREMIUM', true);
+define('SITEORIGIN_IS_PREMIUM', true);
 
 require_once(get_template_directory().'/premium/settings.php');
 
@@ -17,9 +17,9 @@ require_once(get_template_directory().'/premium/extras/responsive-widgets/respon
  */
 function origami_premium_setup(){
 	// Activate all the extras
-	if(so_setting('comments_ajax')) so_ajax_comments_activate();
-	if(so_setting('responsive_footer')) so_responsive_widget_activate('site-footer', '#footer-widgets .widget');
-	if(so_setting('social_share')) so_share_activate();
+	if(siteorigin_setting('comments_ajax')) siteorigin_ajax_comments_activate();
+	if(siteorigin_setting('responsive_footer')) siteorigin_responsive_widget_activate('site-footer', '#footer-widgets .widget');
+	if(siteorigin_setting('social_share')) siteorigin_share_activate();
 }
 add_action('after_setup_theme', 'origami_premium_setup', 11);
 
@@ -27,7 +27,7 @@ add_action('after_setup_theme', 'origami_premium_setup', 11);
  * Enqueue Origami Premium scripts
  */
 function origami_premium_enqueue(){
-	wp_enqueue_style('origami-premium', get_template_directory_uri().'/premium/premium.css', array(), SO_THEME_VERSION);
+	wp_enqueue_style('origami-premium', get_template_directory_uri().'/premium/premium.css', array(), SITEORIGIN_THEME_VERSION);
 }
 add_action('wp_enqueue_scripts', 'origami_premium_enqueue');
 

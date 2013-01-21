@@ -11,7 +11,7 @@
 	</div>
 <?php else : ?>
 	<div class="content">
-		<?php print so_setting('messages_no_results') ?>
+		<?php print siteorigin_setting('text_no_results', __("No results for your query.", 'origami')) ?>
 	</div>
 <?php endif ?>
 
