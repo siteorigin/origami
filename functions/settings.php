@@ -2,53 +2,53 @@
 
 
 function origami_settings_init(){
-	so_settings_add_section('colors', __('Colors', 'origami'));
-	so_settings_add_field('colors', 'link_color', 'color', __('Link Color', 'origami'));
+	siteorigin_settings_add_section('colors', __('Colors', 'origami'));
+	siteorigin_settings_add_field('colors', 'link_color', 'color', __('Link Color', 'origami'));
 	
-	so_settings_add_teaser('colors', 'page_border_color', __('Page Border Color', 'origami'), array(
+	siteorigin_settings_add_teaser('colors', 'page_border_color', __('Page Border Color', 'origami'), array(
 		'description' => __('Main page border color', 'origami')
 	));
-	so_settings_add_teaser('colors', 'footer_text', __('Footer Copyright Color', 'origami'));
-	so_settings_add_teaser('colors', 'footer_link', __('Footer Copyright Link Color', 'origami'));
+	siteorigin_settings_add_teaser('colors', 'footer_text', __('Footer Copyright Color', 'origami'));
+	siteorigin_settings_add_teaser('colors', 'footer_link', __('Footer Copyright Link Color', 'origami'));
 	
-	so_settings_add_section('text', __('Site Text', 'origami'));
-	so_settings_add_field('text', 'copyright', 'text', __('Copyright', 'origami'));
-	so_settings_add_field('text', 'not_found', 'text', __('404 Message', 'origami'));
-	so_settings_add_field('text', 'no_results', 'text', __('No Search Results', 'origami'));
+	siteorigin_settings_add_section('text', __('Site Text', 'origami'));
+	siteorigin_settings_add_field('text', 'copyright', 'text', __('Copyright', 'origami'));
+	siteorigin_settings_add_field('text', 'not_found', 'text', __('404 Message', 'origami'));
+	siteorigin_settings_add_field('text', 'no_results', 'text', __('No Search Results', 'origami'));
 
-	so_settings_add_section('display', __('Display', 'origami'));
-	so_settings_add_field('display', 'post_author', 'checkbox', __('Display Post Author', 'origami'));
-	so_settings_add_field('display', 'comment_counts', 'checkbox', __('Display Comment Count', 'origami'));
-	so_settings_add_field('display', 'use_columns', 'checkbox', __('Use Columns', 'origami'));
+	siteorigin_settings_add_section('display', __('Display', 'origami'));
+	siteorigin_settings_add_field('display', 'post_author', 'checkbox', __('Display Post Author', 'origami'));
+	siteorigin_settings_add_field('display', 'comment_counts', 'checkbox', __('Display Comment Count', 'origami'));
+	siteorigin_settings_add_field('display', 'use_columns', 'checkbox', __('Use Columns', 'origami'));
 
-	so_settings_add_field('display', 'featured_image', 'checkbox', __('Display featured Image', 'origami'), array(
+	siteorigin_settings_add_field('display', 'featured_image', 'checkbox', __('Display featured Image', 'origami'), array(
 		'description' => __('Featured image above posts', 'origami')
 	));
 
-	so_settings_add_field('display', 'header_search', 'checkbox', __('Header Search', 'origami'), array(
+	siteorigin_settings_add_field('display', 'header_search', 'checkbox', __('Header Search', 'origami'), array(
 		'description' => __('Search input in header', 'origami')
 	));
 
-	so_settings_add_teaser('display', 'attribution', __('Footer Attribution Link', 'origami'), array(
+	siteorigin_settings_add_teaser('display', 'attribution', __('Footer Attribution Link', 'origami'), array(
 		'description' => __('Remove the "theme by SiteOrigin" in your footer.', 'origami')
 	));
 
-	so_settings_add_field('display', 'logo_centered', 'checkbox', __('Center Logo', 'origami'), array(
+	siteorigin_settings_add_field('display', 'logo_centered', 'checkbox', __('Center Logo', 'origami'), array(
 		'description' => __('Center the main logo', 'origami')
 	));
 
-	so_settings_add_section('comments', __('Comments', 'origami'));
-	so_settings_add_teaser('comments', 'ajax', __('Ajax Comments', 'origami'), array(
+	siteorigin_settings_add_section('comments', __('Comments', 'origami'));
+	siteorigin_settings_add_teaser('comments', 'ajax', __('Ajax Comments', 'origami'), array(
 		'description' => __('Users can comment without leaving the page.', 'origami')
 	));
 
-	so_settings_add_section('responsive', __('Responsive Layout', 'origami'));
-	so_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
+	siteorigin_settings_add_section('responsive', __('Responsive Layout', 'origami'));
+	siteorigin_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
 		'description' => __('Widgets collapse for mobile devices.', 'origami')
 	));
 
-	so_settings_add_section('social', __('Social', 'origami'));
-	so_settings_add_teaser('social', 'share', __('Share Post', 'origami'), array(
+	siteorigin_settings_add_section('social', __('Social', 'origami'));
+	siteorigin_settings_add_teaser('social', 'share', __('Share Post', 'origami'), array(
 		'description' => __('Display post sharing on the single post pages.', 'origami')
 	));
 	
@@ -111,7 +111,6 @@ function origami_settings_defaults($defaults){
 	$defaults['display_featured_image'] = true;
 	$defaults['display_header_search'] = true;
 	$defaults['display_attribution'] = true;
-	$defaults['display_loop_comments'] = false;
 	$defaults['display_logo_centered'] = false;
 	
 	$defaults['comments_ajax'] = true;
@@ -122,4 +121,4 @@ function origami_settings_defaults($defaults){
 	
 	return $defaults;
 }
-add_filter('so_theme_default_settings', 'origami_settings_defaults');
+add_filter('siteorigin_theme_default_settings', 'origami_settings_defaults');
