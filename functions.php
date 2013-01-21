@@ -4,20 +4,21 @@ define('SITEORIGIN_THEME_VERSION', 'trunk');
 define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
 // Include premium functions if it exists
-if(file_exists(get_template_directory().'/premium/functions.php'))
-	include_once(get_template_directory().'/premium/functions.php');
+if(file_exists(get_template_directory().'/premium/functions.php')){
+	// include get_template_directory().'/premium/functions.php';
+}
 
 // Include all the SiteOrigin extras
 if(!defined('SITEORIGIN_IS_PREMIUM')) {
-	require_once(get_template_directory().'/upgrade/upgrade.php');
+	include get_template_directory().'/upgrade/upgrade.php';
 }
 
-require_once(get_template_directory().'/extras/premium/premium.php');
-require_once(get_template_directory().'/extras/settings/settings.php');
-require_once(get_template_directory().'/extras/update/update.php');
-require_once(get_template_directory().'/extras/admin/admin.php');
+include get_template_directory().'/extras/premium/premium.php';
+include get_template_directory().'/extras/settings/settings.php';
+include get_template_directory().'/extras/update/update.php';
+include get_template_directory().'/extras/admin/admin.php';
 
-require_once(get_template_directory().'/functions/settings.php');
+include get_template_directory().'/functions/settings.php';
 
 
 if(!function_exists('origami_setup')) :
