@@ -9,11 +9,13 @@ function origami_premium_upgrade_content($content){
 	$content['buy_button'] = get_template_directory_uri().'/upgrade/images/button.png';
 	$content['buy_message_1'] = __("If you're not delighted with Origami Premium, I'll give you a full refund", 'origami');
 	$content['buy_message_2'] = __("Remember, if you're not satisfied, you get your money back", 'origami');
+	
+	$content['featured'] = array(get_template_directory_uri().'/upgrade/promo.jpg', 1259, 1073);
 
 	$content['features'] = array();
 	$content['features'][] = array(
-		'heading' => __('Email Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you access to email support for answers to any questions you can't find in the theme documentation.", 'origami'),
+		'heading' => __('Premium Support', 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized support on our support forums.", 'origami'),
 	);
 
 	$content['features'][] = array(
