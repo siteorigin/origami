@@ -20,7 +20,10 @@ function origami_settings_init(){
 	siteorigin_settings_add_field('display', 'post_author', 'checkbox', __('Display Post Author', 'origami'));
 	siteorigin_settings_add_field('display', 'comment_counts', 'checkbox', __('Display Comment Count', 'origami'));
 	siteorigin_settings_add_field('display', 'use_columns', 'checkbox', __('Use Columns', 'origami'));
-
+	siteorigin_settings_add_field('display', 'gallery', 'checkbox', __('Use Origami Gallery', 'origami'), array(
+		'description' => __("Changes [gallery] shortcode galleries into a fancy slider.", 'origami')
+	));
+	
 	siteorigin_settings_add_field('display', 'featured_image', 'checkbox', __('Display featured Image', 'origami'), array(
 		'description' => __('Featured image above posts', 'origami')
 	));
@@ -118,6 +121,7 @@ function origami_settings_defaults($defaults){
 	$defaults['display_header_search'] = true;
 	$defaults['display_attribution'] = true;
 	$defaults['display_logo_centered'] = false;
+	$defaults['display_gallery'] = true;
 	
 	$defaults['comments_ajax'] = true;
 	$defaults['responsive_footer'] = true;
