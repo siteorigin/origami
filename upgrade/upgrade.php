@@ -47,6 +47,24 @@ function origami_premium_upgrade_content($content){
 		'heading' => __("Continued Updates", 'origami'),
 		'content' => __("You'll get continued updates, ensuring that your Origami powered site keeps on working with the latest version of WordPress for years to come.", 'origami'),
 	);
+	
+	$content['testimonials'] = array(
+		array(
+			'gravatar' => '0dacd16ef5a3d669700d4ec9fffd9e0d',
+			'name' => 'Elii',
+			'content' => __('I love this theme very much.', 'origami'),
+		),
+		array(
+			'gravatar' => '5ac326a8887af0bf2aea8d3e25842104',
+			'name' => 'Liz Hover',
+			'content' => __('This is exactly the kind of theme I was looking for.', 'origami'),
+		),
+		array(
+			'gravatar' => '004aeb08475d44bb4ce6a50d19ba8838',
+			'name' => 'Esha',
+			'content' => __('Before trying any theme I check Pagespeed score and Yslow score on basic WordPress installation. This theme rocks on these two parameters.', 'origami'),
+		),
+	);
 
 	return $content;
 }

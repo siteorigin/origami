@@ -304,6 +304,8 @@ if(!function_exists('origami_gallery')) :
  * @return string
  */
 function origami_gallery($contents, $attr){
+	if(!siteorigin_setting('display_gallery')) return $contents; 
+	
 	global $post;
 	
 	static $instance = 0;
