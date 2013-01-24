@@ -2,13 +2,13 @@
 
 define('SITEORIGIN_IS_PREMIUM', true);
 
-require_once(get_template_directory().'/premium/settings.php');
+require_once get_template_directory().'/premium/settings.php';
 
 // Include all the premium extras
-require_once(get_template_directory().'/premium/extras/share/share.php');
-require_once(get_template_directory().'/premium/extras/css/css.php');
-require_once(get_template_directory().'/premium/extras/ajax-comments/ajax-comments.php');
-require_once(get_template_directory().'/premium/extras/responsive-widgets/responsive-widgets.php');
+include get_template_directory().'/premium/extras/share/share.php';
+include get_template_directory().'/premium/extras/css/css.php';
+include get_template_directory().'/premium/extras/ajax-comments/ajax-comments.php';
+include get_template_directory().'/premium/extras/responsive-widgets/responsive-widgets.php';
 
 /**
  * Setup Origami Premium. Runs after Origami is set up.
