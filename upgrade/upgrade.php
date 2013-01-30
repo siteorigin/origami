@@ -56,7 +56,7 @@ function origami_premium_upgrade_content($content){
 		),
 		array(
 			'gravatar' => '5ac326a8887af0bf2aea8d3e25842104',
-			'name' => 'Liz Hover',
+			'name' => 'Liz',
 			'content' => __('This is exactly the kind of theme I was looking for.', 'origami'),
 		),
 		array(

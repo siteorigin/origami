@@ -11,7 +11,7 @@
 	</div>
 <?php else : ?>
 	<div class="content">
-		<?php print siteorigin_setting('text_no_results', __("No results for your query.", 'origami')) ?>
+		<?php echo wp_kses_post(siteorigin_setting('text_no_results', __("No results for your query.", 'origami'))) ?>
 	</div>
 <?php endif ?>
 

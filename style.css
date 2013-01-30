@@ -1,3 +1,6 @@
+/* @override 
+	http://wpdev.dynalias.com/origami/wp-content/themes/origami/style.css?ver=trunk */
+
 /*
 Theme Name: Origami
 Theme URI: http://siteorigin.com/theme/origami
@@ -1143,9 +1146,77 @@ h1.archive-title {
 
 /* @group Flex Slider */
 
-.flexslider ul.slides li img{
+/*
+.content .flexslider ul.slides li img{
 	width: 100%;
 	height: auto;
+}
+
+.content .flexslider ul li,
+.content .flexslider ol li{
+	display: block;
+	list-style: none !important;
+}
+
+.content .flexslider ul.slides{
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+
+.content .flexslider ul.slides li{
+	list-style: none;
+}
+
+.content .flexslider .flex-control-nav{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.content .flexslider .flex-control-nav li{
+	
+}
+*/
+
+/* @end */
+
+/* @group Panels */
+
+.panel-grid{
+    margin: 0 -15px 30px -15px;
+}
+
+.panel-grid-cell{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    padding: 0 15px;
+}
+
+.panel-grid-cell .panel{
+    margin-bottom: 30px;
+}
+
+.panel-grid-cell .panel:last-child{
+    margin-bottom: 0;
+}
+
+.panel {
+    min-height: 1em;
+    margin-bottom: 15px;
+}
+
+.panel.panel-last-child{
+    margin-bottom: 0;
+}
+
+/* @group Widgets */
+
+.panel h3.widget-title{
+    margin-bottom: 15px;
+    font-size: 115%;
 }
 
 /* @end */

@@ -37,7 +37,7 @@
 			}
 			else $columns = 1;
 			?>
-			<div class="content column-<?php print $columns ?>">
+			<div class="content column-<?php echo $columns ?>">
 				<?php if(has_post_thumbnail() && get_post_format() == 'image') : ?>
 					<div class="featured-image">
 						<?php the_post_thumbnail(null, array('class' => 'main-image desktop')) ?>
