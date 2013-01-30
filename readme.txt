@@ -68,3 +68,4 @@ Integrated page builder
 Added widgets
 Updated to the latest SiteOrigin framework
 Integrated mobile navigation
+Various bug fixes

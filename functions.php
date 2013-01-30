@@ -23,6 +23,7 @@ include get_template_directory().'/extras/mobilenav/mobilenav.php';
 
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
+include get_template_directory().'/functions/layouts.php';
 
 
 if(!function_exists('origami_setup')) :
