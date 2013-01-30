@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: No Page Title
+Template Name: Without Page Title
 */
 get_header(); the_post();
 ?>
