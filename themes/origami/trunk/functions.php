@@ -67,6 +67,8 @@ function origami_setup(){
 	
 	add_theme_support('siteorigin-mobilenav');
 	
+	add_theme_support('siteorigin-panels');
+	
 	add_editor_style();
 	
 	// Set up the image sizes
