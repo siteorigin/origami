@@ -57,3 +57,8 @@ Using wp_enqueue_style to enqueue style.css
 
 1.2.7
 Fixed theme endpoint and version number
+
+1.3.2
+Fixed a bug in the custom gallery.
+Fixed translation issues.
+General code clean up.

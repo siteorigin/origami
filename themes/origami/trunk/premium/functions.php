@@ -9,6 +9,7 @@ include get_template_directory().'/premium/extras/share/share.php';
 include get_template_directory().'/premium/extras/css/css.php';
 include get_template_directory().'/premium/extras/ajax-comments/ajax-comments.php';
 include get_template_directory().'/premium/extras/responsive-widgets/responsive-widgets.php';
+include get_template_directory().'/premium/extras/widgets/widgets.php';
 
 /**
  * Setup Origami Premium. Runs after Origami is set up.
