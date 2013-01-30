@@ -245,7 +245,7 @@ body{
 	
 	top: 100%;
 	left: 0px;
-	width: 135px;
+	width: 160px;
 	border-top: 1px solid #E4E4E4;
 	
 	background-color: #F4F4F4;
@@ -253,13 +253,13 @@ body{
 }
 
 #menu ul li ul li a{
-	padding: 25px;
+	padding: 25px 0;
 	color: #606060;
 	font-size: 0.9em;
 }
 
 #menu ul ul li{
-	width: 135px;
+	width: 160px;
 	text-align: center;
 	padding: 10px 0;
 }
