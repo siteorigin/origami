@@ -62,3 +62,9 @@ Fixed theme endpoint and version number
 Fixed a bug in the custom gallery.
 Fixed translation issues.
 General code clean up.
+
+1.4
+Integrated page builder
+Added widgets
+Updated to the latest SiteOrigin framework
+Integrated mobile navigation

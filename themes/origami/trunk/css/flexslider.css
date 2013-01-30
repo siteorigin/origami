@@ -19,6 +19,10 @@
 .flexslider {
 	width: 100%;
 }
+.flexslider a{
+    text-decoration: none;
+}
+
 .flexslider .slides {
 	padding: 0;
 	margin-bottom: 0;
