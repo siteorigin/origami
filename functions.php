@@ -17,6 +17,7 @@ include get_template_directory().'/extras/premium/premium.php';
 include get_template_directory().'/extras/settings/settings.php';
 include get_template_directory().'/extras/update/update.php';
 include get_template_directory().'/extras/admin/admin.php';
+include get_template_directory().'/extras/panels/panels.php';
 
 include get_template_directory().'/functions/settings.php';
 
@@ -45,7 +46,7 @@ function origami_setup(){
 	add_theme_support( 'post-thumbnails');
 	
 	// Create the primary menu area
-	register_nav_menu( 'primary', 'Primary Menu' );
+	register_nav_menu( 'primary', __( 'Primary Menu', 'origami' ) );
 
 	// Add support for custom backgrounds.
 	add_theme_support( 'custom-background' , array(
@@ -67,6 +68,14 @@ function origami_setup(){
 	add_image_size('post-thumbnail-mobile', 480, 420, true);
 	add_image_size('post-thumbnail-full', 904, 904, false);
 	add_image_size('origami-slider', 904, 500, true);
+
+	/**
+	 * Support panels
+	 */
+	add_theme_support( 'siteorigin-panels', array(
+		'margin-bottom' => 30,
+		'responsive' => true
+	) );
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
@@ -248,7 +257,7 @@ function origami_comment($comment, $args, $depth){
 			<?php $type = get_comment_type($comment->comment_ID); ?>
 			<?php if($type == 'comment') : ?>
 			<div class="avatar-container">
-				<?php print get_avatar(get_comment_author_email(), $depth == 1 ? 60 : 45) ?>
+				<?php echo get_avatar(get_comment_author_email(), $depth == 1 ? 60 : 45) ?>
 			</div>
 			<?php endif; ?>
 	
@@ -318,6 +327,17 @@ function origami_gallery($contents, $attr){
 			unset( $attr['orderby'] );
 	}
 
+	/**
+	 * @var $order
+	 * @var $orderby
+	 * @var $id
+	 * @var $itemtag
+	 * @var $icontag
+	 * @var $captiontag
+	 * @var $size
+	 * @var $include
+	 * @var $exclude
+	 */
 	extract(shortcode_atts(array(
 		'order'      => 'ASC',
 		'orderby'    => 'menu_order ID',
@@ -326,7 +346,7 @@ function origami_gallery($contents, $attr){
 		'icontag'    => 'dt',
 		'captiontag' => 'dd',
 		'columns'    => 3,
-		'size'       => 'thumbnail',
+		'size'       => 'origami-slider',
 		'include'    => '',
 		'exclude'    => ''
 	), $attr));
@@ -343,10 +363,12 @@ function origami_gallery($contents, $attr){
 		foreach ( $_attachments as $key => $val ) {
 			$attachments[$val->ID] = $_attachments[$key];
 		}
-	} elseif ( !empty($exclude) ) {
+	}
+	elseif ( !empty($exclude) ) {
 		$exclude = preg_replace( '/[^0-9,]+/', '', $exclude );
 		$attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-	} else {
+	}
+	else {
 		$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
 	}
 
@@ -355,17 +377,20 @@ function origami_gallery($contents, $attr){
 	// This is the custom stuff
 	
 	// Create the gallery content
-	$return = '</div>'; // close the content div
+	$return = '';
+	// $return .= '</div>'; // close the content div
+	$return .= '<div class="flexslider-wrapper">';
 	$return .= '<div class="flexslider">';
 	$return .= '<ul class="slides">';
 	foreach($attachments as $attachment){
 		$return .= '<li>';
-		$return .= wp_get_attachment_image($attachment->ID, 'origami-slider', false, array('class' => 'slide-image'));
+		$return .= wp_get_attachment_image($attachment->ID, $size, false, array('class' => 'slide-image'));
 		$return .= '</li>';
 	}
 	$return .= '</ul>';
 	$return .= '</div>';
-	$return .= '<div class="content">'; // Reopen the content div
+	$return .= '</div>';
+	// $return .= '<div class="content">'; // Reopen the content div
 	
 	return $return;
 }
@@ -399,15 +424,15 @@ function origami_print_styles(){
 	
 	?>
 	<style type="text/css" media="screen">
-		.content a { color: <?php print siteorigin_setting('colors_link_color') ?>; }
-		#page-container { border-color: <?php print siteorigin_setting('colors_page_border_color') ?>; }
-		#footer-widgets .widget { width: <?php print round(100/$count,5) ?>%; }
-		#footer { color: <?php print siteorigin_setting('colors_footer_text') ?>; }
-		#footer a { color: <?php print siteorigin_setting('colors_footer_link') ?>; }
+		.content a { color: <?php echo strip_tags(siteorigin_setting('colors_link_color')) ?>; }
+		#page-container { border-color: <?php echo strip_tags(siteorigin_setting('colors_page_border_color')) ?>; }
+		#footer-widgets .widget { width: <?php echo round(100/$count,5) ?>%; }
+		#footer { color: <?php echo strip_tags(siteorigin_setting('colors_footer_text')) ?>; }
+		#footer a { color: <?php echo strip_tags(siteorigin_setting('colors_footer_link')) ?>; }
 	</style>
 	<?php
 }
-add_action('wp_print_styles', 'origami_print_styles');
+add_action('wp_head', 'origami_print_styles', 11);
 
 if(!function_exists('origami_html_shiv')) :
 /**

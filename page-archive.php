@@ -18,7 +18,7 @@ get_header(); the_post(); ?>
 		<?php if(!empty($recent)) : ?>
 			<ul>
 				<?php foreach($recent as $recent_post) : ?>
-					<li><a href="<?php print get_permalink($recent_post->ID) ?>"><?php print $recent_post->post_title ?></a></li>
+					<li><a href="<?php echo get_permalink($recent_post->ID) ?>"><?php echo $recent_post->post_title ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		<?php endif; ?>
