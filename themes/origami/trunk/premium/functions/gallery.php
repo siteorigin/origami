@@ -3,7 +3,7 @@
 function origami_premium_gallery_attachment_link($fields, $post){
 	$url = get_post_meta($post->ID, 'slide_url', true);
 	$fields['origami_slide_url'] = array(
-		'label' => __('Slide URL', 'origami'),
+		'label' => __('Target URL', 'origami'),
 		'input' => 'html',
 		'html' => '<input name="attachments['.$post->ID.'][slide_url]" id="attachment-'.$post->ID.'-slide_url" type="text" value="'.esc_attr($url).'" />',
 		'value' => $url
