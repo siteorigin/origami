@@ -5,14 +5,19 @@ function origami_premium_upgrade_content($content){
 	$content['premium_summary'] = __("If you've enjoyed using Origami, you'll going to love Origami Premium. It's a robust upgrade to Origami that gives you loads of cool features and email support. At just <strong>$5</strong>, it's a cost effective way to give your site a professional edge.", 'origami');
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
-	$content['buy_price'] = '$5';
+	$content['buy_price'] = '$9';
 	$content['buy_button'] = get_template_directory_uri().'/upgrade/images/button.png';
 	$content['buy_message_1'] = __("If you're not delighted with Origami Premium, I'll give you a full refund", 'origami');
-	$content['buy_message_2'] = __("Remember, if you're not satisfied, you get your money back", 'origami');
+	$content['buy_message_2'] = __("Buy now and enjoy continued updates", 'origami');
 	
 	$content['featured'] = array(get_template_directory_uri().'/upgrade/promo.jpg', 1259, 1073);
 
 	$content['features'] = array();
+	$content['features'][] = array(
+		'heading' => __('Additional Widgets for Your Panel Pages', 'origami'),
+		'content' => __('Origami Premium has additional widgets that you can use to populate your Panels pages.', 'origami'),
+	);
+	
 	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'origami'),
 		'content' => __('Origami premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'origami'),
