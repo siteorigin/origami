@@ -381,6 +381,29 @@ h1.entry-title a{
 	column-gap: 30px;
 }
 
+.post-navigation{
+	margin-top: 15px;
+	margin-bottom: 35px;
+}
+
+.post-navigation a{
+	display: block;
+	color: #505050;
+	text-decoration: none;
+}
+
+.post-navigation a:hover{
+	color: #333;
+}
+
+.post-navigation a[rel=prev]{
+	float: left;
+}
+
+.post-navigation a[rel=next]{
+	float: right;
+}
+
 @media screen and (max-width:480px) {
 	.post .content {
 		-moz-column-count: 1 !important;
