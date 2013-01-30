@@ -1144,42 +1144,6 @@ h1.archive-title {
 
 /* @end */
 
-/* @group Flex Slider */
-
-/*
-.content .flexslider ul.slides li img{
-	width: 100%;
-	height: auto;
-}
-
-.content .flexslider ul li,
-.content .flexslider ol li{
-	display: block;
-	list-style: none !important;
-}
-
-.content .flexslider ul.slides{
-	line-height: 1;
-	margin: 0;
-	padding: 0;
-}
-
-.content .flexslider ul.slides li{
-	list-style: none;
-}
-
-.content .flexslider .flex-control-nav{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.content .flexslider .flex-control-nav li{
-	
-}
-*/
-
-/* @end */
 
 /* @group Panels */
 
@@ -1212,11 +1176,85 @@ h1.archive-title {
     margin-bottom: 0;
 }
 
-/* @group Widgets */
-
 .panel h3.widget-title{
     margin-bottom: 15px;
     font-size: 115%;
 }
+
+/* @end */
+
+/* @group Widgets */
+
+/* @group Button */
+
+.widget .button{
+	display: inline-block;
+
+	background: #484744;
+	border: none;
+	color: #FFF;
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	
+	text-decoration: none;
+	font-size: 13px;
+	padding: 12px 35px;
+	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.button-container.align-center{
+	text-align: center;
+}
+
+.button-container.align-left{
+	text-align: left;
+}
+
+.button-container.align-right{
+	text-align: right;
+}
+
+/* @end */
+
+/* @group Call To Action */
+
+.widget_call-to-action {
+	padding: 25px 15px;
+	border: 1px solid #EEEEEE;
+	border-width: 1px 0;
+	background: #F9F9F9;
+	position: relative;
+}
+
+.widget_call-to-action .cta-headline{
+	margin-bottom: 0;
+	color: #444444;
+}
+
+.widget_call-to-action .cta-sub-text{
+	margin-top: 10px;
+	margin-bottom: 0;
+	color: #777777;
+}
+
+.widget_call-to-action .button{
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	margin-top: -22px;
+}
+
+@media screen and (max-width:480px) {
+	.widget_call-to-action .button{
+		position: static;
+		margin-top: 10px;
+		display: block;
+		text-align: center;
+	}
+}
+
+/* @end */
 
 /* @end */

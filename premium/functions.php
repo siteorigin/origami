@@ -2,7 +2,8 @@
 
 define('SITEORIGIN_IS_PREMIUM', true);
 
-require_once get_template_directory().'/premium/settings.php';
+include get_template_directory().'/premium/functions/settings.php';
+include get_template_directory().'/premium/functions/gallery.php';
 
 // Include all the premium extras
 include get_template_directory().'/premium/extras/share/share.php';
@@ -40,3 +41,14 @@ function origami_premium_filter_stylesheet_url(){
 }
 add_filter('stylesheet_uri', 'origami_premium_filter_stylesheet_url', 10, 2);
 
+/**
+ * Register all widgets
+ */
+function origami_premium_widgets_init() {
+	register_widget( 'SiteOrigin_Widgets_GoogleMap' );
+	register_widget( 'SiteOrigin_Widgets_Video' );
+	//register_widget( 'SiteOrigin_Widgets_List' );
+	//register_widget( 'SiteOrigin_Widgets_CF7' );
+}
+
+add_action( 'widgets_init', 'origami_premium_widgets_init' );
