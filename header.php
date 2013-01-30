@@ -26,7 +26,7 @@
 			</a>
 			<?php if(siteorigin_setting('display_header_search')) get_search_form(); ?>
 		</div>
-		<div id="menu">
+		<nav id="menu" class="primary">
 			<?php
 				wp_nav_menu(array(
 					'theme_location' => 'primary',
@@ -34,4 +34,4 @@
 					'depth' => 2,
 				));
 			?>
-		</div>
+		</nav>
