@@ -14,11 +14,6 @@ function origami_premium_upgrade_content($content){
 
 	$content['features'] = array();
 	$content['features'][] = array(
-		'heading' => __('Premium Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized support on our support forums.", 'origami'),
-	);
-
-	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'origami'),
 		'content' => __('Origami premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'origami'),
 	);
@@ -41,6 +36,11 @@ function origami_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __("CSS Editor", 'origami'),
 		'content' => __("A simple CSS editor that lets you easily add code that changes the look of Origami. You can count on our support staff to help you with CSS snippets to get the look you're after. Best of all, your changes will persist across updates.", 'origami'),
+	);
+
+	$content['features'][] = array(
+		'heading' => __('Premium Support', 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized support on our support forums.", 'origami'),
 	);
 
 	$content['features'][] = array(
