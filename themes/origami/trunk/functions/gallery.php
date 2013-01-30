@@ -48,7 +48,7 @@ function origami_gallery($contents, $attr){
 		'wp_default'    => false,
 		'target_blank' => false,
 	), $attr));
-
+	
 	// This gallery has requested to use the WordPress default gallery
 	if($wp_default) return $contents;
 
