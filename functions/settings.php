@@ -40,6 +40,10 @@ function origami_settings_init(){
 		'description' => __('Center the main logo', 'origami')
 	));
 
+	siteorigin_settings_add_field('display', 'next_prev', 'checkbox', __('Post Navigation', 'origami'), array(
+		'description' => __('Next and previous post links on single post pages.', 'origami')
+	));
+
 	siteorigin_settings_add_section('comments', __('Comments', 'origami'));
 	siteorigin_settings_add_teaser('comments', 'ajax', __('Ajax Comments', 'origami'), array(
 		'description' => __('Users can comment without leaving the page.', 'origami')
@@ -122,6 +126,7 @@ function origami_settings_defaults($defaults){
 	$defaults['display_attribution'] = true;
 	$defaults['display_logo_centered'] = false;
 	$defaults['display_gallery'] = true;
+	$defaults['display_next_prev'] = false;
 	
 	$defaults['comments_ajax'] = true;
 	$defaults['responsive_footer'] = true;
