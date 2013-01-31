@@ -13,19 +13,22 @@ function origami_premium_upgrade_content($content){
 	$content['featured'] = array(get_template_directory_uri().'/upgrade/promo.jpg', 1259, 1073);
 
 	$content['features'] = array();
+
+	$content['features'][] = array(
+		'heading' => __("Responsive Features", 'origami'),
+		'content' => __("The final puzzle pieces in making Origami truly responsive. Origami Premium has footer widgets that collapse below each other on narrower resolution devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'origami'),
+		'image' => get_template_directory_uri() . '/upgrade/teaser/nav.png',
+	);
+	
 	$content['features'][] = array(
 		'heading' => __('Additional Widgets for Your Panel Pages', 'origami'),
 		'content' => __('Origami Premium has additional widgets that you can use to populate your Panels pages.', 'origami'),
+		'image' => get_template_directory_uri() . '/extras/panels/images/teaser.png',
 	);
 	
 	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'origami'),
 		'content' => __('Origami premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'origami'),
-	);
-
-	$content['features'][] = array(
-		'heading' => __("Responsive Footer Widgets", 'origami'),
-		'content' => __("The final puzzle piece in making Origami truly responsive. Origami Premium has footer widgets that collapse below each other on narrower resolution devices.", 'origami'),
 	);
 
 	$content['features'][] = array(
@@ -36,6 +39,7 @@ function origami_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __("Social Sharing", 'origami'),
 		'content' => __("Origami Premium includes social sharing for Facebook, Twitter and Google Plus. They fit right into the clean design of Origami.", 'origami'),
+		'image' => get_template_directory_uri() . '/upgrade/teaser/share.png',
 	);
 
 	$content['features'][] = array(
@@ -51,6 +55,7 @@ function origami_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __("Continued Updates", 'origami'),
 		'content' => __("You'll get continued updates, ensuring that your Origami powered site keeps on working with the latest version of WordPress for years to come.", 'origami'),
+		'image' => get_template_directory_uri() . '/upgrade/teaser/updates.png',
 	);
 	
 	$content['testimonials'] = array(
