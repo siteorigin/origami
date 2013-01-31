@@ -71,7 +71,7 @@ function origami_premium_upgrade_content($content){
 			'content' => __('This is exactly the kind of theme I was looking for.', 'origami'),
 		),
 		array(
-			'gravatar' => '004aeb08475d44bb4ce6a50d19ba8838',
+			'gravatar' => '004aeb08475d44bb4ce6a50d19ba8839',
 			'name' => 'Esha',
 			'content' => __('Before trying any theme I check Pagespeed score and Yslow score on basic WordPress installation. This theme rocks on these two parameters.', 'origami'),
 		),
