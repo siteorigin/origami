@@ -52,7 +52,8 @@ function origami_settings_init(){
 	siteorigin_settings_add_section('responsive', __('Responsive Layout', 'origami'));
 	
 	siteorigin_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
-		'description' => __('Widgets collapse for mobile devices.', 'origami')
+		'description' => __('Footer widgets collapse for mobile devices.', 'origami'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/responsive-footer.png'
 	));
 
 	siteorigin_settings_add_teaser('responsive', 'nav', __('Mobile Navigation', 'origami'), array(
@@ -68,7 +69,8 @@ function origami_settings_init(){
 	));
 
 	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Username', 'origami'), array(
-		'description' => __('Recommend your Twitter account after someone tweets your post.', 'origami')
+		'description' => __('Recommend your Twitter account after someone tweets your post.', 'origami'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/share-rec.png'
 	));
 	
 	// We're using this to transfer the header image across from simple options
