@@ -64,8 +64,8 @@ Fixed translation issues.
 General code clean up.
 
 1.4
+Updated and integrated the latest SiteOrigin framework
 Integrated page builder
 Added widgets
-Updated to the latest SiteOrigin framework
-Integrated mobile navigation
 Various bug fixes
+A few additional options
