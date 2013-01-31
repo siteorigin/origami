@@ -11,7 +11,7 @@ function origami_settings_init(){
 	siteorigin_settings_add_teaser('colors', 'footer_text', __('Footer Copyright Color', 'origami'));
 	siteorigin_settings_add_teaser('colors', 'footer_link', __('Footer Copyright Link Color', 'origami'));
 	
-	siteorigin_settings_add_section('text', __('Site Text', 'origami'));
+	siteorigin_settings_add_section('text', __('Text', 'origami'));
 	siteorigin_settings_add_field('text', 'copyright', 'text', __('Copyright', 'origami'));
 	siteorigin_settings_add_field('text', 'not_found', 'text', __('404 Message', 'origami'));
 	siteorigin_settings_add_field('text', 'no_results', 'text', __('No Search Results', 'origami'));
@@ -50,7 +50,7 @@ function origami_settings_init(){
 		'description' => __('Users can comment without leaving the page.', 'origami')
 	));
 
-	siteorigin_settings_add_section('responsive', __('Responsive Layout', 'origami'));
+	siteorigin_settings_add_section('responsive', __('Responsive', 'origami'));
 	
 	siteorigin_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
 		'description' => __('Footer widgets collapse for mobile devices.', 'origami'),

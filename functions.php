@@ -105,6 +105,7 @@ function origami_widgets_init(){
 	register_widget( 'SiteOrigin_Widgets_Headline' );
 	register_widget( 'SiteOrigin_Widgets_Gallery' );
 	register_widget( 'SiteOrigin_Widgets_IconText' );
+	register_widget( 'SiteOrigin_Widgets_Image' );
 }
 endif;
 add_action('widgets_init', 'origami_widgets_init');
