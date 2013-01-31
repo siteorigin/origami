@@ -5,7 +5,7 @@ define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
 // Include premium functions if it exists
 if(file_exists(get_template_directory().'/premium/functions.php')){
-	include get_template_directory().'/premium/functions.php';
+	// include get_template_directory().'/premium/functions.php';
 }
 
 // Include all the SiteOrigin extras
@@ -105,7 +105,6 @@ function origami_widgets_init(){
 	register_widget( 'SiteOrigin_Widgets_Headline' );
 	register_widget( 'SiteOrigin_Widgets_Gallery' );
 	register_widget( 'SiteOrigin_Widgets_IconText' );
-	register_widget( 'SiteOrigin_Widgets_PostContent' );
 }
 endif;
 add_action('widgets_init', 'origami_widgets_init');
