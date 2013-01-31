@@ -19,7 +19,6 @@ include get_template_directory().'/extras/update/update.php';
 include get_template_directory().'/extras/admin/admin.php';
 include get_template_directory().'/extras/panels/panels.php';
 include get_template_directory().'/extras/widgets/widgets.php';
-include get_template_directory().'/extras/mobilenav/mobilenav.php';
 
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
@@ -65,8 +64,6 @@ function origami_setup(){
 		'header-text' => false,
 	));
 	
-	add_theme_support('siteorigin-mobilenav');
-	
 	add_theme_support('siteorigin-panels');
 	
 	add_editor_style();
@@ -108,6 +105,7 @@ function origami_widgets_init(){
 	register_widget( 'SiteOrigin_Widgets_Headline' );
 	register_widget( 'SiteOrigin_Widgets_Gallery' );
 	register_widget( 'SiteOrigin_Widgets_IconText' );
+	register_widget( 'SiteOrigin_Widgets_PostContent' );
 }
 endif;
 add_action('widgets_init', 'origami_widgets_init');

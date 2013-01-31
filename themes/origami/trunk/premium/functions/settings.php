@@ -10,6 +10,7 @@ function origami_premium_settings_init(){
 	siteorigin_settings_add_field('comments', 'ajax', 'checkbox');
 
 	siteorigin_settings_add_field('responsive', 'footer', 'checkbox');
+	siteorigin_settings_add_field('responsive', 'nav', 'checkbox');
 
 	siteorigin_settings_add_field('social', 'share', 'checkbox');
 	siteorigin_settings_add_field('social', 'twitter', 'text', null, array(
