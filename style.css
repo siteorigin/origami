@@ -348,39 +348,6 @@ h1.entry-title a{
 	color: #808080;
 }
 
-.post .content{
-	margin-bottom: 20px;
-	color: #525252;
-	font-size: 13px;
-}
-
-.post .content.column-2 {
-	-moz-column-count: 2;
-	-moz-column-gap: 30px;
-	-webkit-column-count: 2;
-	-webkit-column-gap: 30px;
-	column-count: 2;
-	column-gap: 30px;
-}
-
-.post .content.column-3 {
-	-moz-column-count: 3;
-	-moz-column-gap: 30px;
-	-webkit-column-count: 3;
-	-webkit-column-gap: 30px;
-	column-count: 3;
-	column-gap: 30px;
-}
-
-.post .content.column-4 {
-	-moz-column-count: 4;
-	-moz-column-gap: 30px;
-	-webkit-column-count: 4;
-	-webkit-column-gap: 30px;
-	column-count: 4;
-	column-gap: 30px;
-}
-
 .post-navigation{
 	margin-top: 15px;
 	margin-bottom: 35px;
@@ -499,6 +466,39 @@ h1.entry-title a{
 /* @end */
 
 /* @group Content */
+
+.post .content{
+	margin-bottom: 20px;
+	color: #606060;
+	font-size: 13px;
+}
+
+.post .content.column-2 {
+	-moz-column-count: 2;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 30px;
+	column-count: 2;
+	column-gap: 30px;
+}
+
+.post .content.column-3 {
+	-moz-column-count: 3;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 30px;
+	column-count: 3;
+	column-gap: 30px;
+}
+
+.post .content.column-4 {
+	-moz-column-count: 4;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 4;
+	-webkit-column-gap: 30px;
+	column-count: 4;
+	column-gap: 30px;
+}
 
 /* @group WP Core */
 
@@ -723,7 +723,7 @@ a img.aligncenter {
 .content h5,
 .content h6,
 .content strong {
-	color: #333333;
+	color: #404040;
 	margin: 1.5em 0;
 }
 

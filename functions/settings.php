@@ -55,10 +55,16 @@ function origami_settings_init(){
 		'description' => __('Widgets collapse for mobile devices.', 'origami')
 	));
 
+	siteorigin_settings_add_teaser('responsive', 'nav', __('Mobile Navigation', 'origami'), array(
+		'description' => __('Gorgeous mobile navigation menu for your main menu.', 'origami'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/nav.png',
+	));
+
 	siteorigin_settings_add_section('social', __('Social', 'origami'));
 	
 	siteorigin_settings_add_teaser('social', 'share', __('Share Post', 'origami'), array(
-		'description' => __('Display post sharing on the single post pages.', 'origami')
+		'description' => __('Display post sharing on the single post pages.', 'origami'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/share.png'
 	));
 
 	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Username', 'origami'), array(
@@ -129,7 +135,9 @@ function origami_settings_defaults($defaults){
 	$defaults['display_next_prev'] = false;
 	
 	$defaults['comments_ajax'] = true;
+	
 	$defaults['responsive_footer'] = true;
+	$defaults['responsive_nav'] = true;
 
 	$defaults['social_share'] = true;
 	$defaults['social_twitter'] = '';
