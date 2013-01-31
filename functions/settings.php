@@ -33,7 +33,8 @@ function origami_settings_init(){
 	));
 
 	siteorigin_settings_add_teaser('display', 'attribution', __('Footer Attribution Link', 'origami'), array(
-		'description' => __('Remove the "theme by SiteOrigin" in your footer.', 'origami')
+		'description' => __('Remove the "theme by SiteOrigin" in your footer.', 'origami'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/attribution.png'
 	));
 
 	siteorigin_settings_add_field('display', 'logo_centered', 'checkbox', __('Center Logo', 'origami'), array(
