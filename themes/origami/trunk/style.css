@@ -1331,4 +1331,9 @@ h1.archive-title {
 
 /* @end */
 
+.widget img{
+	max-width: 100%;
+	height: auto;
+}
+
 /* @end */
