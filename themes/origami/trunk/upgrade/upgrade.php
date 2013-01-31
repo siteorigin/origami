@@ -29,6 +29,7 @@ function origami_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'origami'),
 		'content' => __('Origami premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'origami'),
+		'image' => get_template_directory_uri() . '/upgrade/teaser/attribution.png',
 	);
 
 	$content['features'][] = array(
