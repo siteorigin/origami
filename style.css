@@ -1265,6 +1265,11 @@ h1.archive-title {
 	text-align: right;
 }
 
+.button-container.align-full .button{
+    display: block;
+    text-align: center;
+}
+
 /* @end */
 
 /* @group Call To Action */

@@ -6,7 +6,7 @@
  * @param $layouts
  */
 function origami_prebuilt_page_layouts($layouts){
-	$layouts[] = array (
+	$layouts['business_home'] = array (
 		'name' => __('Business Home Page', 'origami'),
 		'widgets' =>
 		array (
