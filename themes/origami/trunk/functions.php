@@ -64,8 +64,6 @@ function origami_setup(){
 		'header-text' => false,
 	));
 	
-	add_theme_support('siteorigin-panels');
-	
 	add_editor_style();
 	
 	// Set up the image sizes
@@ -79,7 +77,7 @@ function origami_setup(){
 	 */
 	add_theme_support( 'siteorigin-panels', array(
 		'margin-bottom' => 30,
-		'responsive' => true
+		'responsive' => true,
 	) );
 }
 endif;
