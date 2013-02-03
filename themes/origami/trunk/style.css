@@ -1336,6 +1336,39 @@ h1.archive-title {
 
 /* @end */
 
+/* @group Headline Widget */
+
+.widget_headline .widget-title span{
+    display: block;
+    line-height: 1.3em;
+}
+
+.widget_headline .widget-title .size-medium {
+    font-size: 130%;
+}
+
+.widget_headline .widget-title .size-large {
+    font-size: 160%;
+}
+
+.widget_headline .widget-title .size-extra-large {
+    font-size: 190%;
+}
+
+.widget_headline .align-left{
+    text-align: left;
+}
+
+.widget_headline .align-center{
+    text-align: center;
+}
+
+.widget_headline .align-right{
+    text-align: right;
+}
+
+/* @end */
+
 .widget img{
 	max-width: 100%;
 	height: auto;
