@@ -63,9 +63,12 @@ Fixed a bug in the custom gallery.
 Fixed translation issues.
 General code clean up.
 
-1.4
+1.4 - 1.4.1
 Updated and integrated the latest SiteOrigin framework
 Integrated page builder
 Added widgets
 Various bug fixes
 A few additional options
+
+1.4.2
+Usability improvements to Panels.
