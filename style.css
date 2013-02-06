@@ -473,7 +473,7 @@ h1.entry-title a{
 	font-size: 13px;
 }
 
-.post .content.column-2 {
+.content-columns-2 .content{
 	-moz-column-count: 2;
 	-moz-column-gap: 30px;
 	-webkit-column-count: 2;
@@ -482,7 +482,7 @@ h1.entry-title a{
 	column-gap: 30px;
 }
 
-.post .content.column-3 {
+.content-columns-3 .content{
 	-moz-column-count: 3;
 	-moz-column-gap: 30px;
 	-webkit-column-count: 3;
@@ -491,7 +491,7 @@ h1.entry-title a{
 	column-gap: 30px;
 }
 
-.post .content.column-4 {
+.content-columns-4 .content{
 	-moz-column-count: 4;
 	-moz-column-gap: 30px;
 	-webkit-column-count: 4;
@@ -1227,7 +1227,7 @@ h1.archive-title {
 
 .panel h3.widget-title{
     margin-bottom: 15px;
-    font-size: 115%;
+    font-size: 125%;
 }
 
 /* @end */
