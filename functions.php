@@ -78,6 +78,8 @@ function origami_setup(){
 	add_theme_support( 'siteorigin-panels', array(
 		'margin-bottom' => 30,
 		'responsive' => true,
+		'home-page' => true,
+		'home-page-default' => false,
 	) );
 }
 endif;
