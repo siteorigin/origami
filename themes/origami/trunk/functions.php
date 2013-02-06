@@ -381,3 +381,13 @@ function so_setting($name, $default = null){
 	return siteorigin_setting($name, $default);
 }
 endif;
+
+function origami_post_class_columns($classes, $class, $post_id){
+	if(!siteorigin_setting('display_use_columns')) return $classes;
+	if(is_page() && get_post_meta(get_the_ID(), 'panels_data')) return $classes;
+	
+	$columns = get_post_meta($post_id, 'content_columns', true);
+	if(!empty($columns)) $classes[] = 'content-columns-'.$columns;
+	return $classes;
+}
+add_filter('post_class', 'origami_post_class_columns', 10, 3);
