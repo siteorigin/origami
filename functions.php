@@ -16,7 +16,7 @@ if(!defined('SITEORIGIN_IS_PREMIUM')) {
 include get_template_directory().'/extras/premium/premium.php';
 include get_template_directory().'/extras/settings/settings.php';
 include get_template_directory().'/extras/update/update.php';
-include get_template_directory().'/extras/admin/admin.php';
+include get_template_directory().'/extras/adminbar/adminbar.php';
 include get_template_directory().'/extras/panels/panels.php';
 include get_template_directory().'/extras/widgets/widgets.php';
 
