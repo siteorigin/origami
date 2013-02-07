@@ -7,7 +7,6 @@ include get_template_directory().'/premium/functions/gallery.php';
 
 // Include all the premium extras
 include get_template_directory().'/premium/extras/mobilenav/mobilenav.php';
-include get_template_directory().'/premium/extras/panels/panels.php';
 include get_template_directory().'/premium/extras/share/share.php';
 include get_template_directory().'/premium/extras/css/css.php';
 include get_template_directory().'/premium/extras/ajax-comments/ajax-comments.php';
