@@ -117,4 +117,4 @@ function origami_prebuilt_page_layouts($layouts){
 	
 	return $layouts;
 }
-add_filter('siteorigin_elements_prebuilt_layouts', 'origami_prebuilt_page_layouts');
+add_filter('siteorigin_panels_prebuilt_layouts', 'origami_prebuilt_page_layouts');
