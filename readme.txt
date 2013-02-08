@@ -72,3 +72,7 @@ A few additional options
 
 1.4.2
 Usability improvements to Panels.
+
+1.4.3
+Added home page builder
+Fixed issue with column setting
