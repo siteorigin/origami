@@ -3,14 +3,21 @@
 if(!function_exists('origami_gallery')) :
 /**
  * Display a special Origami image gallery
+ * 
+ * @param $contents
  * @param $atts
  * @return string
  */
 function origami_gallery($contents, $attr){
 	if(!siteorigin_setting('display_gallery')) return $contents;
 	
-	global $post;
+	if(siteorigin_panels_is_home() && empty($attr['ids'])){
+		// Display the default Origami gallery
+		return origami_gallery_default();
+	}
 
+	global $post;
+	
 	static $instance = 0;
 	$instance++;
 
@@ -100,3 +107,30 @@ function origami_gallery($contents, $attr){
 }
 endif;
 add_filter('post_gallery', 'origami_gallery', 10, 2);
+
+function origami_gallery_default(){
+	$return = '';
+	$return .= '<div class="flexslider-wrapper">';
+	$return .= '<div class="flexslider">';
+	$return .= '<ul class="slides">';
+	
+	$default_gallery = array(
+		array(get_template_directory_uri().'/demo/slide.jpg', 903, 452, __('This is a default gallery.', 'origami')),
+		array(get_template_directory_uri().'/demo/slide2.jpg', 903, 452, __('Edit it by editing the gallery widget.', 'origami')),
+		array(get_template_directory_uri().'/demo/slide.jpg', 903, 452, __('You can easily add your own images and captions.', 'origami')),
+		array(get_template_directory_uri().'/demo/slide2.jpg', 903, 452, __('With a beautifully simple interface.', 'origami')),
+	);
+	foreach($default_gallery as $img){
+		$return .= '<li>';
+		$return .= '<img src="' . esc_url($img[0]) . '" width="' . intval($img[1]) . '" height="' . intval($img[2]) . '" class="slide-image" />';
+		$return .= '<div class="flex-caption">' . esc_html($img[3]) . '</div>';
+		$return .= '</li>';
+	}
+	
+	
+	$return .= '</ul>';
+	$return .= '</div>';
+	$return .= '</div>';
+	
+	return $return;
+}
