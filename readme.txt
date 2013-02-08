@@ -15,6 +15,8 @@ This theme includes the following external libraries
 * Modernizr under MIT & BSD licenses
 * Selectivizr by Keith Clark under MIT license
 
+Images in demo folder are from Pixabay. Licensed under public domain.
+
 -----------------------------------------------
 Change Log:
 -----------------------------------------------
