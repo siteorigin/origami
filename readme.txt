@@ -78,3 +78,7 @@ Usability improvements to Panels.
 1.4.3
 Added home page builder
 Fixed issue with column setting
+
+1.4.4
+Fix to notification/welcome bar
+Minor fixes to Panels
