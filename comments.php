@@ -10,37 +10,37 @@
 	<a name="comments"></a>
 	<div id="comments" class="section">
 		<?php if(have_comments()) : ?>
-			
-		<h3 class="comments-title">
-			<?php
-			printf(
-				_n('One Comment', '%1$s Comments', get_comments_number(), 'origami'),
-				number_format_i18n(get_comments_number()),
-				'<em>' . get_the_title() . '</em>'
-			);
-			?>
-		</h3>
-	
-		<?php if(get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
-			<div class="navigation">
-				<div
-					class="nav-previous"><?php previous_comments_link(__('<span class="meta-nav">&larr;</span> Older Comments', 'origami')); ?></div>
-				<div
-					class="nav-next"><?php next_comments_link(__('Newer Comments <span class="meta-nav">&rarr;</span>', 'origami')); ?></div>
-			</div>
+			<h3 class="comments-title">
+				<?php
+				printf(
+					_n('One Comment', '%1$s Comments', get_comments_number(), 'origami'),
+					number_format_i18n(get_comments_number()),
+					'<em>' . get_the_title() . '</em>'
+				);
+				?>
+			</h3>
+		
+			<?php if(get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
+				<div class="navigation">
+					<div
+						class="nav-previous"><?php previous_comments_link(__('<span class="meta-nav">&larr;</span> Older Comments', 'origami')); ?></div>
+					<div
+						class="nav-next"><?php next_comments_link(__('Newer Comments <span class="meta-nav">&rarr;</span>', 'origami')); ?></div>
+				</div>
 			<?php endif; ?>
-	
-		<ol class="commentlist">
-			<?php
-			// List comments
-			wp_list_comments(array(
-				'callback' => 'origami_comment'
-			));
-			?>
-		</ol>
+		
+			<ol class="commentlist">
+				<?php
+				// List comments
+				wp_list_comments(array(
+					'callback' => 'origami_comment'
+				));
+				?>
+			</ol>
 		<?php endif; ?>
 	
 		<?php
+		// Display the comment form
 		$commenter = wp_get_current_commenter();
 		comment_form(array(
 			'fields' => array(

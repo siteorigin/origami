@@ -82,3 +82,8 @@ Fixed issue with column setting
 1.4.4
 Fix to notification/welcome bar
 Minor fixes to Panels
+
+1.4.5
+Added blog page archive.
+Fixed conflict with home page and columns.
+Fixes bugs in panels page builder.
