@@ -1326,7 +1326,7 @@ h1.archive-title {
 }
 
 .widget_icon-text .feature-icon img{
-	width: 100%;
+	max-width: 100%;
 	height: auto;
 }
 
