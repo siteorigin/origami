@@ -8,3 +8,5 @@ query_posts(array(
 	'paged' => $wp_query->get('paged'),
 ));
 get_template_part('index');
+
+wp_reset_query();
