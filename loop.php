@@ -12,9 +12,9 @@
 			<?php if(!in_array(get_post_format(), array('aside', 'link', 'status'))) : ?>
 				<h1 class="entry-title">
 					<?php if(is_singular()) : ?>
-					<?php the_title() ?>
+						<?php the_title() ?>
 					<?php else : ?>
-					<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+						<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
 					<?php endif; ?>
 				</h1>
 	
