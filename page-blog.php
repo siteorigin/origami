@@ -10,3 +10,4 @@ query_posts(array(
 get_template_part('index');
 
 wp_reset_query();
+wp_reset_postdata();
