@@ -88,6 +88,4 @@ Fixes bugs in panels page builder.
 
 **1.4.6**
 Small fix to the blog page template.
-
-**1.4.7**
 Fixed conflict with page builder plugin.
