@@ -21,7 +21,7 @@ include get_template_directory().'/extras/widgets/widgets.php';
 
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
-include get_template_directory().'/functions/layouts.php';
+include get_template_directory().'/functions/panels.php';
 
 
 if(!function_exists('origami_setup')) :
