@@ -2,7 +2,7 @@
 
 function origami_premium_upgrade_content($content){
 	$content['premium_title'] = __('Upgrade To Origami Premium', 'origami');
-	$content['premium_summary'] = __("If you've enjoyed using Origami, you'll going to love Origami Premium. It's a robust upgrade to Origami that gives you loads of cool features and email support. For just a few dollars, it's a cost effective way to give your site a professional edge.", 'origami');
+	$content['premium_summary'] = __("If you've enjoyed using Origami, you're going to love Origami Premium. It's a robust upgrade to Origami that gives you loads of cool features. For just a few dollars, it's a cost effective way to give your site a professional edge.", 'origami');
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
 	$content['buy_price'] = '$9';
