@@ -17,8 +17,8 @@ include get_template_directory().'/extras/premium/premium.php';
 include get_template_directory().'/extras/settings/settings.php';
 include get_template_directory().'/extras/update/update.php';
 include get_template_directory().'/extras/adminbar/adminbar.php';
-include get_template_directory().'/extras/panels/panels.php';
 include get_template_directory().'/extras/widgets/widgets.php';
+if(!defined('SITEORIGIN_PANELS_VERSION')) include get_template_directory().'/extras/panels/panels.php';
 
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
