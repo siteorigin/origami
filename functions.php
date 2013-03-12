@@ -5,7 +5,7 @@ define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
 // Include premium functions if it exists
 if(file_exists(get_template_directory().'/premium/functions.php')){
-	include get_template_directory().'/premium/functions.php';
+	// include get_template_directory().'/premium/functions.php';
 }
 
 // Include all the SiteOrigin extras
@@ -105,10 +105,7 @@ function origami_widgets_init(){
 	register_widget( 'SiteOrigin_Widgets_CTA' );
 	register_widget( 'SiteOrigin_Widgets_Button' );
 	register_widget( 'SiteOrigin_Widgets_Headline' );
-	register_widget( 'SiteOrigin_Widgets_Gallery' );
 	register_widget( 'SiteOrigin_Widgets_IconText' );
-	register_widget( 'SiteOrigin_Widgets_Image' );
-	register_widget( 'SiteOrigin_Widgets_PostContent' );
 }
 endif;
 add_action('widgets_init', 'origami_widgets_init');
@@ -397,3 +394,31 @@ function origami_post_class_columns($classes, $class, $post_id){
 	return $classes;
 }
 add_filter('post_class', 'origami_post_class_columns', 10, 3);
+
+/**
+ * Update widget classes to use panels built in widgets.
+ * 
+ * @param $data
+ * @return mixed
+ */
+function origami_siteorigin_panels_data($data){
+	foreach($data['widgets'] as $i => $d){
+		if(!empty($d['info']['class'])){
+			switch($d['info']['class']){
+				case 'SiteOrigin_Widgets_Gallery':
+					$data['widgets'][$i]['info']['class'] = 'SiteOrigin_Panels_Widgets_Gallery';
+					break;
+
+				case 'SiteOrigin_Widgets_Image':
+					$data['widgets'][$i]['info']['class'] = 'SiteOrigin_Panels_Widgets_Image';
+					break;
+				
+				case 'SiteOrigin_Widgets_PostContent':
+					$data['widgets'][$i]['info']['class'] = 'SiteOrigin_Panels_Widgets_PostContent';
+					break;
+			}
+		}
+	}
+	return $data;
+}
+add_filter('siteorigin_panels_data', 'origami_siteorigin_panels_data');
