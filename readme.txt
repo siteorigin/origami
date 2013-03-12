@@ -89,3 +89,8 @@ Fixes bugs in panels page builder.
 **1.4.6**
 Small fix to the blog page template.
 Fixed conflict with page builder plugin.
+
+**1.4.7**
+Fixed social sharing on single post pages.
+Fixed issue with next and previous posts setting.
+Updated to the latest version of FlexSlider.

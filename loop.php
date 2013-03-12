@@ -89,7 +89,14 @@
 					<div class="clear"></div>
 				</div>
 			<?php endif; ?>
-				
+
+			<?php if(is_single() && siteorigin_setting('display_next_prev')) : ?>
+				<div class="post-navigation">
+					<?php next_post_link('%link'); previous_post_link('%link'); ?>
+					<div class="clear"></div>
+				</div>
+			<?php endif; ?>
+			
 			<?php if(is_singular()) : ?>
 				<div id="single-comments-wrapper">
 					<?php comments_template() ?>
