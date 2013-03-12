@@ -57,6 +57,7 @@
 			?>
 			
 			<?php $tags = wp_get_post_tags($post->ID); ?>
+			
 			<?php if(!empty($tags) || !is_singular()) : ?>
 				<div class="below-content">
 					<?php if(has_tag()) : ?>
@@ -82,7 +83,12 @@
 					
 					<?php if(is_singular() && siteorigin_setting('social_share')) locate_template('social-share.php', true); ?>
 				</div>
-			<?php elseif(siteorigin_setting('social_share') && function_exists('siteorigin_share_render')) : siteorigin_share_render(array('twitter' => siteorigin_setting('social_twitter'))); endif; ?>
+			<?php elseif(siteorigin_setting('social_share') && function_exists('siteorigin_share_render')) : ?>
+				<div class="below-content">
+					<?php siteorigin_share_render(array('twitter' => siteorigin_setting('social_twitter'))); ?>
+					<div class="clear"></div>
+				</div>
+			<?php endif; ?>
 				
 			<?php if(is_singular()) : ?>
 				<div id="single-comments-wrapper">
