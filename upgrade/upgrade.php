@@ -5,8 +5,8 @@ function origami_premium_upgrade_content($content){
 	$content['premium_summary'] = __("If you've enjoyed using Origami, you're going to love Origami Premium. It's a robust upgrade to Origami that gives you loads of cool features. For just a few dollars, it's a cost effective way to give your site a professional edge.", 'origami');
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
-	$content['buy_price'] = '$9';
-	$content['buy_button'] = get_template_directory_uri().'/upgrade/images/button.png';
+	$content['buy_url_supported'] = 'http://siteorigin.fetchapp.com/sell/xvphohjo';
+	$content['buy_price'] = 9;
 	$content['buy_message_1'] = __("If you're not delighted with Origami Premium, I'll give you a full refund", 'origami');
 	$content['buy_message_2'] = __("Buy now and enjoy continued updates", 'origami');
 	
@@ -49,14 +49,14 @@ function origami_premium_upgrade_content($content){
 	);
 
 	$content['features'][] = array(
-		'heading' => __('Premium Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized support on our support forums.", 'origami'),
-	);
-
-	$content['features'][] = array(
 		'heading' => __("Continued Updates", 'origami'),
 		'content' => __("You'll get continued updates, ensuring that your Origami powered site keeps on working with the latest version of WordPress for years to come.", 'origami'),
 		'image' => get_template_directory_uri() . '/upgrade/teaser/updates.png',
+	);
+
+	$content['features'][] = array(
+		'heading' => __('Premium Support', 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized support on our support forums.", 'origami'),
 	);
 	
 	$content['testimonials'] = array(
