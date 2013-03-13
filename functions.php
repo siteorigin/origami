@@ -402,6 +402,8 @@ add_filter('post_class', 'origami_post_class_columns', 10, 3);
  * @return mixed
  */
 function origami_siteorigin_panels_data($data){
+	if(empty($data['widgets'])) return $data;
+	
 	foreach($data['widgets'] as $i => $d){
 		if(!empty($d['info']['class'])){
 			switch($d['info']['class']){
