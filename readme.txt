@@ -94,3 +94,7 @@ Fixed conflict with page builder plugin.
 Fixed social sharing on single post pages.
 Fixed issue with next and previous posts setting.
 Updated to the latest version of FlexSlider.
+
+**1.4.8**
+Updated to latest version of framework.
+Fixed issue with blog archive page template.
