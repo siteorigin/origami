@@ -424,3 +424,31 @@ function origami_siteorigin_panels_data($data){
 	return $data;
 }
 add_filter('siteorigin_panels_data', 'origami_siteorigin_panels_data');
+
+/**
+ * This overwrites the show on front setting when we're displaying the blog archive page.
+ *
+ * @param $r
+ * @return bool
+ */
+function origami_filter_show_on_front($r){
+	/**
+	 * @var WP_Query
+	 */
+	global $origami_is_blog_archive;
+	if(!empty($origami_is_blog_archive)) {
+		return false;
+	}
+	else return $r;
+}
+add_filter('option_show_on_front', 'origami_filter_show_on_front');
+
+/**
+ * Sets when we're displaying the blog archive page.
+ *
+ * @param $new
+ */
+function origami_set_is_blog_archive($new) {
+	global $origami_is_blog_archive;
+	$origami_is_blog_archive = $new;
+}
