@@ -98,3 +98,6 @@ Updated to the latest version of FlexSlider.
 **1.4.8**
 Updated to latest version of framework.
 Fixed issue with blog archive page template.
+Fixed premium maps widget.
+
+**1.4.9**
