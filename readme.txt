@@ -100,4 +100,5 @@ Updated to latest version of framework.
 Fixed issue with blog archive page template.
 Fixed premium maps widget.
 
-**1.4.9**
+**1.4.9 - 1.4.10**
+Small version number changes for theme uploader.
