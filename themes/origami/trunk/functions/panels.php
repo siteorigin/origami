@@ -127,7 +127,7 @@ function origami_panels_settings($settings){
 	$settings['responsive'] = true;
 	$settings['margin-bottom'] = 30;
 	$settings['margin-sides'] = 30;
-	
+
 	return $settings;
 }
 add_filter('sitesiteorigin_panels_settings', 'origami_panels_settings');
