@@ -266,23 +266,13 @@ body{
 	display: block;
 }
 
-.mobilenav{
-    display: block;
-    padding: 22px 0;
-    text-align: center;
-    margin-bottom: 25px;
-
-    border: 1px solid #EEEEEE;
-    border-width: 1px 0;
-    background: #F9F9F9;
-    color: #606060;
-    text-decoration: none;
-    
+#menu .mobilenav-main-link {
     font-weight: 500;
     font-size: 14px;
 }
 
-.mobilenav .mobilenav-icon{
+
+#menu .mobilenav-main-link .mobile-nav-icon{
     display: inline-block;
     width: 13px;
     height: 15px;

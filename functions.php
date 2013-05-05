@@ -1,30 +1,19 @@
 <?php
 
 define('SITEORIGIN_THEME_VERSION', 'trunk');
-define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 define('SITEORIGIN_THEME_UPDATE_ID', 269);
 
-// Include premium functions if it exists
-if(file_exists(get_template_directory().'/premium/functions.php')){
-	include get_template_directory().'/premium/functions.php';
-}
-
-// Include all the SiteOrigin extras
-if(!defined('SITEORIGIN_IS_PREMIUM')) {
-	include get_template_directory().'/upgrade/upgrade.php';
-}
-
-include get_template_directory().'/extras/premium/premium.php';
 include get_template_directory().'/extras/settings/settings.php';
 include get_template_directory().'/extras/update/update.php';
 include get_template_directory().'/extras/adminbar/adminbar.php';
 include get_template_directory().'/extras/widgets/widgets.php';
 include get_template_directory() . '/extras/updater/updater.php';
+include get_template_directory() . '/extras/recommended/recommended.php';
 
+include get_template_directory().'/functions/recommended.php';
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
 include get_template_directory().'/functions/panels.php';
-
 
 if(!function_exists('origami_setup')) :
 /**
@@ -81,6 +70,7 @@ function origami_setup(){
 		'responsive' => true,
 		'home-page' => true,
 		'home-page-default' => false,
+		'affiliate-id' => 'TESTING',
 	) );
 	
 	// Only include the bundled version of panels if the plugin does not exist
@@ -230,28 +220,6 @@ function origami_enqueue_google_webfonts(){
 }
 endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_google_webfonts');
-
-
-if(!function_exists('origami_attribution_footer')) :
-/**
- * Renders the theme attribution. This is used in your site's footer.
- *
- * You can override this in your child theme to remove the attribution, but it'd be really cool if you left it in :) If
- * you decide to remove it, please show your support in other ways. Like by telling people about our free themes.
- *
- * @param string $before Displayed before the attribution link
- * @param string $after Displayed after the attribution link
- */
-function origami_attribution_footer($before, $after){
-	if(!siteorigin_setting('display_attribution')) return false;
-	
-	print $before;
-	printf(__('Powered By %s', 'origami'), '<a href="http://wordpress.org">WordPress</a>');
-	print ' - ';
-	printf(__('Theme By %s', 'origami'), '<a href="http://siteorigin.com">SiteOrigin</a>');
-	print $after;
-}
-endif;
 
 
 if(!function_exists('origami_comment')) :
