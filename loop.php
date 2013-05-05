@@ -50,10 +50,10 @@
 			</div>
 			
 			<?php
-			wp_link_pages(array(
+			wp_link_pages( array(
 				'before' => '<p class="page-links content">' . __('Pages:', 'origami'),
 				'after' => '</p>',
-			))
+			) )
 			?>
 			
 			<?php $tags = wp_get_post_tags($post->ID); ?>
@@ -98,9 +98,7 @@
 			<?php endif; ?>
 			
 			<?php if(is_singular()) : ?>
-				<div id="single-comments-wrapper">
-					<?php comments_template() ?>
-				</div>
+				<?php comments_template() ?>
 			<?php endif; ?>
 			
 		</div>

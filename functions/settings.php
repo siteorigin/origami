@@ -5,12 +5,6 @@ function origami_settings_init(){
 	siteorigin_settings_add_section('colors', __('Colors', 'origami'));
 	siteorigin_settings_add_field('colors', 'link_color', 'color', __('Link Color', 'origami'));
 	
-	siteorigin_settings_add_teaser('colors', 'page_border_color', __('Page Border Color', 'origami'), array(
-		'description' => __('Main page border color', 'origami')
-	));
-	siteorigin_settings_add_teaser('colors', 'footer_text', __('Footer Copyright Color', 'origami'));
-	siteorigin_settings_add_teaser('colors', 'footer_link', __('Footer Copyright Link Color', 'origami'));
-	
 	siteorigin_settings_add_section('text', __('Text', 'origami'));
 	siteorigin_settings_add_field('text', 'copyright', 'text', __('Copyright', 'origami'));
 	siteorigin_settings_add_field('text', 'not_found', 'text', __('404 Message', 'origami'));
@@ -32,11 +26,6 @@ function origami_settings_init(){
 		'description' => __('Search input in header', 'origami')
 	));
 
-	siteorigin_settings_add_teaser('display', 'attribution', __('Footer Attribution Link', 'origami'), array(
-		'description' => __('Remove WordPress and SiteOrigin links from your footer.', 'origami'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/attribution.png'
-	));
-
 	siteorigin_settings_add_field('display', 'logo_centered', 'checkbox', __('Center Logo', 'origami'), array(
 		'description' => __('Center the main logo', 'origami')
 	));
@@ -45,35 +34,6 @@ function origami_settings_init(){
 		'description' => __('Next and previous post links on single post pages.', 'origami')
 	));
 
-	siteorigin_settings_add_section('comments', __('Comments', 'origami'));
-	siteorigin_settings_add_teaser('comments', 'ajax', __('Ajax Comments', 'origami'), array(
-		'description' => __('Users can comment without leaving the page.', 'origami')
-	));
-
-	siteorigin_settings_add_section('responsive', __('Responsive', 'origami'));
-	
-	siteorigin_settings_add_teaser('responsive', 'footer', __('Responsive Footer Widgets', 'origami'), array(
-		'description' => __('Footer widgets collapse for mobile devices.', 'origami'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/responsive-footer.png'
-	));
-
-	siteorigin_settings_add_teaser('responsive', 'nav', __('Mobile Navigation', 'origami'), array(
-		'description' => __('Gorgeous mobile navigation menu for your main menu.', 'origami'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/nav.png',
-	));
-
-	siteorigin_settings_add_section('social', __('Social', 'origami'));
-	
-	siteorigin_settings_add_teaser('social', 'share', __('Share Post', 'origami'), array(
-		'description' => __('Display post sharing on the single post pages.', 'origami'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/share.png'
-	));
-
-	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Username', 'origami'), array(
-		'description' => __('Recommend your Twitter account after someone tweets your post.', 'origami'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/share-rec.png'
-	));
-	
 	// We're using this to transfer the header image across from simple options
 	$simple_options = get_option('simple-options-'.basename(get_template_directory()), array());
 	if(!get_option('origami_header_image_transferred', false) && !empty($simple_options['general']['logo'])){
