@@ -10,6 +10,8 @@ include get_template_directory().'/extras/widgets/widgets.php';
 include get_template_directory() . '/extras/updater/updater.php';
 include get_template_directory() . '/extras/recommended/recommended.php';
 
+include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
+
 include get_template_directory().'/functions/recommended.php';
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
@@ -74,7 +76,12 @@ function origami_setup(){
 	) );
 	
 	// Only include the bundled version of panels if the plugin does not exist
-	if(!defined('SITEORIGIN_PANELS_VERSION')) include get_template_directory().'/extras/panels/panels.php';
+	if(!is_dir(WP_PLUGIN_DIR.'/siteorigin-panels')) include get_template_directory().'/extras/panels/panels.php';
+
+	if(!defined('SITEORIGIN_PANELS_VERSION')) {
+		// include get_template_directory() . '/extras/panels-lite/panels-lite.php';;
+	}
+
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
@@ -356,7 +363,7 @@ endif;
 function origami_post_class_columns($classes, $class, $post_id){
 	if(!siteorigin_setting('display_use_columns')) return $classes;
 	if(is_page() && get_post_meta(get_the_ID(), 'panels_data')) return $classes;
-	if(siteorigin_panels_is_home()) return $classes;
+	if(function_exists('siteorigin_panels_is_home') && siteorigin_panels_is_home()) return $classes;
 	
 	
 	$columns = get_post_meta($post_id, 'content_columns', true);
