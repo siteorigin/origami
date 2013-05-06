@@ -46,3 +46,8 @@ function origami_recommended_plugins($plugins){
 	return $plugins;
 }
 add_filter('siteorigin_recommended_plugins', 'origami_recommended_plugins');
+
+function origami_recommended_customizer(){
+	new SiteOrigin_Recommended_Customizer('http://google.com');
+}
+add_action('after_setup_theme', 'origami_recommended_customizer');
