@@ -9,7 +9,6 @@ include get_template_directory().'/extras/adminbar/adminbar.php';
 include get_template_directory().'/extras/widgets/widgets.php';
 include get_template_directory() . '/extras/updater/updater.php';
 include get_template_directory() . '/extras/recommended/recommended.php';
-
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 
 include get_template_directory().'/functions/recommended.php';
@@ -72,16 +71,10 @@ function origami_setup(){
 		'responsive' => true,
 		'home-page' => true,
 		'home-page-default' => false,
-		'affiliate-id' => 'TESTING',
 	) );
 	
 	// Only include the bundled version of panels if the plugin does not exist
 	if(!is_dir(WP_PLUGIN_DIR.'/siteorigin-panels')) include get_template_directory().'/extras/panels/panels.php';
-
-	if(!defined('SITEORIGIN_PANELS_VERSION')) {
-		// include get_template_directory() . '/extras/panels-lite/panels-lite.php';;
-	}
-
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
