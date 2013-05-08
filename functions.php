@@ -264,29 +264,6 @@ function origami_comment($comment, $args, $depth){
 endif;
 
 
-if(!function_exists('origami_footer_widget_params')) :
-/**
- * Filter the footer widgets to add widths.
- * 
- * @param $params
- * @return mixed
- */
-function origami_footer_widget_params($params){
-	return $params;
-	
-	// Check that this is the footer
-	if($params[0]['id'] != 'site-footer') return $params;
-
-	$sidebars_widgets = wp_get_sidebars_widgets();
-	$count = count($sidebars_widgets[$params[0]['id']]);
-	$params[0]['before_widget'] = preg_replace('/\>$/', ' style="width:'.round(100/$count,4).'%" >', $params[0]['before_widget']);
-
-	return $params;
-}
-endif;
-add_action('dynamic_sidebar_params', 'origami_footer_widget_params');
-
-
 if(!function_exists('origami_content_filter')):
 /**
  * Filter the content for certain post formats
@@ -310,14 +287,13 @@ function origami_print_styles(){
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	$count = count($sidebars_widgets['site-footer']);
 	$count = max($count,1);
-	
+
 	?>
 	<style type="text/css" media="screen">
-		.content a { color: <?php echo strip_tags(siteorigin_setting('colors_link_color')) ?>; }
-		#page-container { border-color: <?php echo strip_tags(siteorigin_setting('colors_page_border_color')) ?>; }
-		#footer-widgets .widget { width: <?php echo round(100/$count,5) ?>%; }
-		#footer { color: <?php echo strip_tags(siteorigin_setting('colors_footer_text')) ?>; }
-		#footer a { color: <?php echo strip_tags(siteorigin_setting('colors_footer_link')) ?>; }
+		#footer-widgets .widget { width: <?php echo round(100/$count,3) . '%' ?>; }
+		@media screen and (max-width: 640px) {
+			#footer-widgets .widget { width: auto; float: none; }
+		}
 	</style>
 	<?php
 }

@@ -1082,7 +1082,7 @@ a img.aligncenter {
 }
 
 #footer-widgets h2.widgettitle{
-	font-family: "Terminal Dosis";
+    font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
 	font-weight: 400;
 	font-size: 1.2em;
 	margin-bottom: 20px;
