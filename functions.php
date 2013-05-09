@@ -2,19 +2,27 @@
 
 define('SITEORIGIN_THEME_VERSION', 'trunk');
 define('SITEORIGIN_THEME_UPDATE_ID', 269);
+define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.localhost');
 
+include get_template_directory().'/extras/premium/premium.php';
 include get_template_directory().'/extras/settings/settings.php';
-include get_template_directory().'/extras/update/update.php';
 include get_template_directory().'/extras/adminbar/adminbar.php';
 include get_template_directory().'/extras/widgets/widgets.php';
 include get_template_directory() . '/extras/updater/updater.php';
-include get_template_directory() . '/extras/recommended/recommended.php';
+include get_template_directory() . '/extras/update/update.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 
-include get_template_directory().'/functions/recommended.php';
 include get_template_directory().'/functions/settings.php';
 include get_template_directory().'/functions/gallery.php';
 include get_template_directory().'/functions/panels.php';
+
+if( file_exists(get_template_directory().'/premium/functions.php') ) {
+	// If this is the premium version
+	include get_template_directory().'/premium/functions.php';
+}
+else {
+	include get_template_directory().'/upgrade/upgrade.php';
+}
 
 if(!function_exists('origami_setup')) :
 /**
@@ -53,6 +61,10 @@ function origami_setup(){
 		'flex-height' => true,
 		'flex-width' => true,
 		'header-text' => false,
+	));
+
+	add_theme_support('siteorigin-premium-teaser', array(
+		'customizer' => true,
 	));
 	
 	add_editor_style();
