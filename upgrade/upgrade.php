@@ -15,8 +15,14 @@ function origami_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __("Responsive Features", 'origami'),
-		'content' => __("The final puzzle pieces in making Origami truly responsive. Origami Premium has footer widgets that collapse below each other on narrower resolution devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'origami'),
+		'content' => __("The final puzzle pieces in making Origami truly responsive. Origami Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'origami'),
 		'image' => get_template_directory_uri() . '/upgrade/teaser/nav.png',
+	);
+
+	$content['features'][] = array(
+		'heading' => __("Customizer Integration", 'origami'),
+		'content' => __("Origami Premium includes integration with WordPress customizer. This gives you a way to edit colors, fonts and other styles in real time. ", 'origami'),
+		'image' => get_template_directory_uri() . '/upgrade/teaser/customizer.png',
 	);
 	
 	$content['features'][] = array(
@@ -55,7 +61,7 @@ function origami_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __('Premium Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized support on our support forums.", 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized email support.", 'origami'),
 	);
 	
 	$content['testimonials'] = array(
