@@ -24,6 +24,9 @@ function origami_premium_setup(){
 	if(siteorigin_setting('comments_ajax')) siteorigin_ajax_comments_activate();
 	if(siteorigin_setting('responsive_nav')) add_theme_support('siteorigin-mobilenav');
 	if(siteorigin_setting('social_share')) siteorigin_share_activate();
+
+	if(siteorigin_setting('display_attribution'))
+		add_filter('siteorigin_attribution_footer', '__return_false');
 }
 add_action('after_setup_theme', 'origami_premium_setup', 11);
 
@@ -41,8 +44,6 @@ add_action('wp_enqueue_scripts', 'origami_premium_enqueue');
 function origami_premium_widgets_init() {
 	register_widget( 'SiteOrigin_Widgets_GoogleMap' );
 	register_widget( 'SiteOrigin_Widgets_Video' );
-	//register_widget( 'SiteOrigin_Widgets_List' );
-	//register_widget( 'SiteOrigin_Widgets_CF7' );
 }
 
 add_action( 'widgets_init', 'origami_premium_widgets_init' );
