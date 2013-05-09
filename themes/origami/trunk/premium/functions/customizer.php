@@ -190,9 +190,10 @@ function origami_customizer_init(){
 					'type' => 'color',
 					'title' => __('General Link Color', 'origami'),
 					'priority' => 100,
-					'default' => '#777777',
+					'default' => '#36659f',
 					'selector' => '.content a',
 					'property' => 'color',
+					'no_live' => true,
 				),
 			)
 

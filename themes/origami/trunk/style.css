@@ -637,7 +637,6 @@ a img.aligncenter {
 	font-style: italic;
 	color: #666;
 	position: relative;
-	background: url(images/quote.png) no-repeat 10px center;
 }
 
 .content blockquote cite{
@@ -1285,6 +1284,11 @@ h1.archive-title {
 	top: 50%;
 	right: 15px;
 	margin-top: -22px;
+    color: #F3F3F3;
+}
+
+.content .widget_call-to-action .button{
+    color: #F3F3F3;
 }
 
 @media screen and (max-width:480px) {
