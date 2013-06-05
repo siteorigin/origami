@@ -103,6 +103,6 @@ Fixed premium maps widget.
 **1.4.9 - 1.4.10**
 Small version number changes for theme uploader.
 
-**1.4.11**
+**1.5.2**
 Fixed error when activating Page Builder plugin.
 Updated premium upgrade information.
