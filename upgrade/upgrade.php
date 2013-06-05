@@ -6,7 +6,7 @@ function origami_premium_upgrade_content($content){
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
 	// $content['buy_price'] = 9;
-	$content['buy_message_1'] = __("You choose how much you want to pay for Origami Premium.", 'origami');
+	$content['buy_message_1'] = __("You choose how much you want to pay for Origami Premium", 'origami');
 	$content['buy_message_2'] = __("Pay what you want with a full money back guarantee", 'origami');
 	
 	$content['featured'] = array(get_template_directory_uri().'/upgrade/promo.jpg', 1259, 1073);
