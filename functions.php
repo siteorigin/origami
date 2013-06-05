@@ -18,7 +18,7 @@ include get_template_directory() . '/functions/panels.php';
 
 if( file_exists(get_template_directory().'/premium/functions.php') ) {
 	// If this is the premium version
-	/include get_template_directory().'/premium/functions.php';
+	include get_template_directory().'/premium/functions.php';
 }
 
 if(!defined('SITEORIGIN_IS_PREMIUM')){
