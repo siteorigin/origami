@@ -5,7 +5,12 @@ function origami_premium_upgrade_content($content){
 	$content['premium_summary'] = __("If you've enjoyed using Origami, you're going to love Origami Premium. It's a robust upgrade to Origami that gives you loads of cool features. You choose the price, so you can decide what it's worth to give your site a professional edge.", 'origami');
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
-	// $content['buy_price'] = 9;
+	$content['buy_price'] = 10;
+	$content['variable_pricing'] = array(
+		array(5, __("If you're creating your site on a budget", 'origami')),
+		array(10, __("The standard amount", 'origami')),
+		array(20, __("We'll love and support you forever", 'origami')),
+	);
 	$content['buy_message_1'] = __("You choose how much you want to pay for Origami Premium", 'origami');
 	$content['buy_message_2'] = __("Pay what you want with a full money back guarantee", 'origami');
 	
