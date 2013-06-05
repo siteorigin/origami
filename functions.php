@@ -18,10 +18,11 @@ include get_template_directory() . '/functions/panels.php';
 
 if( file_exists(get_template_directory().'/premium/functions.php') ) {
 	// If this is the premium version
-	include get_template_directory().'/premium/functions.php';
+	/include get_template_directory().'/premium/functions.php';
 }
-else {
-	include get_template_directory().'/upgrade/upgrade.php';
+
+if(!defined('SITEORIGIN_IS_PREMIUM')){
+	include get_template_directory() . '/upgrade/upgrade.php';
 }
 
 if(!function_exists('origami_setup')) :
@@ -84,13 +85,14 @@ function origami_setup(){
 		'home-page' => true,
 		'home-page-default' => false,
 	) );
-	
+
 	// Only include the bundled version of panels if the plugin does not exist
-	if(!is_dir(WP_PLUGIN_DIR.'/siteorigin-panels')) include get_template_directory().'/extras/panels/panels.php';
+	if(!defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels')) {
+		include get_template_directory().'/extras/panels/panels.php';
+	}
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
-
 
 if(!function_exists('origami_widgets_init')) :
 /**
