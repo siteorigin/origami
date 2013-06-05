@@ -5,13 +5,23 @@ function origami_premium_upgrade_content($content){
 	$content['premium_summary'] = __("If you've enjoyed using Origami, you're going to love Origami Premium. It's a robust upgrade to Origami that gives you loads of cool features. For just a few dollars, it's a cost effective way to give your site a professional edge.", 'origami');
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
-	$content['buy_price'] = 9;
-	$content['buy_message_1'] = __("If you're not delighted with Origami Premium, I'll give you a full refund", 'origami');
-	$content['buy_message_2'] = __("Buy now and enjoy continued updates", 'origami');
+	// $content['buy_price'] = 9;
+	$content['buy_message_1'] = __("You choose how much you want to pay for Origami Premium", 'origami');
+	$content['buy_message_2'] = __("Pay what you want with a full money back guarantee", 'origami');
 	
 	$content['featured'] = array(get_template_directory_uri().'/upgrade/promo.jpg', 1259, 1073);
 
 	$content['features'] = array();
+
+	$content['features'][] = array(
+		'heading' => __('Name The Price', 'origami'),
+		'content' => __("You can choose exactly how much you pay for Origami Premium. Pay what ever you think the features are worth to you. Regardless, you're supporting the continued development of Origami.", 'origami'),
+	);
+
+	$content['features'][] = array(
+		'heading' => __('Email Support', 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized email support, no matter what you pay.", 'origami'),
+	);
 
 	$content['features'][] = array(
 		'heading' => __("Responsive Features", 'origami'),
@@ -59,11 +69,6 @@ function origami_premium_upgrade_content($content){
 		'image' => get_template_directory_uri() . '/upgrade/teaser/updates.png',
 	);
 
-	$content['features'][] = array(
-		'heading' => __('Premium Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized email support.", 'origami'),
-	);
-	
 	$content['testimonials'] = array(
 		array(
 			'gravatar' => '0dacd16ef5a3d669700d4ec9fffd9e0d',
