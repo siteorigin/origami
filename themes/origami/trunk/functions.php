@@ -129,6 +129,8 @@ if(!function_exists('origami_title')) :
 function origami_title($title, $sep, $seplocation){
 	global $page, $paged;
 
+	if ( is_feed() ) return $title;
+
 	// Add the blog name.
 	$title = $title.get_bloginfo( 'name' );
 

@@ -53,6 +53,7 @@ html[xmlns] .slides {display: block;}
 .flexslider .slides {
     zoom: 1;
     list-style: none;
+    padding-left: 0 !important;
 }
 .flexslider .slides > li {
     position: relative;
@@ -63,8 +64,6 @@ html[xmlns] .slides {display: block;}
     zoom: 1;
     position: relative;
 }
-
-.flexslider 
 
 /* Caption style */
 /* IE rgba() hack */

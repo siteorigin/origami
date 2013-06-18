@@ -106,3 +106,8 @@ Small version number changes for theme uploader.
 **1.5.2**
 Fixed error when activating Page Builder plugin.
 Updated premium upgrade information.
+
+**1.5.4**
+CSS fixes.
+Fixed title in feeds.
+Updated to latest framework.
