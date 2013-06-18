@@ -80,8 +80,6 @@
 						</div>
 					<?php endif; ?>
 					<div class="clear"></div>
-					
-					<?php if(is_singular() && siteorigin_setting('social_share')) locate_template('social-share.php', true); ?>
 				</div>
 			<?php elseif(siteorigin_setting('social_share') && function_exists('siteorigin_share_render')) : ?>
 				<div class="below-content">

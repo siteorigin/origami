@@ -1,7 +1,7 @@
 /*
 Theme Name: Origami
 Theme URI: http://siteorigin.com/theme/origami
-Description: Origami is a simple, responsive media blogging theme that places strong emphasis on your content. It looks great on mobile devices, even the videos and galleries scale to fit small screens. The options panel is easy to understand with a minimal set of options. Origami includes a powerful drag and drop page builder for creating unlimited page layouts. So you can use Origami as a simple blog or a complete business website. 
+Description: Origami is a simple, responsive media blogging theme that places strong emphasis on your content. It looks great on mobile devices, even the videos and galleries scale to fit small screens. The options panel is easy to understand with a minimal set of options. Origami includes a powerful drag and drop page builder for creating unlimited page layouts. So you can use Origami as a standard photography blog or a complete business website.
 Tags: one-column, flexible-width, post-formats, custom-menu, theme-options, threaded-comments, translation-ready, photoblogging
 Author: SiteOrigin
 Author URI: http://siteorigin.com/
@@ -583,6 +583,10 @@ a img.aligncenter {
 .gallery-caption{}
 
 /* @end */
+
+.content {
+    line-height: 1.6em;
+}
 
 .content *:first-child{
 	margin-top: 0px;
