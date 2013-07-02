@@ -75,6 +75,11 @@ function origami_premium_upgrade_content($content){
 
 	$content['testimonials'] = array(
 		array(
+			'gravatar' => 'db55e27434eed0f7a93f908de85b0c3c',
+			'name' => 'Sunira',
+			'content' => __("This is an overlooked WordPress theme! It's flexible, FAST, and clean. Love it!", 'origami'),
+		),
+		array(
 			'gravatar' => '0dacd16ef5a3d669700d4ec9fffd9e0d',
 			'name' => 'Elii',
 			'content' => __('I love this theme very much.', 'origami'),
