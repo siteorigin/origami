@@ -111,3 +111,8 @@ Updated premium upgrade information.
 CSS fixes.
 Fixed title in feeds.
 Updated to latest framework.
+
+**1.5.5**
+Updated to latest framework.
+Minor CSS fixes.
+Changed Premium upgrade page.

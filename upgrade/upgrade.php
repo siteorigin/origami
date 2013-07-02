@@ -7,25 +7,26 @@ function origami_premium_upgrade_content($content){
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
 	$content['buy_price'] = 10;
 	$content['variable_pricing'] = array(
-		array(5, __("If you're creating your site on a budget", 'origami')),
-		array(10, __("The standard amount", 'origami')),
-		array(20, __("We'll love and support you forever", 'origami')),
+		array(10, __("Creating your site on a budget", 'origami')),
+		array(15, __("A good, fair price", 'origami')),
+		array(25, __("We'll love and support you forever", 'origami')),
 	);
-	$content['buy_message_1'] = __("You choose how much you want to pay for Origami Premium", 'origami');
-	$content['buy_message_2'] = __("Pay what you want with a full money back guarantee", 'origami');
-	
-	$content['featured'] = array(get_template_directory_uri().'/upgrade/promo.jpg', 1259, 1073);
+	$content['buy_message_1'] = __("Get a full refund if you're not happy", 'origami');
+	$content['buy_message_2'] = __("Choose how much you pay", 'origami');
+
+	$content['premium_video_poster'] = get_template_directory_uri().'/upgrade/poster.jpg';
+	$content['premium_video_id'] = '52853957';
 
 	$content['features'] = array();
 
 	$content['features'][] = array(
-		'heading' => __('Name The Price', 'origami'),
-		'content' => __("You can choose exactly how much you pay for Origami Premium. Pay what ever you think the features are worth to you. Regardless, you're supporting the continued development of Origami.", 'origami'),
+		'heading' => __('Premium Email Support', 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you email support - prioritized according to what you paid.", 'origami'),
 	);
 
 	$content['features'][] = array(
-		'heading' => __('Email Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you prioritized email support, no matter what you pay.", 'origami'),
+		'heading' => __('Name The Price', 'origami'),
+		'content' => __("You can choose exactly how much you pay for Origami Premium. Pay what ever you think the features are worth to you. Regardless, you're supporting the continued development of Origami.", 'origami'),
 	);
 
 	$content['features'][] = array(
@@ -70,7 +71,7 @@ function origami_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __("Continued Updates", 'origami'),
-		'content' => __("You'll get continued updates, ensuring that your Origami powered site keeps on working with the latest version of WordPress for years to come.", 'origami'),
+		'content' => __("You'll help support the continued development of Origami - ensuring it works with future versions of WordPress for years to come.", 'origami'),
 		'image' => get_template_directory_uri() . '/upgrade/teaser/updates.png',
 	);
 
