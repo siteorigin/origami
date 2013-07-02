@@ -11,8 +11,6 @@ function origami_premium_upgrade_content($content){
 		array(15, __("A good, fair price", 'origami')),
 		array(25, __("We'll love and support you forever", 'origami')),
 	);
-	$content['buy_message_1'] = __("Get a full refund if you're not happy", 'origami');
-	$content['buy_message_2'] = __("Choose how much you pay", 'origami');
 
 	$content['premium_video_poster'] = get_template_directory_uri().'/upgrade/poster.jpg';
 	$content['premium_video_id'] = '52853957';
@@ -31,7 +29,7 @@ function origami_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __("Responsive Features", 'origami'),
-		'content' => __("The final puzzle pieces in making Origami truly responsive. Origami Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'origami'),
+		'content' => __("The final puzzle pieces in making Origami fully responsive. Origami Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'origami'),
 		'image' => get_template_directory_uri() . '/upgrade/teaser/nav.png',
 	);
 
