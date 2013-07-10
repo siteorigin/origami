@@ -29,8 +29,6 @@ if(!function_exists('origami_setup')) :
  * @action after_setup_theme
  */
 function origami_setup(){
-	siteorigin_settings_init();
-
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 904;
 	
