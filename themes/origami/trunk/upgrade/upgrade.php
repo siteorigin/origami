@@ -12,7 +12,7 @@ function origami_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __('Premium Email Support', 'origami'),
-		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you email support - prioritized according to what you paid.", 'origami'),
+		'content' => __("Need help setting up Origami? Upgrading to Origami Premium gives you email support.", 'origami'),
 	);
 
 	$content['features'][] = array(

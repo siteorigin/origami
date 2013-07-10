@@ -18,8 +18,7 @@ if( file_exists(get_template_directory().'/premium/functions.php') ) {
 	// Include the premium file if it exists.
 	include get_template_directory().'/premium/functions.php';
 }
-
-if(!defined('SITEORIGIN_IS_PREMIUM')){
+else{
 	include get_template_directory() . '/upgrade/upgrade.php';
 }
 
