@@ -241,8 +241,9 @@ body{
 	z-index: 10;
 	
 	top: 100%;
-	left: 0px;
+	left: 50%;
 	width: 160px;
+    margin-left: -80px;
 	border-top: 1px solid #E4E4E4;
 	
 	background-color: #F4F4F4;
@@ -280,7 +281,6 @@ body{
     margin: 0 7px -3px 0;
     background: url(./images/navigate.png) no-repeat;
 }
-
 
 /* @end */
 
