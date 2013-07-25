@@ -47,11 +47,13 @@ function origami_setup(){
 	register_nav_menu( 'primary', __( 'Primary Menu', 'origami' ) );
 
 	// Add support for custom backgrounds.
-	add_theme_support( 'custom-background' , array(
+	$background = array(
 		'default-color' => 'f0eeeb',
 		'default-image' => get_template_directory_uri().'/images/bg.png'
-	));
-	
+	);
+	$background = apply_filters('origami_custom_background', $background);
+	add_theme_support( 'custom-background', $background);
+
 	// Use custom headers for site logo
 	add_theme_support( 'custom-header' , array(
 		'flex-height' => true,
@@ -61,6 +63,7 @@ function origami_setup(){
 
 	add_theme_support('siteorigin-premium-teaser', array(
 		'customizer' => true,
+		'settings' => true,
 	));
 	
 	add_editor_style();
@@ -215,11 +218,12 @@ endif;
 add_action('save_post', 'origami_save_post');
 
 
-if(!function_exists('origami_google_webfonts')) :
+if(!function_exists('origami_enqueue_google_webfonts')) :
 /**
  * This just displays the Google web fonts
  */
 function origami_enqueue_google_webfonts(){
+
 	if(!get_header_image()){
 		// Enqueue the logo font as well (Terminal Dosis 200)
 		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
@@ -228,6 +232,7 @@ function origami_enqueue_google_webfonts(){
 		// Enqueue only the text fonts that we need
 		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:400');
 	}
+
 }
 endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_google_webfonts');

@@ -57,7 +57,6 @@
 			?>
 			
 			<?php $tags = wp_get_post_tags($post->ID); ?>
-			
 			<?php if(!empty($tags) || !is_singular()) : ?>
 				<div class="below-content">
 					<?php if(has_tag()) : ?>
@@ -95,10 +94,8 @@
 				</div>
 			<?php endif; ?>
 			
-			<?php if(is_singular()) : ?>
-				<?php comments_template() ?>
-			<?php endif; ?>
-			
+			<?php comments_template() ?>
+
 		</div>
 	<?php endwhile; ?>
 <?php endif; ?>
