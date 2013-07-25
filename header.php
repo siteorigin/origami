@@ -13,8 +13,17 @@
 </head>
 
 <body <?php body_class() ?>>
+
+<?php do_action('origami_top'); ?>
+
 <div class="container">
+
+	<?php do_action('origami_before_page_container') ?>
+
 	<div id="page-container">
+
+		<?php do_action('origami_top_page_container') ?>
+
 		<div id="logo" <?php if( siteorigin_setting( 'display_logo_centered' ) ) echo 'class="logo-centered"' ?>>
 			<a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="<?php echo esc_attr( get_bloginfo( 'description' ) ) ?>" class="logo-link">
 				<?php if( get_header_image() ) : ?>

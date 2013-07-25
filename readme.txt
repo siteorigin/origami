@@ -1,7 +1,7 @@
 License
 -----------------------------------------------
 
-Origami WordPress Theme, Copyright 2012 [SiteOrigin][so]. Origami a [GPL v2.0][gpl] theme. 
+Origami WordPress Theme, Copyright 2012 [SiteOrigin][so]. Origami is a [GPL v2.0][gpl] theme.
 
 Origami includes the following external libraries
 
@@ -116,3 +116,7 @@ Updated to latest framework.
 Updated to latest framework.
 Minor CSS fixes.
 Changed Premium upgrade page.
+
+**1.5.7**
+Improved extendability with child themes.
+Fixed centering of menu.
