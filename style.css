@@ -99,8 +99,8 @@ body{
 
 #page-container {
 	width: 100%;
-	padding: 4.5%;
 	background: #fdfdfd;
+    padding: 2.25% 4.5%;
 	margin: 30px 0 35px 0;
 	
 	box-sizing:border-box;
@@ -111,7 +111,6 @@ body{
 	-moz-box-shadow:0 1px 2px rgba(0,0,0,0.1);
 	box-shadow:0 1px 2px rgba(0,0,0,0.1), inset 0 0 2px rgba(0,0,0,0.1125);
 	border: 1px solid #cbc9c7;
-	padding: 2.25% 4.5%;
 }
 
 
@@ -310,7 +309,7 @@ h1.entry-title.noinfo{
 
 h1.entry-title a{
 	text-decoration: none;
-	color: #262626;
+	color: inherit;
 }
 
 
@@ -1098,7 +1097,11 @@ a img.aligncenter {
 }
 
 #footer-widgets li{
-	line-height: 1.6em;
+	line-height: 1.75em;
+}
+
+#footer-widgets ul ul {
+    margin-left: 0.75em;
 }
 
 /* @end */
@@ -1370,3 +1373,24 @@ h1.archive-title {
 }
 
 /* @end */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
