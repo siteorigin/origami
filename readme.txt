@@ -12,6 +12,7 @@ Origami includes the following external libraries
 * Modernizr under MIT & BSD licenses <http://modernizr.com/>
 * Selectivizr by Keith Clark under MIT license <http://selectivizr.com/>
 * Images in demo folder are from Pixabay Licensed under public domain <http://pixabay.com/>
+* Dosis font used via Google Web Fonts. Licensed under SIL font license <http://www.google.com/fonts/specimen/Dosis>
 
  [so]: http://siteorigin.com
  [gpl]: http://www.gnu.org/licenses/gpl-2.0.html
@@ -120,3 +121,9 @@ Changed Premium upgrade page.
 **1.5.7**
 Improved extendability with child themes.
 Fixed centering of menu.
+
+**1.5.8**
+Added more child theme extendability.
+Added nesting to sub elements in widgets.
+Unified translation domain.
+Minor security updates.
