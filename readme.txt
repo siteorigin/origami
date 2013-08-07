@@ -127,3 +127,6 @@ Added more child theme extendability.
 Added nesting to sub elements in widgets.
 Unified translation domain.
 Minor security updates.
+
+**1.5.9**
+Added multi-level menu.
