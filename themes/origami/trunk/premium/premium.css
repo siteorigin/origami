@@ -5,7 +5,9 @@
 }
 
 .below-content.tagged .share-buttons {
-    margin-top: -2px;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: -2px;
 }
 
 .share-buttons .network{
