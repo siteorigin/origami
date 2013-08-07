@@ -4,6 +4,10 @@
     margin-right: -12px;
 }
 
+.below-content.tagged .share-buttons {
+    margin-top: -2px;
+}
+
 .share-buttons .network{
     display: inline-block;
 }

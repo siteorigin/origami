@@ -58,7 +58,7 @@
 			
 			<?php $tags = wp_get_post_tags($post->ID); ?>
 			<?php if(!empty($tags) || !is_singular()) : ?>
-				<div class="below-content">
+				<div class="below-content tagged">
 					<?php if(has_tag()) : ?>
 						<div class="tags">
 							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48">
@@ -77,9 +77,13 @@
 								<path d="M 0 32 L 0 16 L 26 16 L 26 8 L 48 24 L 26 40 L 26 32 Z" />
 							</svg>
 						</div>
+					<?php elseif(siteorigin_setting('social_share') && function_exists('siteorigin_share_render')) : ?>
+						<?php siteorigin_share_render(array('twitter' => siteorigin_setting('social_twitter'))); ?>
 					<?php endif; ?>
+
 					<div class="clear"></div>
 				</div>
+
 			<?php elseif(siteorigin_setting('social_share') && function_exists('siteorigin_share_render')) : ?>
 				<div class="below-content">
 					<?php siteorigin_share_render(array('twitter' => siteorigin_setting('social_twitter'))); ?>
