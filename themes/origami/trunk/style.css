@@ -247,6 +247,16 @@ body{
 	
 	background-color: #F4F4F4;
 	border-color: #DDDDDD;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#menu ul li li ul{
+    margin-left: 0;
+    top: 0;
+    left: 160px;
 }
 
 #menu ul li ul li a{
@@ -261,7 +271,7 @@ body{
 	padding: 10px 0;
 }
 
-#menu ul li:hover ul{
+#menu ul li:hover > ul{
 	visibility: visible;
 	display: block;
 }
