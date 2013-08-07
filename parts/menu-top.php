@@ -3,7 +3,6 @@
 		wp_nav_menu(array(
 			'theme_location' => 'primary',
 			'menu_id' => 'main-menu',
-			'depth' => 2,
 		));
 	?>
 </nav>
