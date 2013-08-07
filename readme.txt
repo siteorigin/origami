@@ -130,3 +130,5 @@ Minor security updates.
 
 **1.5.9**
 Added multi-level menu.
+Updated to latest version of framework.
+Premium: Fixed social sharing.
