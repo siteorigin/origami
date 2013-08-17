@@ -132,3 +132,6 @@ Minor security updates.
 Added multi-level menu.
 Updated to latest version of framework.
 Premium: Fixed social sharing.
+
+**1.5.10**
+Fixed blog archive template.
