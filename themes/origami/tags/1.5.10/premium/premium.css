@@ -1,0 +1,15 @@
+.share-buttons{
+    float: right;
+    padding-top: 4px;
+    margin-right: -12px;
+}
+
+.below-content.tagged .share-buttons {
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: -2px;
+}
+
+.share-buttons .network{
+    display: inline-block;
+}
