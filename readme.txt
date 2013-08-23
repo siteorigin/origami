@@ -136,3 +136,4 @@ Premium: Fixed social sharing.
 **1.5.10**
 Fixed blog archive template.
 Fixed issue that prevented users from updating Page Builder plugin.
+Fixed CSS issue with dropdown menu.
