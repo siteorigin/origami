@@ -140,3 +140,6 @@ Fixed CSS issue with dropdown menu.
 
 **1.5.11**
 Added feature road map information.
+
+**1.5.12**
+Updated to latest version of FitVid to fix mobile.
