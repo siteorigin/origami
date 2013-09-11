@@ -143,3 +143,5 @@ Added feature road map information.
 
 **1.5.12**
 Updated to latest version of FitVid to fix mobile.
+Fixed social sharing in premium.
+Updated to latest version of SiteOrigin framework.
