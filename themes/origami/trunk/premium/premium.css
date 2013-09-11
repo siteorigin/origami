@@ -12,4 +12,9 @@
 
 .share-buttons .network{
     display: inline-block;
+    text-align: left;
+}
+
+.share-buttons .network > * {
+    display: block;
 }
