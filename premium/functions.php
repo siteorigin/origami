@@ -23,7 +23,6 @@ function origami_premium_setup(){
 	// Activate all the extras
 	if(siteorigin_setting('comments_ajax')) siteorigin_ajax_comments_activate();
 	if(siteorigin_setting('responsive_nav')) add_theme_support('siteorigin-mobilenav');
-	if(siteorigin_setting('social_share')) siteorigin_share_activate();
 
 	if(siteorigin_setting('display_attribution'))
 		add_filter('siteorigin_attribution_footer', '__return_false');
