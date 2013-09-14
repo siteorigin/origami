@@ -130,3 +130,13 @@ function origami_settings_defaults($defaults){
 	return $defaults;
 }
 add_filter('siteorigin_theme_default_settings', 'origami_settings_defaults');
+
+/**
+ * Feature suggestions URL.
+ *
+ * @return string
+ */
+function origami_feature_suggestion_url(){
+	return 'http://sorig.in/origami-suggestions';
+}
+add_filter('siteorigin_settings_suggest_features_url', 'origami_feature_suggestion_url');
