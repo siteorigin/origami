@@ -13,7 +13,6 @@ jQuery(function ($) {
     $('.flexslider').flexslider();
 
     // Test and load polyfills
-
     if(!Modernizr.inlinesvg) {
         // No support for SVG, so replace with images where possible
         $('svg[data-replacement]').each(function(){
