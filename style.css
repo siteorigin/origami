@@ -417,12 +417,16 @@ h1.entry-title a{
 	background: #F9F9F9;
 }
 
-.post .below-content svg{
-	fill: #999;
+.post .below-content svg,
+.post .below-content img{
 	display: inline-block;
 	margin-bottom: -4px;
 	margin-right: 6px;
 	margin-left: 6px;
+}
+
+.post .below-content svg {
+    fill: #999;
 }
 
 .post .below-content a{

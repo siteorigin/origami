@@ -13,10 +13,23 @@ jQuery(function ($) {
     $('.flexslider').flexslider();
 
     // Test and load polyfills
-    Modernizr.load({
-        test : Modernizr.inlinesvg,
-        nope : origami.polyfills + '/sie-mini.js'
-    });
+
+    if(!Modernizr.inlinesvg) {
+        // No support for SVG, so replace with images where possible
+        $('svg[data-replacement]').each(function(){
+            var $$ = $(this);
+            $$.replaceWith(
+                $('<img>')
+                    .attr( {
+                        'src' : $$.data('replacement')
+                    } )
+                    .css( {
+                        'width' : $$.attr('width'),
+                        'height' : $$.attr('height')
+                    } )
+            );
+        })
+    }
 
     // Init the placeholder
     Modernizr.load({
