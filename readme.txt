@@ -146,3 +146,6 @@ Added feature road map information.
 Updated to latest version of FitVid to fix mobile.
 Fixed social sharing in premium.
 Updated to latest version of SiteOrigin framework.
+
+**1.5.13**
+Replaced SVG Polyfill with simple png image replacement.
