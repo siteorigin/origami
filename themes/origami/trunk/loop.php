@@ -61,7 +61,7 @@
 				<div class="below-content tagged">
 					<?php if(has_tag()) : ?>
 						<div class="tags">
-							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48">
+							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48" data-replacement="<?php echo get_template_directory_uri() ?>/images/tag.png">
 								<path d="M 41.29511 48 L 41.29511 .091884613 L 6.999998 .091884613 L 6.999998 47.78994 L 24.042513 30.74741 Z" />
 							</svg>
 							<div class="the_tags">
@@ -73,7 +73,7 @@
 					<?php if((!is_singular() && preg_match( '/<!--more(.*?)?-->/', $post->post_content )) || empty($post->post_title)) : ?>
 						<div class="read-more">
 							<a href="<?php the_permalink() ?>"><?php _e('Continue Reading', 'origami') ?></a>
-							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48">
+							<svg version="1.1" width="18px" height="18px" viewBox="0 0 48 48" data-replacement="<?php echo get_template_directory_uri() ?>/images/more.png">
 								<path d="M 0 32 L 0 16 L 26 16 L 26 8 L 48 24 L 26 40 L 26 32 Z" />
 							</svg>
 						</div>
