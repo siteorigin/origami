@@ -1,0 +1,290 @@
+html .mceContentBody {
+	max-width: 904px;
+}
+* {
+	color: inherit;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+/* @group WP Core */
+
+.alignnone {
+	margin: 5px 20px 20px 0;
+}
+
+.aligncenter, div.aligncenter {
+	display:block;
+	margin: 20px auto 20px auto;
+}
+
+.alignright {
+	float:right;
+	margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+	float:left;
+	margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+	display: block;
+	margin: 5px auto 5px auto;
+}
+
+a img.alignright {
+	float:right;
+	margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+	margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+	float:left;
+	margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.wp-caption {
+	background: #EFEFEF;
+	border: 1px solid #C0C0C0;
+	max-width: 100%; /* Image does not overflow the content area */
+	padding: 5px 3px 10px 3px;
+	text-align: center;
+	
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+}
+
+.wp-caption.alignnone {
+	margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+	margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+	margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+	border: 0 none;
+	height: auto;
+	margin:0;
+	max-width: 98.5%;
+	padding:0;
+	width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+	font-size: 11px;
+	margin:0;
+	line-height: 1;
+	padding: 4px 5px 0 5px;
+	color: #666;
+	font-style: italic;
+}
+
+.sticky{}
+.gallery-caption{}
+
+/* @end */
+
+html .mceContentBody *:first-child{
+	margin-top: 0px;
+}
+
+html .mceContentBody *:last-child{
+	margin-bottom: 0px;
+}
+
+ul{
+	padding-left: 1em;
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: #36659f;
+}
+
+p,
+ul,
+ol,
+dl {
+	line-height: 1.6em;
+	margin: 2em 0;
+}
+
+ul li{
+	display: list-item;
+	line-height: 1.75em;
+	list-style: url(images/bullet.png);
+	list-style-position: outside;
+}
+
+ol{
+	list-style: outside decimal;
+	padding-left: 2.5em;
+	margin-bottom: 1.5em;
+}
+
+ol li{
+	display: list-item;
+	line-height: 1.75em;
+}
+
+ul ul,
+ol ol{
+	margin-bottom: 0;
+}
+
+blockquote{
+	padding: 1.5em 20px 1.5em 60px;
+	font-style: italic;
+	color: #666;
+	position: relative;
+	background: url(images/quote.png) no-repeat 10px center;
+}
+
+blockquote cite{
+	font-weight: bold;
+	color: #333;
+}
+
+blockquote p:first-child{
+	margin-top: 0;
+}
+
+blockquote p:last-child{
+	margin-bottom: 0;
+}
+
+strong,
+b{
+	font-weight: bold;
+}
+
+em,
+i{
+	font-style: italic;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+hr{
+	border: 0px;
+	border-top: 1px solid #CCC;
+}
+
+sup,
+sub {
+	font-size: 10px;
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+
+/* @group Definition list */
+
+dl dt{
+	font-weight: bold;
+}
+
+dl dd{
+	padding-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+/* @end */
+
+/* @group Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+	color: #333333;
+	margin: 1.5em 0;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 20.4px;
+}
+
+h3 {
+	font-size: 18.48px;
+}
+
+h4 {
+	font-size: 16.32px;
+}
+
+h5 {
+	font-size: 13.92px;
+}
+
+h6 {
+	font-size: 12.48px;
+}
+
+
+
+/* @end */
+
+
+
+/* @group Table */
+
+table{
+	width: 100%;
+	margin: 1em 0;
+}
+
+th{
+	font-size: 1.1em;
+	font-weight: bold;
+	padding: 8px;
+	border-bottom: 3px solid #C0C0C0;
+}
+
+thead th{
+	border-bottom: 3px solid #C0C0C0;
+}
+
+td{
+	padding: 8px;
+}
+
+/* @end */
