@@ -15,18 +15,23 @@ jQuery(function ($) {
     // Test and load polyfills
     if(!Modernizr.inlinesvg) {
         // No support for SVG, so replace with images where possible
-        $('svg[data-replacement]').each(function(){
+        $('svg').each(function(){
             var $$ = $(this);
-            $$.replaceWith(
-                $('<img>')
-                    .attr( {
-                        'src' : $$.data('replacement')
-                    } )
-                    .css( {
-                        'width' : $$.attr('width'),
-                        'height' : $$.attr('height')
-                    } )
-            );
+
+            if( typeof $$.data('replacement') != 'undefined' ) {
+
+                $$.replaceWith(
+                    $('<img>')
+                        .attr( {
+                            'src' : $$.data('replacement')
+                        } )
+                        .css( {
+                            'width' : $$.attr('width'),
+                            'height' : $$.attr('height')
+                        } )
+                );
+
+            }
         })
     }
 
