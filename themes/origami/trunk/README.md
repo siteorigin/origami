@@ -153,3 +153,7 @@ Change Log
 #### 1.5.14
 * Updated to latest version of SiteOrigin framework.
 * Premium: Fixed issue that was causing duplicate requests to updates server.
+
+#### 1.5.15
+* Removed iframe from premium upgrade page.
+* Fixed URL field for Icon Text widget.

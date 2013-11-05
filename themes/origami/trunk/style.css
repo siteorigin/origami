@@ -1331,6 +1331,11 @@ h1.archive-title {
     margin-bottom: 0.5em;
 }
 
+.widget_icon-text h3.widget-title a{
+    color: inherit;
+    text-decoration: none;
+}
+
 .widget_icon-text .feature-icon{
     float: left;
     width: 32px;
