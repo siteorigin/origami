@@ -7,7 +7,6 @@ include get_template_directory().'/premium/functions/gallery.php';
 include get_template_directory().'/premium/functions/customizer.php';
 
 // Include all the premium extras
-include get_template_directory().'/premium/extras/mobilenav/mobilenav.php';
 include get_template_directory().'/premium/extras/share/share.php';
 include get_template_directory().'/premium/extras/css/css.php';
 include get_template_directory().'/premium/extras/ajax-comments/ajax-comments.php';
@@ -22,9 +21,11 @@ include get_template_directory().'/premium/extras/customizer/customizer.php';
 function origami_premium_setup(){
 	// Activate all the extras
 	if(siteorigin_setting('comments_ajax')) siteorigin_ajax_comments_activate();
-	if(siteorigin_setting('responsive_nav')) add_theme_support('siteorigin-mobilenav');
+	if(siteorigin_setting('responsive_nav')) {
+		include get_template_directory().'/premium/extras/mobilenav/mobilenav.php';
+	}
 
-	if(siteorigin_setting('display_attribution'))
+	if( siteorigin_setting('display_attribution') )
 		add_filter('siteorigin_attribution_footer', '__return_false');
 }
 add_action('after_setup_theme', 'origami_premium_setup', 11);
