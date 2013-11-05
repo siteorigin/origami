@@ -157,3 +157,4 @@ Change Log
 #### 1.5.15
 * Removed iframe from premium upgrade page.
 * Fixed URL field for Icon Text widget.
+* Fixed issue with pagination not showing up.
