@@ -8,7 +8,7 @@ Origami includes the following external libraries
 * jQuery Placeholder by Mathias Bynens under MIT and GPL licenses <https://github.com/mathiasbynens/jquery-placeholder>
 * SIE-SVG under Mozilla Public License <http://sie.sourceforge.jp/>
 * FitVids 1.0 by Chris Coyier under WTFPL license <http://fitvidsjs.com/>
-* FlexSlider by Tyler Smith under MIT license <http://www.woothemes.com/flexslider/>
+* FlexSlider by Tyler Smith under GPLv2 <http://www.woothemes.com/flexslider/>
 * Modernizr under MIT & BSD licenses <http://modernizr.com/>
 * Selectivizr by Keith Clark under MIT license <http://selectivizr.com/>
 * Images in demo folder are from Pixabay Licensed under public domain <http://pixabay.com/>
@@ -163,4 +163,5 @@ Change Log
 #### 1.5.16
 * Fixed possible issue with header image.
 * Search bar drops below logo on mobile.
+* Updated FlexSlider to version 2.2 - updated license information in readme.
 * Updated to latest framework.
