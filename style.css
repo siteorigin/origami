@@ -199,6 +199,22 @@ body{
 	width: 180px;
 }
 
+@media screen and (max-width:480px) {
+    #logo #searchform {
+        position: static;
+        margin-top: 15px;
+    }
+
+    #logo #searchform #s {
+        width: 100%;
+    }
+
+    #logo #searchform #s:focus{
+        width: 100%;
+    }
+}
+
+
 /* @end */
 
 
