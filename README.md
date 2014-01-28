@@ -163,5 +163,4 @@ Change Log
 #### 1.5.16
 * Fixed possible issue with header image.
 * Search bar drops below logo on mobile.
-* Updated FlexSlider to version 2.2 - updated license information in readme.
 * Updated to latest framework.
