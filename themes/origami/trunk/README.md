@@ -159,3 +159,8 @@ Change Log
 * Fixed URL field for Icon Text widget.
 * Fixed issue with pagination not showing up.
 * Premium: Fixed issue where mobile navigation couldn't be disabled.
+
+#### 1.5.16
+* Fixed possible issue with header image.
+* Search bar drops below logo on mobile.
+* Updated to latest framework.
