@@ -164,3 +164,9 @@ Change Log
 * Fixed possible issue with header image.
 * Search bar drops below logo on mobile.
 * Updated to latest framework.
+
+#### 1.5.17
+* Updated to latest framework.
+* Added setting to disable responsive mode.
+* Added IE edge header to disable Internet Explorer compatibility mode.
+* Improved bundled language file.
