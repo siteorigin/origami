@@ -7,7 +7,7 @@ function origami_premium_upgrade_content($content){
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
 	$content['premium_video_poster'] = get_template_directory_uri().'/upgrade/poster.jpg';
 	$content['premium_video_id'] = '52853957';
-	$content['roadmap'] = 'http://siteorigin.com/origami-documentation/origami-roadmap/';
+	// $content['roadmap'] = 'http://siteorigin.com/origami-documentation/origami-roadmap/';
 
 	$content['features'] = array();
 
