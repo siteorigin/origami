@@ -85,7 +85,7 @@ function origami_setup(){
 	) );
 
 	// Only include the bundled version of panels if the plugin does not exist
-	if(!defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels')) {
+	if( !defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels') ) {
 		include get_template_directory().'/extras/panels/panels.php';
 	}
 }
@@ -104,7 +104,7 @@ function origami_widgets_init(){
 		'name'        => __( 'Footer', 'origami' ),
 		'before_widget' => '<div id="%1$s" class="cell widget %2$s">',
 		'after_widget'  => '</div>',
-	));
+	) );
 
 	register_widget( 'SiteOrigin_Widgets_CTA' );
 	register_widget( 'SiteOrigin_Widgets_Button' );
@@ -398,7 +398,7 @@ function origami_filter_show_on_front($r){
 	 * @var WP_Query
 	 */
 	global $origami_is_blog_archive;
-	if(!empty($origami_is_blog_archive)) {
+	if( !empty($origami_is_blog_archive) ) {
 		return false;
 	}
 	else return $r;
