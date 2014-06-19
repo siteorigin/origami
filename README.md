@@ -6,7 +6,6 @@ Origami WordPress Theme, Copyright 2012 [SiteOrigin][so]. Origami is a [GPL v2.0
 Origami includes the following external libraries
 
 * jQuery Placeholder by Mathias Bynens under MIT and GPL licenses <https://github.com/mathiasbynens/jquery-placeholder>
-* SIE-SVG under Mozilla Public License <http://sie.sourceforge.jp/>
 * FitVids 1.0 by Chris Coyier under WTFPL license <http://fitvidsjs.com/>
 * FlexSlider by Tyler Smith under GPLv2 <http://www.woothemes.com/flexslider/>
 * Modernizr under MIT & BSD licenses <http://modernizr.com/>
@@ -17,6 +16,8 @@ Origami includes the following external libraries
 
  [so]: http://siteorigin.com
  [gpl]: http://www.gnu.org/licenses/gpl-2.0.html
+
+Screenshot includes an image by Kathy Priday. Released under GPL.
 
 Change Log
 -----------------------------------------------
@@ -170,3 +171,7 @@ Change Log
 * Added setting to disable responsive mode.
 * Added IE edge header to disable Internet Explorer compatibility mode.
 * Improved bundled language file.
+
+#### 1.6
+* Updated to latest framework.
+* Changed theme screenshot to be fully GPL compatible.
