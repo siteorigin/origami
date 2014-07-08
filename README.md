@@ -175,3 +175,8 @@ Change Log
 #### 1.6
 * Updated to latest framework.
 * Changed theme screenshot to be fully GPL compatible.
+
+#### 1.6.1
+* Improved compatibility with latest Page Builder changes.
+* Renamed all page templates to comply with theme requirements.
+* Transitioned away from using blog page templates.
