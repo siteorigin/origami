@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: Without Page Title
-*/
 get_header(); the_post();
 ?>
 
