@@ -3,7 +3,9 @@
 Template Name: Archives
 */
 
-get_header(); the_post(); ?>
+get_header(); the_post();
+update_post_meta( get_the_ID(), '_wp_page_template', 'template-archive.php' );
+?>
 
 <div <?php post_class('post') ?>>
 	<h1 class="entry-title noinfo"><?php the_title(); ?></h1>
@@ -14,7 +16,7 @@ get_header(); the_post(); ?>
 	
 	<div class="content" id="blog-archives">
 		<h2><?php _e('Recent Posts', 'origami') ?></h2>
-		<?php $recent = get_posts(array('numberposts' => 4)); ?>
+		<?php $recent = get_posts( array('numberposts' => 4) ); ?>
 		<?php if(!empty($recent)) : ?>
 			<ul>
 				<?php foreach($recent as $recent_post) : ?>
