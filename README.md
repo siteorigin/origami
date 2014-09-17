@@ -1,17 +1,31 @@
 License
 -----------------------------------------------
 
-Origami WordPress Theme, Copyright 2012 [SiteOrigin][so]. Origami is a [GPL v2.0][gpl] theme.
+Origami WordPress Theme, Copyright 2012 [SiteOrigin][so].
+Origami is a [GPL v2.0][gpl] theme.
 
 Origami includes the following external libraries
 
-* jQuery Placeholder by Mathias Bynens under MIT and GPL licenses <https://github.com/mathiasbynens/jquery-placeholder>
-* FitVids 1.0 by Chris Coyier under WTFPL license <http://fitvidsjs.com/>
-* FlexSlider by Tyler Smith under GPLv2 <http://www.woothemes.com/flexslider/>
-* Modernizr under MIT & BSD licenses <http://modernizr.com/>
-* Selectivizr by Keith Clark under MIT license <http://selectivizr.com/>
+* jQuery Placeholder, Copyright 2010 Mathias Bynens
+  Licensed under MIT and GPL licenses <https://github.com/mathiasbynens/jquery-placeholder>
+
+* FitVids, Copyright 2013 Chris Coyier
+  Licensed under WTFPL license <http://fitvidsjs.com/>
+
+* FlexSlider, Copyright 2012 WooThemes
+  Licensed under GPLv2 <http://www.woothemes.com/flexslider/>
+
+* Modernizr, Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+  Licensed MIT & BSD licenses <http://modernizr.com/>
+
+* Selectivizr, Copyright 2011, Keith Clark
+  Licensed under MIT license <http://selectivizr.com/>
+
 * Images in demo folder are from Pixabay Licensed under public domain <http://pixabay.com/>
-* Dosis font used via Google Web Fonts. Licensed under SIL font license <http://www.google.com/fonts/specimen/Dosis>
+
+* Dosis font used via Google Web Fonts.
+  Licensed under SIL font license <http://www.google.com/fonts/specimen/Dosis>
+
 * The folder extras contains the SiteOrigin extras framework. All files are released under the same license as Origami.
 
  [so]: http://siteorigin.com
@@ -180,3 +194,7 @@ Change Log
 * Improved compatibility with latest Page Builder changes.
 * Renamed all page templates to comply with theme requirements.
 * Transitioned away from using blog page templates.
+* Updated to latest FitVids.
+* Fixed licensing in readme file.
+* Moved over to iconic fonts instead of SVG.
+* Framework updates.

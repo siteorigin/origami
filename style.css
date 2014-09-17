@@ -299,12 +299,18 @@ body{
 
 
 #menu .mobilenav-main-link .mobile-nav-icon{
-    display: inline-block;
+	font-family: origami-icons;
+	color: #666666;
+	font-size: 15px;
+    display: block;
+	float: left;
     width: 13px;
     height: 15px;
-    background: green;
-    margin: 0 7px -3px 0;
-    background: url(./images/navigate.png) no-repeat;
+    margin: -1px 8px 0 0;
+}
+
+#menu .mobilenav-main-link .mobile-nav-icon:before {
+	content: "\e601";
 }
 
 /* @end */
@@ -433,12 +439,20 @@ h1.entry-title a{
 	background: #F9F9F9;
 }
 
-.post .below-content svg,
-.post .below-content img{
-	display: inline-block;
-	margin-bottom: -4px;
+.post .below-content .origami-icon-tag,
+.post .below-content .origami-icon-more {
+	font-size: 19px;
+	color: #999999;
+	display: block;
+	margin-top: -1px;
 	margin-right: 6px;
 	margin-left: 6px;
+	float: left;
+}
+
+.post .below-content .origami-icon-more {
+	float: right;
+	margin-top: -2px;
 }
 
 .post .below-content svg {
@@ -1429,3 +1443,47 @@ html[xmlns] .clearfix {
 * html .clearfix {
 	height: 1%;
 }
+
+/* @group Origami Icons */
+
+@font-face {
+	font-family: 'origami-icons';
+	src:url('css/icons/origami-icons.eot?9l1bs6');
+	src:url('css/icons/origami-icons.eot?#iefix9l1bs6') format('embedded-opentype'),
+	url('css/icons/origami-icons.woff?9l1bs6') format('woff'),
+	url('css/icons/origami-icons.ttf?9l1bs6') format('truetype'),
+	url('css/icons/origami-icons.svg?9l1bs6#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="origami-icon-"],
+[class*=" origami-icon-"],
+#menu .mobilenav-main-link .mobile-nav-icon{
+	font-family: 'origami-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.origami-icon-mag:before {
+	content: "\e600";
+}
+.origami-icon-menu:before {
+	content: "\e601";
+}
+.origami-icon-more:before {
+	content: "\e602";
+}
+.origami-icon-tag:before {
+	content: "\e603";
+}
+
+/* @end */
