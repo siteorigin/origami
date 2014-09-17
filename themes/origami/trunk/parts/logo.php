@@ -6,7 +6,7 @@
 			<h3 class="logo"><?php bloginfo('description') ?></h3>
 		<?php endif; ?>
 	</a>
-	<?php if(siteorigin_setting('display_header_search')) get_search_form(); ?>
+	<?php if( siteorigin_setting('display_header_search') ) get_search_form(); ?>
 </div>
 
 <?php do_action('origami_after_logo') ?>
