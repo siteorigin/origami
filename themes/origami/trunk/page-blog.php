@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: Blog
-*/
 
 if( !get_option( 'page_for_posts' ) && get_option( 'show_on_front' ) == 'page' && get_post_status() == 'publish' ) {
 	// We're transitioning away from using the blog page template
