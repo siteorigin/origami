@@ -1,8 +1,4 @@
 <?php
-/*
-Template Name: Archives
-*/
-
 get_header(); the_post();
 update_post_meta( get_the_ID(), '_wp_page_template', 'template-archive.php' );
 ?>
