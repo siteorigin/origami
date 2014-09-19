@@ -1,5 +1,6 @@
 <?php
 get_header(); the_post();
+update_post_meta( get_the_ID(), '_wp_page_template', 'template-notitle.php' );
 ?>
 
 <div <?php post_class('post') ?>>
