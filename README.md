@@ -198,3 +198,6 @@ Change Log
 * Fixed licensing in readme file.
 * Moved over to iconic fonts instead of SVG.
 * Framework updates.
+
+#### 1.6.2
+* Framework updates to improve settings page.
