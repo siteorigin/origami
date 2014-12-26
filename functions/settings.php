@@ -88,7 +88,7 @@ function origami_settings_init(){
 		add_option('origami_header_image_transferred', true);
 	}
 }
-add_action('admin_init', 'origami_settings_init');
+add_action('siteorigin_settings_init', 'origami_settings_init');
 
 
 /**
