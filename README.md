@@ -201,3 +201,9 @@ Change Log
 
 #### 1.6.2
 * Framework updates to improve settings page.
+
+#### 1.6.3
+* Update HTML5Shiv
+* Removed Modernizr to prevent JS error.
+* Changed how minified JS files are enqueued.
+* Small CSS tweaks.
