@@ -207,3 +207,4 @@ Change Log
 * Removed Modernizr to prevent JS error.
 * Changed how minified JS files are enqueued.
 * Small CSS tweaks.
+* Framework updates.
