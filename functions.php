@@ -1,7 +1,7 @@
 <?php
 
-define('SITEORIGIN_THEME_VERSION', 'trunk');
-define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.localhost');
+define( 'SITEORIGIN_THEME_VERSION' , 'dev' );
+define( 'SITEORIGIN_THEME_ENDPOINT' , 'http://updates.siteorigin.com' );
 
 include get_template_directory() . '/extras/premium/premium.php';
 include get_template_directory() . '/extras/settings/settings.php';
@@ -159,12 +159,12 @@ if(!function_exists('origami_enqueue_scripts')) :
 function origami_enqueue_scripts(){
 	wp_enqueue_style('origami', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION);
 
-	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-	wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids' . $js_suffix . '.js', array('jquery'), '1.0');
-	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami' . $js_suffix . '.js', array('jquery'), SITEORIGIN_THEME_VERSION);
+	if( siteorigin_setting('responsive_fitvids') ) {
+		wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'), '1.1');
+	}
+	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery'), SITEORIGIN_THEME_VERSION);
 	
-	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider' . $js_suffix . '.js', array('jquery'), '2.1');
+	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '2.1');
 	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '2.0');
 
 	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
@@ -436,7 +436,7 @@ endif;
 
 function origami_wp_header(){
 	if( siteorigin_setting('responsive_enabled') ) {
-		?><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0' /><?php
+		?><meta name="viewport" content="width=device-width, initial-scale=1" /><?php
 	}
 	else {
 		?><meta name='viewport' content='width=1100' /><?php
