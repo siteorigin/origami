@@ -438,7 +438,7 @@ endif;
 
 function origami_wp_header(){
 	if( siteorigin_setting('responsive_enabled') ) {
-		?><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0' /><?php
+		?><meta name="viewport" content="width=device-width, initial-scale=1" /><?php
 	}
 	else {
 		?><meta name='viewport' content='width=1100' /><?php
