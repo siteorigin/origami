@@ -13,6 +13,11 @@ include get_template_directory() . '/extras/plugin-activation/plugin-activation.
 include get_template_directory() . '/functions/settings.php';
 include get_template_directory() . '/functions/gallery.php';
 include get_template_directory() . '/functions/panels.php';
+include get_template_directory() . '/functions/recommended-plugins.php';
+
+if( !class_exists('TGM_Plugin_Activation') ) {
+	include get_template_directory() . '/functions/class-tgm-plugin-activation.php';
+}
 
 if( file_exists(get_template_directory().'/premium/functions.php') ) {
 	// Include the premium file if it exists.
@@ -83,11 +88,6 @@ function origami_setup(){
 		'home-page' => true,
 		'home-page-default' => false,
 	) );
-
-	// Only include the bundled version of panels if the plugin does not exist
-	if( !defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels') ) {
-		include get_template_directory().'/extras/panels/panels.php';
-	}
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');

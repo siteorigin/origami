@@ -41,6 +41,8 @@ Change Log
 * Changed header to let users zoom on mobile.
 * Framework updates.
 * Optimized all images.
+* Added TGM Plugin Activation for SiteOrigin plugins.
+* Removed bundled Page Builder.
 
 #### 1.6.3
 * Update HTML5Shiv
