@@ -13,6 +13,11 @@ include get_template_directory() . '/extras/plugin-activation/plugin-activation.
 include get_template_directory() . '/functions/settings.php';
 include get_template_directory() . '/functions/gallery.php';
 include get_template_directory() . '/functions/panels.php';
+include get_template_directory() . '/functions/recommended-plugins.php';
+
+if( !class_exists('TGM_Plugin_Activation') ) {
+	include get_template_directory() . '/functions/class-tgm-plugin-activation.php';
+}
 
 if( file_exists(get_template_directory().'/premium/functions.php') ) {
 	// Include the premium file if it exists.
@@ -83,11 +88,6 @@ function origami_setup(){
 		'home-page' => true,
 		'home-page-default' => false,
 	) );
-
-	// Only include the bundled version of panels if the plugin does not exist
-	if( !defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels') ) {
-		include get_template_directory().'/extras/panels/panels.php';
-	}
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
@@ -159,12 +159,14 @@ if(!function_exists('origami_enqueue_scripts')) :
 function origami_enqueue_scripts(){
 	wp_enqueue_style('origami', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION);
 
+	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 	if( siteorigin_setting('responsive_fitvids') ) {
-		wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids.js', array('jquery'), '1.1');
+		wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids' . $js_suffix . '.js', array('jquery'), '1.0');
 	}
-	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami.js', array('jquery'), SITEORIGIN_THEME_VERSION);
+	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami' . $js_suffix . '.js', array('jquery'), SITEORIGIN_THEME_VERSION);
 	
-	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '2.1');
+	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider' . $js_suffix . '.js', array('jquery'), '2.1');
 	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '2.0');
 
 	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
