@@ -6,8 +6,12 @@
  */
 
 jQuery(function ($) {
-    // We use FitVids to scale videos to mobile devices 
-    $('.featured-video, .content, .content p').fitVids();
+
+    console.log($.fn.fitVids);
+    if( typeof $.fn.fitVids !== 'undefined' ) {
+        // We use FitVids to scale videos to mobile devices
+        $('.featured-video, .content, .content p').fitVids();
+    }
 
     // FlexSlider is a great responsive slider
     $('.flexslider').flexslider();
