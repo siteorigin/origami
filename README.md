@@ -36,6 +36,12 @@ Screenshot includes an image by Kathy Priday. Released under GPL.
 Change Log
 -----------------------------------------------
 
+#### 1.6.4
+* Added option to disable FitVids.
+* Changed header to let users zoom on mobile.
+* Framework updates.
+* Optimized all images.
+
 #### 1.6.3
 * Update HTML5Shiv
 * Removed Modernizr to prevent JS error.
