@@ -7,7 +7,6 @@
 
 jQuery(function ($) {
 
-    console.log($.fn.fitVids);
     if( typeof $.fn.fitVids !== 'undefined' ) {
         // We use FitVids to scale videos to mobile devices
         $('.featured-video, .content, .content p').fitVids();
