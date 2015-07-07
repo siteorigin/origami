@@ -1,7 +1,7 @@
 <?php
 
-define('SITEORIGIN_THEME_VERSION', 'trunk');
-define('SITEORIGIN_THEME_ENDPOINT', 'http://updates.siteorigin.com');
+define( 'SITEORIGIN_THEME_VERSION' , 'dev' );
+define( 'SITEORIGIN_THEME_ENDPOINT' , 'http://updates.siteorigin.com' );
 
 include get_template_directory() . '/extras/premium/premium.php';
 include get_template_directory() . '/extras/settings/settings.php';
