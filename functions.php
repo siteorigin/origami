@@ -88,9 +88,23 @@ function origami_setup(){
 		'home-page' => true,
 		'home-page-default' => false,
 	) );
+
+	add_theme_support( 'infinite-scroll', array(
+		'container' => 'content',
+		'footer' => 'page',
+		'wrapper' => false,
+		'render' => 'origami_infinite_scroll_render',
+	) );
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
+
+if(!function_exists('origami_infinite_scroll_settings')) :
+
+function origami_infinite_scroll_render() {
+	get_template_part('loop', 'index');
+}
+endif;
 
 if(!function_exists('origami_widgets_init')) :
 /**
