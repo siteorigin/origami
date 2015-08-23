@@ -52,6 +52,10 @@ function origami_settings_init(){
 		'teaser-image' => get_template_directory_uri().'/upgrade/teaser/nav.png',
 	));
 
+	siteorigin_settings_add_teaser('responsive', 'nav_search', __('Responsive Navigation Search', 'origami'), array(
+		'description' => __('Enable search in the responsive mobile navigation menu.', 'origami'),
+	));
+
 	siteorigin_settings_add_field('responsive', 'fitvids', 'checkbox', __('Use Fitvids', 'origami'), array(
 		'description' => __('Enable FitVids to automatically scale your videos.', 'origami'),
 	));
@@ -132,6 +136,7 @@ function origami_settings_defaults($defaults){
 
 	$defaults['responsive_enabled'] = true;
 	$defaults['responsive_nav'] = true;
+	$defaults['responsive_nav_search'] = true;
 	$defaults['responsive_fitvids'] = true;
 
 	$defaults['social_share'] = true;
