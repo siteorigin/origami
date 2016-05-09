@@ -1,30 +1,21 @@
 <?php
 
-define( 'SITEORIGIN_THEME_VERSION' , 'dev' );
-define( 'SITEORIGIN_THEME_ENDPOINT' , 'http://updates.siteorigin.com' );
+define('SITEORIGIN_THEME_VERSION', 'dev');
+define('SITEORIGIN_THEME_JS_PREFIX', '');
 
-include get_template_directory() . '/extras/premium/premium.php';
-include get_template_directory() . '/extras/settings/settings.php';
-include get_template_directory() . '/extras/adminbar/adminbar.php';
-include get_template_directory() . '/extras/widgets/widgets.php';
-include get_template_directory() . '/extras/update/update.php';
-include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
+include get_template_directory() . '/inc/settings/settings.php';
+include get_template_directory() . '/inc/customizer/customizer.php';
 
-include get_template_directory() . '/functions/settings.php';
-include get_template_directory() . '/functions/gallery.php';
-include get_template_directory() . '/functions/panels.php';
-include get_template_directory() . '/functions/recommended-plugins.php';
+include get_template_directory() . '/inc/widgets.php';
+include get_template_directory() . '/inc/settings.php';
+include get_template_directory() . '/inc/customizer.php';
+include get_template_directory() . '/inc/gallery.php';
+include get_template_directory() . '/inc/panels.php';
+include get_template_directory() . '/inc/recommended-plugins.php';
+include get_template_directory() . '/inc/legacy.php';
 
 if( !class_exists('TGM_Plugin_Activation') ) {
-	include get_template_directory() . '/functions/class-tgm-plugin-activation.php';
-}
-
-if( file_exists(get_template_directory().'/premium/functions.php') ) {
-	// Include the premium file if it exists.
-	include get_template_directory().'/premium/functions.php';
-}
-else{
-	include get_template_directory() . '/upgrade/upgrade.php';
+	include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 }
 
 if(!function_exists('origami_setup')) :
@@ -66,11 +57,6 @@ function origami_setup(){
 		'header-text' => false,
 	));
 
-	add_theme_support('siteorigin-premium-teaser', array(
-		'customizer' => true,
-		'settings' => true,
-	));
-	
 	add_editor_style();
 	
 	// Set up the image sizes
@@ -88,6 +74,10 @@ function origami_setup(){
 		'home-page' => true,
 		'home-page-default' => false,
 	) );
+
+	if( siteorigin_setting('responsive_nav') ) {
+		include get_template_directory().'/inc/mobilenav/mobilenav.php';
+	}
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
