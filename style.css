@@ -1488,3 +1488,20 @@ html[xmlns] .clearfix {
 }
 
 /* @end */
+
+/* @group Jetpack Infinite Scroll button and spinner */
+
+#infinite-handle {
+	text-align: center;
+}
+
+#infinite-handle span {
+	background: none;
+	color: #505050;
+}
+
+.infinite-loader .spinner {
+	left: 50% !important;
+}
+
+/* @end */
