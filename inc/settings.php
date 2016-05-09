@@ -100,4 +100,4 @@ function origami_settings_defaults($defaults){
 
 	return $defaults;
 }
-add_filter('siteorigin_theme_default_settings', 'origami_settings_defaults');
+add_filter('siteorigin_settings_defaults', 'origami_settings_defaults');
