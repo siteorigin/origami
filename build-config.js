@@ -23,12 +23,8 @@ module.exports = {
 		]
 	},
 	sass: {
-		src: [
-			'sass/**/*.scss',
-		],
-		include: [
-			'sass',
-		],
+		src: [],
+		include: [],
 		external: {
 			src: [
 				'inc/settings/css/**/*.scss',
@@ -42,12 +38,8 @@ module.exports = {
 		src: [],
 		include: [],
 		external: {
-			src: [
-				'inc/panels-lite/css/**/*.less',
-			],
-			include: [
-				'inc/panels-lite/css',
-			],
+			src: [],
+			include: [],
 		},
 	},
 	js: {
