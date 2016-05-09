@@ -158,10 +158,6 @@ function origami_enqueue_scripts(){
 	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '2.0');
 
 	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
-
-	wp_localize_script('origami', 'origami', array(
-		'polyfills' => get_template_directory_uri().'/js/polyfills'
-	));
 }
 endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_scripts');
