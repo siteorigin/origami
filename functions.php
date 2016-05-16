@@ -75,6 +75,12 @@ function origami_setup(){
 		'home-page-default' => false,
 	) );
 
+	add_theme_support( 'custom-logo', array(
+		'height'      => 240,
+		'width'       => 240,
+		'flex-height' => true,
+	) );
+
 	if( siteorigin_setting('responsive_nav') ) {
 		include get_template_directory().'/inc/mobilenav/mobilenav.php';
 	}
@@ -405,18 +411,28 @@ function origami_set_is_blog_archive($new) {
 if( !function_exists('origami_header_image') ) :
 function origami_header_image(){
 
-	$header = get_custom_header();
-
-	echo '<img src="' . esc_url( $header->url ) .  '"';
-	if(!empty($header->height)) {
-		echo ' height="' . $header->height . '"';
-	}
-	if(!empty($header->width)) {
-		echo ' width="' . $header->width . '"';
+	if( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+		$logo = get_custom_logo();
+		if( !empty( $logo ) ) {
+			echo $logo;
+			return true;
+		}
 	}
 
-	echo ' alt="' . esc_attr( get_bloginfo('name') ) . '" />';
+	if( $header = get_custom_header() ) {
+		echo '<img src="' . esc_url( $header->url ) .  '"';
+		if(!empty($header->height)) {
+			echo ' height="' . $header->height . '"';
+		}
+		if(!empty($header->width)) {
+			echo ' width="' . $header->width . '"';
+		}
 
+		echo ' alt="' . esc_attr( get_bloginfo('name') ) . '" />';
+		return true;
+	}
+
+	return false;
 }
 endif;
 
