@@ -54,7 +54,7 @@ module.exports = {
 	},
 	copy: {
 		src: [
-			'**/!(*.js|*.scss|*.md|style.css|woocommerce.css)',   // Everything except .js and .scss files
+			'**/!(*.js|*.scss)',                                  // Everything except .js and .scss files
 			'!{build,build/**}',                                  // Ignore build/ and contents
 			'!{sass,sass/**}',                                    // Ignore sass/ and contents
 			'inc/settings/chosen/*.js',                           // Ensure necessary .js files ignored in the first glob are copied
