@@ -4,3 +4,6 @@
 [submodule "build"]
 	path = build
 	url = git@github.com:siteorigin/theme-build.git
+[submodule "premium"]
+	path = premium
+	url = git@github.com:siteorigin/legacy-premium.git

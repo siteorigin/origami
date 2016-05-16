@@ -18,6 +18,8 @@ if( !class_exists('TGM_Plugin_Activation') ) {
 	include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 }
 
+include get_template_directory() . '/premium/premium.php';
+
 if(!function_exists('origami_setup')) :
 /**
  * Setup Origami.
