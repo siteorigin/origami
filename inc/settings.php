@@ -101,3 +101,20 @@ function origami_settings_defaults($defaults){
 	return $defaults;
 }
 add_filter('siteorigin_settings_defaults', 'origami_settings_defaults');
+
+function origami_about_page_setup( $about ){
+	$about['title_image'] = get_template_directory_uri() . '/admin/about/origami-logo.png';
+	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/origami-logo-2x.png';
+
+	$about['description'] = __( 'Origami is one of our most elegant, mature WordPress themes. Find out more about what it has to offer by watching this short video.', 'origami' );
+
+	$about[ 'sections' ] = array(
+		'free',
+		'support',
+		'page-builder',
+		'mature',
+	);
+
+	return $about;
+}
+add_filter( 'siteorigin_about_page', 'origami_about_page_setup' );
