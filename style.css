@@ -825,29 +825,6 @@ h1.archive-title {
     text-decoration: none; }
 
 /**
- * #.# Panels
- */
-.panel-grid {
-  margin: 0 -15px 30px -15px; }
-
-.panel-grid-cell {
-  box-sizing: border-box;
-  padding: 0 15px; }
-  .panel-grid-cell .panel {
-    margin-bottom: 30px; }
-    .panel-grid-cell .panel:last-child {
-      margin-bottom: 0; }
-
-.panel {
-  min-height: 1em;
-  margin-bottom: 15px; }
-  .panel.panel-last-child {
-    margin-bottom: 0; }
-  .panel h3.widget-title {
-    margin-bottom: 15px;
-    font-size: 125%; }
-
-/**
  * #.# Widgets
  */
 /**

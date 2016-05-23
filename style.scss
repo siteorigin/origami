@@ -1024,37 +1024,6 @@ h1.archive-title {
 	}
 }
 
-/**
- * #.# Panels
- */
-
-.panel-grid {
-	margin: 0 -15px 30px -15px;
-}
-
-.panel-grid-cell {
-	box-sizing: border-box;
-	padding: 0 15px;
-	.panel {
-		margin-bottom: 30px;
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
-.panel {
-	min-height: 1em;
-	margin-bottom: 15px;
-	&.panel-last-child {
-		margin-bottom: 0;
-	}
-	h3.widget-title {
-		margin-bottom: 15px;
-		font-size: 125%;
-	}
-}
-
 @import "scss/widgets";
 
 @import "scss/icons";
