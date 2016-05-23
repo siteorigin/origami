@@ -1,0 +1,45 @@
+/**
+ * #.# Archive Page
+ */
+
+/* The archive page template */
+
+#blog-archives {
+	margin-top: 30px;
+	h2 {
+		font-family: 'Terminal Dosis', sans-serif;
+		font-weight: 400;
+		font-size: 1.75em;
+		margin-bottom: 0.75em;
+	}
+	ul {
+		margin-bottom: 25px;
+		a {
+			color: #666;
+			text-decoration: none;
+			&:hover {
+				color: #333;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+/**
+ * #.# Post Archives
+ */
+
+h1.archive-title {
+	margin: 30px 0;
+	text-align: center;
+}
+
+#posts-nav {
+	margin-top: 30px;
+	text-align: center;
+	color: #AAA;
+	a {
+		color: #505050;
+		text-decoration: none;
+	}
+}

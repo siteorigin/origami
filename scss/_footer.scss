@@ -1,0 +1,71 @@
+/**
+ * #.# Footer
+ */
+
+/**
+ * #.# Footer Widgets
+ */
+
+#footer-widgets {
+	padding: 20px 0;
+	margin-top: 30px;
+	border-top: 1px solid #EEEEEE;
+	background-color: #F9F9F9;
+	width: 100%;
+}
+
+#footer-widgets-wrapper {
+	margin-bottom: -30px;
+}
+
+#footer-widgets {
+	.widget {
+		box-sizing: border-box;
+		color: #777;
+		padding: 0 15px;
+		word-wrap: break-word;
+		float: left;
+		margin-bottom: 30px;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	h2.widgettitle {
+		font-family: "Dosis", Arial, Helvetica, Geneva, sans-serif;
+		font-weight: 400;
+		font-size: 1.2em;
+		margin-bottom: 20px;
+		color: #333;
+	}
+	a {
+		text-decoration: none;
+		color: #505050;
+	}
+	li {
+		line-height: 1.75em;
+	}
+	ul ul {
+		margin-left: 0.75em;
+	}
+}
+
+#footer {
+	margin-bottom: 35px;
+	color: #888;
+	font-size: 0.85em;
+	border: transparent;
+	border-width: 0 1px;
+	color: #999999;
+	padding: 0px 5px;
+	text-align: center;
+	.copyright {
+		margin-bottom: 0.75em;
+	}
+	.designed {
+	}
+	a {
+		text-decoration: none;
+		color: #777;
+	}
+}
