@@ -1,0 +1,15 @@
+/**
+ * #.# Jetpack Infinite Scroll button and spinner
+ */
+
+#infinite-handle {
+	text-align: center;
+	span {
+		background: none;
+		color: #505050;
+	}
+}
+
+.infinite-loader .spinner {
+	left: 50% !important;
+}

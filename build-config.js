@@ -23,8 +23,12 @@ module.exports = {
 		]
 	},
 	sass: {
-		src: [],
-		include: [],
+		src: [
+			'style.scss',
+		],
+		include: [
+			'scss/*.scss',
+		],
 		external: {
 			src: [
 				'inc/settings/css/**/*.scss',
