@@ -113,6 +113,7 @@ function origami_about_page_setup( $about ){
 		'support',
 		'page-builder',
 		'mature',
+		'github',
 	);
 
 	return $about;
