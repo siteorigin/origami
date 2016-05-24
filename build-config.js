@@ -24,10 +24,10 @@ module.exports = {
 	},
 	sass: {
 		src: [
-			'style.scss',
+			'scss/*.scss',
 		],
 		include: [
-			'scss/*.scss',
+			'scss',
 		],
 		external: {
 			src: [
