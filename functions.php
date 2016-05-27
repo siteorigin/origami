@@ -235,13 +235,13 @@ if(!function_exists('origami_enqueue_google_webfonts')) :
  */
 function origami_enqueue_google_webfonts(){
 
-	if(!get_header_image()){
+	if( ! get_header_image() ){
 		// Enqueue the logo font as well (Terminal Dosis 200)
-		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
+		wp_enqueue_style('google-webfonts', '//fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
 	}
 	else{
 		// Enqueue only the text fonts that we need
-		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:400');
+		wp_enqueue_style('google-webfonts', '//fonts.googleapis.com/css?family=Terminal+Dosis:400');
 	}
 
 }
