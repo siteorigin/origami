@@ -57,6 +57,8 @@ function origami_setup(){
 		'header-text' => false,
 	));
 
+	add_theme_support( "title-tag" );
+
 	add_editor_style();
 	
 	// Set up the image sizes
@@ -426,7 +428,7 @@ function origami_set_is_blog_archive($new) {
 	$origami_is_blog_archive = $new;
 }
 
-if( !function_exists('origami_header_image') ) :
+if( ! function_exists( 'origami_header_image' ) ) :
 function origami_header_image(){
 
 	if( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
@@ -437,7 +439,8 @@ function origami_header_image(){
 		}
 	}
 
-	if( $header = get_custom_header() ) {
+	if( function_exists( 'has_header_image' ) && has_header_image() ) {
+		$header = get_custom_header();
 		echo '<img src="' . esc_url( $header->url ) .  '"';
 		if(!empty($header->height)) {
 			echo ' height="' . $header->height . '"';
