@@ -57,6 +57,8 @@ function origami_setup(){
 		'header-text' => false,
 	));
 
+	add_theme_support( "title-tag" );
+
 	add_editor_style();
 	
 	// Set up the image sizes
