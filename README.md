@@ -15,9 +15,6 @@ Origami includes the following external libraries
 * FlexSlider, Copyright 2012 WooThemes
   Licensed under GPLv2 <http://www.woothemes.com/flexslider/>
 
-* Modernizr, Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-  Licensed MIT & BSD licenses <http://modernizr.com/>
-
 * Selectivizr, Copyright 2011, Keith Clark
   Licensed under MIT license <http://selectivizr.com/>
 
@@ -35,6 +32,18 @@ Screenshot includes an image by Kathy Priday. Released under GPL.
 
 Change Log
 -----------------------------------------------
+
+#### 1.7 - 30 May 2016
+* Moved theme settings to customizer.
+* Updated to new settings and build frameworks.
+* Added new about page.
+* Updated TGM plugin activation.
+* Added Jetpack infinite scroll support.
+* Setting to disable search in the responsive menu.
+* Removed unnecessary `.panels` styles.
+* Added support for WordPress custom logo feature.
+* Fixed Google Webfont URLs.
+* Cleaned up CSS, removed unnecessary vendor prefixes.
 
 #### 1.6.4
 * Added option to disable FitVids.
