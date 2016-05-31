@@ -14,7 +14,6 @@ module.exports = {
 		format: 'php',
 		skipCommits: [ ],
 		excludeEmails: [
-			'77e88891e4965161953320ec66623cbc',       // Remove greg@siteorigin.com
 		]
 	},
 	version: {
