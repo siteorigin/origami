@@ -52,7 +52,7 @@ function origami_settings_init(){
 		'description' => __('Next and previous post links on single post pages.', 'origami')
 	));
 
-	$settings->add_section('responsive', __('Responsive', 'origami'));
+	$settings->add_section( 'responsive', __('Responsive', 'origami') );
 
 	$settings->add_field( 'responsive', 'enabled', 'checkbox', __('Responsive', 'origami'), array(
 		'description' => __('Should Origami use responsive mode.', 'origami'),
@@ -65,6 +65,8 @@ function origami_settings_init(){
 	$settings->add_field('responsive', 'fitvids', 'checkbox', __('Use Fitvids', 'origami'), array(
 		'description' => __('Enable FitVids to automatically scale your videos.', 'origami'),
 	));
+
+	$settings->add_section( 'comments', __('Comments', 'origami') );
 
 }
 add_action('siteorigin_settings_init', 'origami_settings_init');
@@ -95,8 +97,7 @@ function origami_settings_defaults($defaults){
 	$defaults['responsive_nav'] = true;
 	$defaults['responsive_fitvids'] = true;
 
-	$defaults['social_share'] = true;
-	$defaults['social_twitter'] = '';
+	$defaults['comments_ajax'] = true;
 
 	return $defaults;
 }
@@ -115,6 +116,8 @@ function origami_about_page_setup( $about ){
 		'mature',
 		'github',
 	);
+
+	$about[ 'premium_url' ] = false;
 
 	return $about;
 }

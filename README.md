@@ -33,6 +33,9 @@ Screenshot includes an image by Kathy Priday. Released under GPL.
 Change Log
 -----------------------------------------------
 
+#### 1.7 - 2 June 2016
+* Properly include all minified JS versions.
+
 #### 1.7 - 30 May 2016
 * Moved theme settings to customizer.
 * Updated to new settings and build frameworks.
