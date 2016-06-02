@@ -117,6 +117,8 @@ function origami_about_page_setup( $about ){
 		'github',
 	);
 
+	$about[ 'premium_url' ] = false;
+
 	return $about;
 }
 add_filter( 'siteorigin_about_page', 'origami_about_page_setup' );
