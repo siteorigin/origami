@@ -117,6 +117,14 @@ function origami_about_page_setup( $about ){
 
 	$about['description'] = __( 'Origami is one of our most elegant, mature WordPress themes. Find out more about what it has to offer by watching this short video.', 'origami' );
 
+	$about[ 'video_thumbnail' ] = array(
+		get_template_directory_uri() . '/admin/about/screenshot-1.jpg',
+		get_template_directory_uri() . '/admin/about/screenshot-2.jpg',
+	);
+
+	$about['documentation_url'] = 'https://siteorigin.com/origami-documentation/';
+	$about['review'] = true;
+
 	$about[ 'sections' ] = array(
 		'free',
 		'support',
