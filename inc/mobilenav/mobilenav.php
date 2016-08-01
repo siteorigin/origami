@@ -9,8 +9,7 @@ if( !function_exists('siteorigin_mobilenav_enqueue_scripts') ) :
 function siteorigin_mobilenav_enqueue_scripts() {
 	$root_uri = get_template_directory_uri() . '/inc/mobilenav/';
 
-	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_enqueue_script( 'siteorigin-mobilenav', $root_uri . 'js/mobilenav' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
+	wp_enqueue_script( 'siteorigin-mobilenav', $root_uri . 'js/mobilenav' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
 
 	$text = array(
 		'navigate' => __( 'Menu', 'origami' ),
