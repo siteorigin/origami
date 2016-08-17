@@ -1,0 +1,73 @@
+/**
+ * #.# Logo
+ */
+
+#logo {
+	position: relative;
+	margin: 20px 0 25px 0;
+	&.logo-centered {
+		text-align: center;
+	}
+	a.logo-link {
+		text-decoration: none;
+	}
+	h1 {
+		display: inline-block;
+		color: #555;
+		font-family: "Terminal Dosis", Arial, Helvetica, Geneva, sans-serif;
+		font-size: 52px;
+		font-weight: 200;
+		margin-bottom: 0.2em;
+	}
+	h3 {
+		display: inline-block;
+		color: #666;
+		font-size: 13px;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	#searchform {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -12px;
+		label, #searchsubmit {
+			display: none;
+		}
+		#s {
+			width: 28px;
+			padding: 4px;
+			border: 1px solid #EEEEEE;
+			border-width: 0 0 1px 0;
+			font-size: 0.9em;
+			font-weight: 200;
+			box-sizing: border-box;
+			@include transition( all 0.275s ease-in-out );
+			background: #F9F9F9 url(images/mag.png) no-repeat 10px center;
+			padding-left: 30px;
+			color: #777;
+			&:focus {
+				width: 180px;
+			}
+		}
+	}
+}
+
+/**
+ * #.# Search Form
+ */
+
+@media screen and (max-width: 480px) {
+	#logo #searchform {
+		position: static;
+		margin-top: 15px;
+		#s {
+			width: 100%;
+			&:focus {
+				width: 100%;
+			}
+		}
+	}
+}

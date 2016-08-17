@@ -59,6 +59,8 @@ function origami_setup(){
 		'header-text' => false,
 	));
 
+	add_theme_support( "title-tag" );
+
 	add_editor_style();
 	
 	// Set up the image sizes
@@ -89,6 +91,24 @@ function origami_setup(){
 }
 endif;
 add_action('after_setup_theme', 'origami_setup');
+
+
+function origami_siteorigin_premium_support(){
+	// This theme supports the no attribution addon
+	add_theme_support( 'siteorigin-premium-no-attribution', array(
+		'filter'  => 'siteorigin_attribution_footer',
+		'enabled' => siteorigin_setting( 'display_attribution' ),
+		'siteorigin_setting' => 'display_attribution'
+	) );
+
+	// This theme supports the ajax comments addon
+	add_theme_support( 'siteorigin-premium-ajax-comments', array(
+		'enabled' => siteorigin_setting( 'comments_ajax' ),
+		'siteorigin_setting' => 'comments_ajax'
+	) );
+}
+add_action( 'after_setup_theme', 'origami_siteorigin_premium_support' );
+
 
 if(!function_exists('origami_widgets_init')) :
 /**
@@ -219,13 +239,13 @@ if(!function_exists('origami_enqueue_google_webfonts')) :
  */
 function origami_enqueue_google_webfonts(){
 
-	if(!get_header_image()){
+	if( ! get_header_image() ){
 		// Enqueue the logo font as well (Terminal Dosis 200)
-		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
+		wp_enqueue_style('google-webfonts', '//fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
 	}
 	else{
 		// Enqueue only the text fonts that we need
-		wp_enqueue_style('google-webfonts', 'http://fonts.googleapis.com/css?family=Terminal+Dosis:400');
+		wp_enqueue_style('google-webfonts', '//fonts.googleapis.com/css?family=Terminal+Dosis:400');
 	}
 
 }
@@ -410,7 +430,7 @@ function origami_set_is_blog_archive($new) {
 	$origami_is_blog_archive = $new;
 }
 
-if( !function_exists('origami_header_image') ) :
+if( ! function_exists( 'origami_header_image' ) ) :
 function origami_header_image(){
 
 	if( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
@@ -421,7 +441,8 @@ function origami_header_image(){
 		}
 	}
 
-	if( $header = get_custom_header() ) {
+	if( function_exists( 'has_header_image' ) && has_header_image() ) {
+		$header = get_custom_header();
 		echo '<img src="' . esc_url( $header->url ) .  '"';
 		if(!empty($header->height)) {
 			echo ' height="' . $header->height . '"';

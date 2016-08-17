@@ -23,8 +23,12 @@ module.exports = {
 		]
 	},
 	sass: {
-		src: [],
-		include: [],
+		src: [
+			'scss/*.scss',
+		],
+		include: [
+			'scss',
+		],
 		external: {
 			src: [
 				'inc/settings/css/**/*.scss',
@@ -45,8 +49,7 @@ module.exports = {
 	js: {
 		src: [
 			'js/**/*.js',
-			'inc/settings/js/**/*.js',
-			'inc/panels-lite/js/**/*.js',
+			'inc/*/js/**/*.js',
 			'!{node_modules,node_modules/**}',  // Ignore node_modules/ and contents
 			'!{tests,tests/**}',                // Ignore tests/ and contents
 			'!{tmp,tmp/**}'                     // Ignore tmp/ and contents
@@ -54,7 +57,7 @@ module.exports = {
 	},
 	copy: {
 		src: [
-			'**/!(*.js|*.scss)',                                  // Everything except .js and .scss files
+			'**/!(*.js|*.scss|style.css)',                        // Everything except .js and .scss files
 			'!{build,build/**}',                                  // Ignore build/ and contents
 			'!{sass,sass/**}',                                    // Ignore sass/ and contents
 			'inc/settings/chosen/*.js',                           // Ensure necessary .js files ignored in the first glob are copied

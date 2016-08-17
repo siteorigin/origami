@@ -93,7 +93,7 @@ class SiteOrigin_Customizer_CSS_Builder {
 		}
 		$import = array_unique( $import );
 		if ( !empty( $import ) ) {
-			$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+			$return .= '@import url(http' . ( is_ssl() ? 's' : '' ) . '://fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
 		}
 
 		foreach ( $this->css as $selector => $rules ) {
@@ -334,6 +334,11 @@ class SiteOrigin_Customizer_Helper {
 		$this->add_sections($sections);
 		$this->add_settings($settings);
 
+		if( empty($root_url) ) {
+			$root_url = get_template_directory_uri().'/premium/extras/customizer/';
+		}
+		$this->root_url = $root_url;
+
 		// Add a script that will help us with our previews
 		add_action( 'customize_preview_init', array( $this, 'enqueue' ) );
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'admin_enqueue' ) );
@@ -401,7 +406,7 @@ class SiteOrigin_Customizer_Helper {
 			'priority'       => 50,
 			'capability'     => 'edit_theme_options',
 			'title'          => __('Theme Design', 'origami'),
-			'description'    => __('Theme Specific Customizations For Origami', 'origami')
+			'description'    => sprintf( __('Theme Specific Customizations For %s.', 'origami'), $theme->get('Name') ),
 		) );
 
 		// Start by registering all the sections
@@ -593,7 +598,7 @@ class SiteOrigin_Customizer_Helper {
 			)
 		));
 
-		wp_enqueue_style('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
+		wp_enqueue_style('siteorigin-customizer-admin', $this->root_url . 'css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
 	}
 
 	/**
@@ -607,19 +612,3 @@ class SiteOrigin_Customizer_Helper {
 }
 
 endif;
-
-/**
- * Action to handle resetting
- */
-function siteorigin_customize_reset_customizations_action(){
-	check_ajax_referer('so_customize_reset');
-	if( !current_user_can('edit_theme_options') ) wp_die();
-	if( empty($_GET['return']) ) wp_die();
-
-	SiteOrigin_Customizer_Helper::single()->reset_defaults();
-
-	// Now lets reset all the customizations
-	wp_redirect( $_GET['return'] );
-	exit();
-}
-add_action('wp_ajax_so_customize_reset', 'siteorigin_customize_reset_customizations_action');

@@ -36,6 +36,10 @@ function origami_settings_init(){
 		'description' => __("Changes [gallery] shortcode galleries into a fancy slider.", 'origami')
 	));
 
+	$settings->add_teaser( 'display', 'attribution', 'checkbox', __( 'Footer Attribution', 'origami' ), array(
+		'description' => __("Hide/show the link to SiteOrigin in your footer.", 'origami')
+	) );
+
 	$settings->add_field('display', 'featured_image', 'checkbox', __('Display featured Image', 'origami'), array(
 		'description' => __('Featured image above posts', 'origami')
 	));
@@ -52,7 +56,7 @@ function origami_settings_init(){
 		'description' => __('Next and previous post links on single post pages.', 'origami')
 	));
 
-	$settings->add_section('responsive', __('Responsive', 'origami'));
+	$settings->add_section( 'responsive', __('Responsive', 'origami') );
 
 	$settings->add_field( 'responsive', 'enabled', 'checkbox', __('Responsive', 'origami'), array(
 		'description' => __('Should Origami use responsive mode.', 'origami'),
@@ -65,6 +69,12 @@ function origami_settings_init(){
 	$settings->add_field('responsive', 'fitvids', 'checkbox', __('Use Fitvids', 'origami'), array(
 		'description' => __('Enable FitVids to automatically scale your videos.', 'origami'),
 	));
+
+	$settings->add_section( 'comments', __('Comments', 'origami') );
+
+	$settings->add_teaser( 'comments', 'ajax', 'checkbox', __( 'Ajax Comments', 'origami' ), array(
+		'description' => __("Use ajax comments system.", 'origami')
+	) );
 
 }
 add_action('siteorigin_settings_init', 'origami_settings_init');
@@ -95,9 +105,34 @@ function origami_settings_defaults($defaults){
 	$defaults['responsive_nav'] = true;
 	$defaults['responsive_fitvids'] = true;
 
-	$defaults['social_share'] = true;
-	$defaults['social_twitter'] = '';
+	$defaults['comments_ajax'] = true;
 
 	return $defaults;
 }
 add_filter('siteorigin_settings_defaults', 'origami_settings_defaults');
+
+function origami_about_page_setup( $about ){
+	$about['title_image'] = get_template_directory_uri() . '/admin/about/origami-logo.png';
+	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/origami-logo-2x.png';
+
+	$about['description'] = __( 'Origami is one of our most elegant, mature WordPress themes. Find out more about what it has to offer by watching this short video.', 'origami' );
+
+	$about[ 'video_thumbnail' ] = array(
+		get_template_directory_uri() . '/admin/about/screenshot-1.jpg',
+		get_template_directory_uri() . '/admin/about/screenshot-2.jpg',
+	);
+
+	$about['documentation_url'] = 'https://siteorigin.com/origami-documentation/';
+	$about['review'] = true;
+
+	$about[ 'sections' ] = array(
+		'free',
+		'support',
+		'page-builder',
+		'mature',
+		'github',
+	);
+
+	return $about;
+}
+add_filter( 'siteorigin_about_page', 'origami_about_page_setup' );
