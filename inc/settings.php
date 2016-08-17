@@ -106,6 +106,7 @@ function origami_settings_defaults($defaults){
 	$defaults['responsive_fitvids'] = true;
 
 	$defaults['comments_ajax'] = true;
+	$defaults['social_share'] = true;
 
 	return $defaults;
 }
