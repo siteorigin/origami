@@ -18,6 +18,8 @@
 	<?php endif; ?>
 </h1>
 
+<?php the_archive_description( '<div class="archive-description">', '</div>' ) ?>
+
 <?php get_template_part('loop', 'index') ?>
 
 <div id="posts-nav">
