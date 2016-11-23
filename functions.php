@@ -358,17 +358,26 @@ function so_setting($name, $default = null){
 }
 endif;
 
-function origami_post_class_columns($classes, $class, $post_id){
-	if(!siteorigin_setting('display_use_columns')) return $classes;
-	if(is_page() && get_post_meta(get_the_ID(), 'panels_data')) return $classes;
-	if(function_exists('siteorigin_panels_is_home') && siteorigin_panels_is_home()) return $classes;
-	
-	
-	$columns = get_post_meta($post_id, 'content_columns', true);
-	if(!empty($columns)) $classes[] = 'content-columns-'.$columns;
+function origami_post_class_filter( $classes ){
+	// Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
+	if( is_page() ){
+		$class_key = array_search( 'hentry', $classes );
+		if( $class_key !== false) {
+			unset( $classes[ $class_key ] );
+		}
+	}
+
+	// Set up the post columns
+	if( siteorigin_setting( 'display_use_columns' ) ){
+		if( is_page() && get_post_meta( get_the_ID(), 'panels_data' ) ) return $classes;
+		if( function_exists( 'siteorigin_panels_is_home' ) && siteorigin_panels_is_home() ) return $classes;
+
+		$columns = get_post_meta( get_the_ID(), 'content_columns', true );
+		if( !empty( $columns ) ) $classes[] = 'content-columns-' . $columns;
+	}
 	return $classes;
 }
-add_filter('post_class', 'origami_post_class_columns', 10, 3);
+add_filter( 'post_class', 'origami_post_class_filter', 10 );
 
 /**
  * Update widget classes to use panels built in widgets.
