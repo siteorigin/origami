@@ -44,8 +44,8 @@
 		$commenter = wp_get_current_commenter();
 		comment_form(array(
 			'fields' => array(
-				'author' => sprintf('<input name="author" type="text" placeholder="%s" value="' . esc_attr( $commenter['comment_author'] ) . '" />', __('Name', 'origami')),
-				'email' => sprintf('<input name="email" type="text" placeholder="%s" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" />', __('Email', 'origami')),
+				'author' => sprintf('<input name="author" type="text" placeholder="%s" value="' . esc_attr( $commenter['comment_author'] ) . '" required />', __('Name', 'origami')),
+				'email' => sprintf('<input name="email" type="text" placeholder="%s" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required />', __('Email', 'origami')),
 				'url' => sprintf('<input name="url" type="text" placeholder="%s" value="' . esc_attr( $commenter['comment_author_url'] ) . '" />', __('Website', 'origami')),
 			),
 			'comment_field' => '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>',
