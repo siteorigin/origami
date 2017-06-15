@@ -165,23 +165,24 @@ endif;
 add_filter('wp_title', 'origami_title', 10, 3);
 
 
-if(!function_exists('origami_enqueue_scripts')) :
+if ( ! function_exists( 'origami_enqueue_scripts' ) ) :
 /**
- * Enqueue Origami's scripts
+ * Enqueue Origami's scripts.
  * 
  * @action 
  * @return void
  */
-function origami_enqueue_scripts(){
-	wp_enqueue_style('origami', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION);
+function origami_enqueue_scripts() {
+	wp_enqueue_style( 'origami', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
 
-	if( siteorigin_setting('responsive_fitvids') ) {
-		wp_enqueue_script('fitvids', get_template_directory_uri().'/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js', array('jquery'), '1.0');
+	if ( ! class_exists( 'Jetpack' ) && siteorigin_setting( 'responsive_fitvids' ) ) {
+		wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), '1.0' );
 	}
-	wp_enqueue_script('origami', get_template_directory_uri().'/js/origami' . SITEORIGIN_THEME_JS_PREFIX . '.js', array('jquery'), SITEORIGIN_THEME_VERSION);
+
+	wp_enqueue_script( 'origami', get_template_directory_uri() . '/js/origami' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
 	
-	wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider' . SITEORIGIN_THEME_JS_PREFIX . '.js', array('jquery'), '2.1');
-	wp_enqueue_style('flexslider', get_template_directory_uri().'/css/flexslider.css', array(), '2.0');
+	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), '2.1' );
+	wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css', array(), '2.0' );
 
 	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 }
