@@ -1,6 +1,17 @@
-/**
- * #.# Jetpack Infinite Scroll button and spinner
- */
+/*--------------------------------------------------------------
+## - Jetpack Infinite Scroll
+--------------------------------------------------------------*/
+// Globally hidden elements when Infinite Scroll is supported and in use.
+.infinite-scroll #posts-nav, // Older / Newer posts navigation (always hidden).
+.infinite-scroll .woocommerce-pagination, // WooCommercep pagination navigation (always hidden).
+.infinite-scroll.neverending #footer-widgets { // Theme footer (when set to scrolling).
+	display: none;
+}
+
+// When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before.
+.infinity-end.neverending #footer-widgets {
+	display: block;
+} 
 
 #infinite-handle {
 	text-align: center;
