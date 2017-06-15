@@ -1,11 +1,9 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
-<div id="content"><?php get_template_part('loop', 'index') ?></div>
+<div id="content"><?php get_template_part( 'loop', 'index' ); ?></div>
 
-<?php if( !(class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) ) : ?>
 <div id="posts-nav">
-	<?php posts_nav_link('', __('Newer Entries', 'origami'), __('Older Entries', 'origami')); ?>
+	<?php posts_nav_link( '', esc_html__( 'Newer Entries', 'origami' ), esc_html__('Older Entries', 'origami') ); ?>
 </div>
-<?php endif; ?>
 
-<?php get_footer() ?>
+<?php get_footer(); ?>
