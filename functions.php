@@ -14,8 +14,15 @@ include get_template_directory() . '/inc/panels.php';
 include get_template_directory() . '/inc/recommended-plugins.php';
 include get_template_directory() . '/inc/legacy.php';
 
-if( !class_exists('TGM_Plugin_Activation') ) {
+if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 	include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+}
+
+/**
+ * Jetpack compatibility.
+ */
+if ( class_exists( 'Jetpack' ) ) {
+	require get_template_directory() . '/inc/jetpack.php';
 }
 
 if(!function_exists('origami_setup')) :
