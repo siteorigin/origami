@@ -33,6 +33,18 @@ Screenshot includes an image by Kathy Priday. Released under GPL.
 Change Log
 -----------------------------------------------
 
+#### 1.7.4 - 19 June 2017
+* Adjusted sub-menu z-index to avoid conflicts with Hero widget or similar elements.
+* Added Featured Image support to pages.
+* Updated the post class filter to remove hentry on pages. SEO improvement.
+* Added taxonomy description on archive pages.
+* Added the required attribute to comment forms.
+* Make use of Jetpack Responsive Videos instead of FitVids if Jetpack is activated.
+* Added Jetpack Infinite Scroll support.
+
+#### 1.7.3 - 19 August 2016
+* Updated settings framework.
+
 #### 1.7.2 - 2 August 2016
 * Updated settings framework.
 * Integrated with SiteOrigin Premium.
