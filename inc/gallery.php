@@ -13,7 +13,7 @@ function origami_gallery($contents, $attr){
 
 	if(!empty($attr['type']) && $attr['type'] == 'default') return '';
 
-	if(siteorigin_panels_is_home() && empty($attr['ids'])){
+	if( function_exists( 'siteorigin_panels_is_home' ) && siteorigin_panels_is_home() && empty( $attr['ids'] ) ){
 		// Display the default Origami gallery
 		return origami_gallery_default();
 	}
