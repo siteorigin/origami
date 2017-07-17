@@ -1,0 +1,82 @@
+.woocommerce #content h1.entry-title {
+  text-align: left;
+  margin-bottom: .25em; }
+
+.woocommerce #content h1,
+.woocommerce #content h2,
+.woocommerce #content h3,
+.woocommerce #content h4,
+.woocommerce #content h5,
+.woocommerce #content h6 {
+  margin-bottom: .5em; }
+
+.woocommerce #content h1 {
+  font-size: 24px; }
+
+.woocommerce #content h2 {
+  font-size: 20.4px; }
+
+.woocommerce #content h3 {
+  font-size: 18.48px; }
+
+.woocommerce #content h4 {
+  font-size: 16.32px; }
+
+.woocommerce #content h5 {
+  font-size: 13.92px; }
+
+.woocommerce #content h6 {
+  font-size: 12.48px; }
+
+.woocommerce #content p {
+  line-height: 1.6em; }
+
+.woocommerce #content .woocommerce-loop-product__title {
+  color: #404040;
+  font-size: 16px;
+  margin-bottom: .25em; }
+
+.woocommerce #content .product {
+  position: relative; }
+  .woocommerce #content .product .woocommerce-product-rating {
+    margin-bottom: .25em; }
+  .woocommerce #content .product .price {
+    margin-bottom: .5em; }
+  .woocommerce #content .product .woocommerce-product-details__short-description {
+    display: block;
+    margin-bottom: 1em; }
+  .woocommerce #content .product .images {
+    float: left;
+    margin: 0 0 50px;
+    width: 48%; }
+    @media (max-width: 780px) {
+      .woocommerce #content .product .images {
+        width: 100%; } }
+    .woocommerce #content .product .images.woocommerce-product-gallery {
+      position: relative; }
+    .woocommerce #content .product .images .woocommerce-product-gallery__wrapper {
+      margin: 0;
+      transition: all cubic-bezier(0.795, -0.035, 0, 1) 0.5s; }
+      .woocommerce #content .product .images .woocommerce-product-gallery__wrapper img {
+        display: block;
+        width: 100%; }
+    .woocommerce #content .product .images .woocommerce-product-gallery__wrapper .zoomImg {
+      background-color: #fff; }
+    .woocommerce #content .product .images .flex-control-thumbs {
+      list-style: none;
+      margin: 0; }
+      .woocommerce #content .product .images .flex-control-thumbs li {
+        cursor: pointer;
+        float: left;
+        margin: 2.5% 2.5% 0 0;
+        width: 23.125%; }
+        .woocommerce #content .product .images .flex-control-thumbs li:nth-of-type(4n+4) {
+          margin-right: 0; }
+        .woocommerce #content .product .images .flex-control-thumbs li img {
+          display: block;
+          box-shadow: #000 0em 0em 0em;
+          opacity: .5; }
+          .woocommerce #content .product .images .flex-control-thumbs li img.flex-active, .woocommerce #content .product .images .flex-control-thumbs li img:hover {
+            opacity: 1; }
+
+/*# sourceMappingURL=sass/maps/woocommerce.css.map */
