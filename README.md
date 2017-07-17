@@ -33,6 +33,10 @@ Screenshot includes an image by Kathy Priday. Released under GPL.
 Change Log
 -----------------------------------------------
 
+#### 1.7.5 - 17 July 2017
+* Added basic WooCommerce support.
+* Updated settings framework.
+
 #### 1.7.4 - 19 June 2017
 * Adjusted sub-menu z-index to avoid conflicts with Hero widget or similar elements.
 * Added Featured Image support to pages.
