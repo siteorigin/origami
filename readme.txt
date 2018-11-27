@@ -88,6 +88,10 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.7.6 - 27 November 2018 =
+* Add `siteorigin_panels_is_home()` check for `origami_gallery()`.
+* Add required asterisks to comment form.
+
 = 1.7.5 - 17 July 2017 =
 * Added basic WooCommerce support.
 * Updated settings framework.
