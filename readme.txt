@@ -1,9 +1,7 @@
 === Origami ===
 
 Contributors: siteorigin
-
-Tags: one-column, fluid-layout, post-formats, custom-menu, theme-options, threaded-comments, translation-ready, photoblogging, responsive-layout
-
+Tags: custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
 Requires at least: 4.7
 Tested up to: 4.9.8
 License: GPLv2 or later
