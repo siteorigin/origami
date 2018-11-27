@@ -487,32 +487,3 @@ function origami_wp_header(){
 
 }
 add_action('wp_head', 'origami_wp_header');
-
-function origami_woocommerce_setup() {
-
-	/**
-	 * Add support for WooCommerce.
-	 * @link https://docs.woocommerce.com/document/declare-woocommerce-support-in-third-party-theme/
-	 */
-	add_theme_support( 'woocommerce' );
-
-	/**
-	 * Add support for WooCommerce galleries.
-	 * @link https://woocommerce.wordpress.com/2017/02/28/adding-support-for-woocommerce-2-7s-new-gallery-feature-to-your-theme/
-	 */
-	add_theme_support( 'wc-product-gallery-slider' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-
-}
-add_action( 'after_setup_theme', 'origami_woocommerce_setup' );
-
-/**
- * Enqueue WooCommerce scripts and styles.
- */
-function origami_woocommerce_scripts() {
-
-	wp_enqueue_style( 'origami-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), SITEORIGIN_THEME_VERSION );
-	
-}
-add_action( 'wp_enqueue_scripts', 'origami_woocommerce_scripts' );
