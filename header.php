@@ -9,15 +9,19 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class() ?>>
-
-<?php do_action('origami_top'); ?>
+<body <?php body_class(); ?>>
+<?php if ( function_exists( 'wp_body_open' ) ) {
+	wp_body_open();
+}
+do_action( 'origami_top' );
+?>
 
 <div class="container">
 
 	<?php do_action('origami_before_page_container') ?>
 
 	<div id="page-container">
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'origami' ); ?></a>
 
 		<?php do_action('origami_top_page_container') ?>
 

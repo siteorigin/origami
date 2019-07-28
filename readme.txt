@@ -3,7 +3,7 @@
 Contributors: siteorigin
 Tags: custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
 Requires at least: 4.7
-Tested up to: 4.9.8
+Tested up to: 5.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,16 @@ Licensed under the [MIT License](http://opensource.org/licenses/MIT)
 This theme makes use of the [SiteOrigin Settings Framework](https://github.com/siteorigin/settings) contained in the /inc/settings folder. All code is licensed under GPL 2.0 and copyright 2016 SiteOrigin unless otherwise stated in the file header. 
 
 == Changelog ==
+
+= 1.7.7 - 28 July 2019 =
+* Resolved page missing `wp_link_pages` function.
+* Added `wp_body_open` action hook.
+* Added a skip to content link.
+* Updated SiteOrigin Settings framework.
+
+= 1.7.6 - 27 November 2018 =
+* Add `siteorigin_panels_is_home()` check for `origami_gallery()`.
+* Add required asterisks to comment form.
 
 = 1.7.5 - 17 July 2017 =
 * Added basic WooCommerce support.
