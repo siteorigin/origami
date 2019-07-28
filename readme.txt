@@ -88,6 +88,12 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.7.7 - 28 July 2019 =
+* Resolved page missing `wp_link_pages` function.
+* Added `wp_body_open` action hook.
+* Added a skip to content link.
+* Updated SiteOrigin Settings framework.
+
 = 1.7.6 - 27 November 2018 =
 * Add `siteorigin_panels_is_home()` check for `origami_gallery()`.
 * Add required asterisks to comment form.
