@@ -9,9 +9,12 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class() ?>>
-
-<?php do_action('origami_top'); ?>
+<body <?php body_class(); ?>>
+<?php if ( function_exists( 'wp_body_open' ) ) {
+	wp_body_open();
+}
+do_action( 'origami_top' );
+?>
 
 <div class="container">
 
