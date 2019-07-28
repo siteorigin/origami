@@ -21,6 +21,7 @@ do_action( 'origami_top' );
 	<?php do_action('origami_before_page_container') ?>
 
 	<div id="page-container">
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'origami' ); ?></a>
 
 		<?php do_action('origami_top_page_container') ?>
 
