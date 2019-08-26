@@ -62,6 +62,10 @@ function origami_settings_init(){
 		'description' => __('Should Origami use responsive mode.', 'origami'),
 	) );
 
+	$settings->add_field('responsive', 'menu_collapse', 'number', __('Responsive Navigation Collapse', 'origami'), array(
+		'description' => __('The resolution when the menu collapses into a mobile navigation menu. Value is in pixels.', 'origami')
+	) );
+
 	$settings->add_field('responsive', 'nav', 'checkbox', __('Responsive Navigation', 'origami'), array(
 		'description' => __('Gorgeous mobile navigation menu for your main menu.', 'origami'),
 	));
@@ -102,6 +106,7 @@ function origami_settings_defaults($defaults){
 	$defaults['display_next_prev'] = false;
 
 	$defaults['responsive_enabled'] = true;
+	$defaults['responsive_menu_collapse'] = 480;
 	$defaults['responsive_nav'] = true;
 	$defaults['responsive_fitvids'] = true;
 
