@@ -114,6 +114,12 @@ function origami_siteorigin_premium_support(){
 }
 add_action( 'after_setup_theme', 'origami_siteorigin_premium_support' );
 
+if ( ! function_exists( 'origami_filter_mobilenav_collapse' ) ) :
+function origami_filter_mobilenav_collapse( $collpase ) {
+	return siteorigin_setting( 'responsive_menu_collapse' );
+}
+endif;
+add_filter( 'siteorigin_mobilenav_resolution', 'origami_filter_mobilenav_collapse' );
 
 if(!function_exists('origami_widgets_init')) :
 /**

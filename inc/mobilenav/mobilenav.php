@@ -82,19 +82,23 @@ endif;
 add_filter('wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
 add_filter('wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
 
-if( !function_exists('siteorigin_mobilenav_nav_menu_css') ) :
-function siteorigin_mobilenav_nav_menu_css(){
-	$mobile_resolution = apply_filters('siteorigin_mobilenav_resolution', 480);
+if ( ! function_exists( 'siteorigin_mobilenav_nav_menu_css' ) ) :
+function siteorigin_mobilenav_nav_menu_css() {
+	$mobile_resolution = apply_filters( 'siteorigin_mobilenav_resolution', 480 );
 
-	?>
-	<style type="text/css">
-		.so-mobilenav-mobile + * { display: none; }
-		@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } }
-	</style>
-	<?php
+	if ( $mobile_resolution != 0 ) : ?>
+		<style type="text/css">
+			.so-mobilenav-mobile + * { display: none; }
+			@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } }
+		</style>
+	<?php else : ?>
+		<style type="text/css">
+			.so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; }
+		</style>
+	<?php endif;
 }
 endif;
-add_action('wp_head', 'siteorigin_mobilenav_nav_menu_css');
+add_action( 'wp_head', 'siteorigin_mobilenav_nav_menu_css' );
 
 if( !function_exists('siteorigin_mobilenav_body_class') ) :
 /**
