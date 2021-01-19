@@ -58,7 +58,9 @@ Origami WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 Screenshot includes an image by Kathy Priday. Released under GPL.
 
-Images in demo folder are from Pixabay Licensed under public domain <http://pixabay.com/>.
+"Brown Outdoor Plants" slide image in the demo folder sourced from [Pexels](https://www.pexels.com/photo/meadow-royalty-free-back-light-meadow-grass-73802/) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
+
+"Landscape Tree Sand Horizon Sky Sun" slide2 image in the demo folder sourced from [PxHere](https://pxhere.com/en/photo/1140785) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
 
 == Bundled Resources ==
 
