@@ -1,9 +1,12 @@
 === Origami ===
 
 Contributors: siteorigin
-Tags: custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
+
+Tags: blog, photography, portfolio, one-column, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready
+
+Tested up to: 5.6
 Requires at least: 4.7
-Tested up to: 5.2.2
+Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
