@@ -93,6 +93,11 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.8 - 21 January 2021 =
+* Added `Responsive Navigation Collapse` setting.
+* Updated the Google Fonts array.
+* Updated SiteOrigin Settings framework.
+
 = 1.7.7 - 28 July 2019 =
 * Resolved page missing `wp_link_pages` function.
 * Added `wp_body_open` action hook.
