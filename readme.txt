@@ -1,9 +1,12 @@
 === Origami ===
 
 Contributors: siteorigin
-Tags: custom-background, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, theme-options, threaded-comments, translation-ready, blog, photography, portfolio
+
+Tags: blog, photography, portfolio, one-column, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready
+
+Tested up to: 5.6
 Requires at least: 4.7
-Tested up to: 5.2.2
+Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,7 +61,9 @@ Origami WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 Screenshot includes an image by Kathy Priday. Released under GPL.
 
-Images in demo folder are from Pixabay Licensed under public domain <http://pixabay.com/>.
+"Brown Outdoor Plants" slide image in the demo folder sourced from [Pexels](https://www.pexels.com/photo/meadow-royalty-free-back-light-meadow-grass-73802/) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
+
+"Landscape Tree Sand Horizon Sky Sun" slide2 image in the demo folder sourced from [PxHere](https://pxhere.com/en/photo/1140785) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
 
 == Bundled Resources ==
 
@@ -87,6 +92,11 @@ Licensed under the [MIT License](http://opensource.org/licenses/MIT)
 This theme makes use of the [SiteOrigin Settings Framework](https://github.com/siteorigin/settings) contained in the /inc/settings folder. All code is licensed under GPL 2.0 and copyright 2016 SiteOrigin unless otherwise stated in the file header. 
 
 == Changelog ==
+
+= 1.8 - 21 January 2021 =
+* Added `Responsive Navigation Collapse` setting.
+* Updated the Google Fonts array.
+* Updated SiteOrigin Settings framework.
 
 = 1.7.7 - 28 July 2019 =
 * Resolved page missing `wp_link_pages` function.
