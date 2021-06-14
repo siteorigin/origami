@@ -188,12 +188,18 @@ if ( ! function_exists( 'origami_enqueue_scripts' ) ) :
 function origami_enqueue_scripts() {
 	wp_enqueue_style( 'origami', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
 
+	wp_enqueue_script( 'origami', get_template_directory_uri() . '/js/origami' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
+
 	if ( ! class_exists( 'Jetpack' ) && siteorigin_setting( 'responsive_fitvids' ) ) {
 		wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), '1.0' );
+		wp_localize_script(
+			'origami',
+			'origami', array(
+				'fitvids' => true,
+			)
+		);
 	}
 
-	wp_enqueue_script( 'origami', get_template_directory_uri() . '/js/origami' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
-	
 	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), '2.1' );
 	wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css', array(), '2.0' );
 

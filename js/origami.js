@@ -7,7 +7,7 @@
 
 jQuery( function( $ ) {
 
-	if ( typeof $.fn.fitVids !== 'undefined' ) {
+	if ( typeof $.fn.fitVids !== 'undefined' && typeof origami !== 'undefined' && typeof origami.fitvids ) {
 		// We use FitVids to scale videos to mobile devices.
 		$( '.featured-video, .content, .content p' ).fitVids();
 	}
