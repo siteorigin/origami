@@ -53,7 +53,7 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 }
 endif;
 
-if(!class_exists('SiteOrigin_Customizer_CSS_Builder ')) :
+if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) :
 /**
  * This is used for building custom CSS.
  */
@@ -87,13 +87,15 @@ class SiteOrigin_Customizer_CSS_Builder {
 		// Start by importing Google web fonts
 		$return = '<style type="text/css" id="customizer-css">';
 
-		$import = array();
-		foreach ( $this->google_fonts as $font ) {
-			$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
-		}
-		$import = array_unique( $import );
-		if ( !empty( $import ) ) {
-			$return .= '@import url(http' . ( is_ssl() ? 's' : '' ) . '://fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+		if ( apply_filters( 'origami_import_google_fonts', true ) ) {
+			$import = array();
+			foreach ( $this->google_fonts as $font ) {
+				$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
+			}
+			$import = array_unique( $import );
+			if ( !empty( $import ) ) {
+				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '&display=block); ';
+			}
 		}
 
 		foreach ( $this->css as $selector => $rules ) {
@@ -175,13 +177,16 @@ class SiteOrigin_Customizer_CSS_Builder {
 		}
 
 		$this->add_css( $selector, 'font-family', $family );
-		if ( $variant != 400 ) $this->add_css( $selector, 'font-weight', $variant );
-
-		$this->fonts[ ] = $font;
-
-		if ( !empty( $variant ) ) {
-			if ( $variant == 'regular' ) $variant = '400';
-			$this->css[ $selector ][ ] = 'font-weight: ' . $variant;
+		if ( ! empty( $variant ) ) {
+			if ( $variant != 400 && $variant != 'regular' ) {
+				if ( ! is_numeric( $variant ) ) {
+					$variant = filter_var( $variant, FILTER_SANITIZE_NUMBER_INT );
+					$this->add_css( $selector, 'font-style', 'italic' );
+				}
+				$this->add_css( $selector, 'font-weight', $variant );
+			} else {
+				$this->add_css( $selector, 'font-weight', 400 );
+			}
 		}
 	}
 
@@ -325,7 +330,7 @@ class SiteOrigin_Customizer_Helper {
 	private $sections;
 	private $defaults;
 
-	function __construct($settings = array(), $sections = array(), $theme, $root_url = false, $make_single = true){
+	function __construct($settings = array(), $sections = array(), $theme = 'generic', $root_url = false, $make_single = true){
 		// Give child themes a chance to filter this.
 		$this->theme = $theme;
 		$this->defaults = array();
@@ -333,11 +338,6 @@ class SiteOrigin_Customizer_Helper {
 
 		$this->add_sections($sections);
 		$this->add_settings($settings);
-
-		if( empty($root_url) ) {
-			$root_url = get_template_directory_uri().'/premium/extras/customizer/';
-		}
-		$this->root_url = $root_url;
 
 		// Add a script that will help us with our previews
 		add_action( 'customize_preview_init', array( $this, 'enqueue' ) );
@@ -452,6 +452,11 @@ class SiteOrigin_Customizer_Helper {
 			// Can't use live changes with a callback
 			if( !empty($setting['callback']) ) $setting['no_live'] = true;
 
+			// Set $setting['description' ] if this setting doesn't have a description
+			if ( ! isset( $setting['description' ] ) ) {
+				$setting['description'] = '';
+			}
+
 			// Now lets add a control for this setting
 			switch($setting['type']) {
 				case 'font' :
@@ -460,6 +465,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -469,6 +475,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					if ( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -479,6 +486,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'type'    => 'text',
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) );
 					if( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -489,6 +497,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -498,6 +507,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -508,6 +518,7 @@ class SiteOrigin_Customizer_Helper {
 						'type'    => $setting['type'],
 						'priority' => $priority++,
 						'choices' => isset($setting['choices']) ? $setting['choices'] : null,
+						'description' => esc_html( $setting['description'] ),
 					) );
 					break;
 			}
@@ -559,11 +570,11 @@ class SiteOrigin_Customizer_Helper {
 					}
 				}
 			}
-
-			if(isset($setting['callback'])) {
-				$val = get_theme_mod($id);
-				if(isset( $setting['default'] ) && $val != $setting['default']) {
-					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array('id' => $id) ) );
+			
+			if ( isset( $setting['callback'] ) ) {
+				$val = get_theme_mod( $id );
+				if ( isset( $setting['default'] ) && $val != $setting['default'] ) {
+					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
 				}
 			}
 		}
@@ -598,7 +609,7 @@ class SiteOrigin_Customizer_Helper {
 			)
 		));
 
-		wp_enqueue_style('siteorigin-customizer-admin', $this->root_url . 'css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
+		wp_enqueue_style('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
 	}
 
 	/**
