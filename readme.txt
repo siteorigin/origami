@@ -93,6 +93,11 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.8.1 - 19 June 2021 =
+* Only setup FitVids if enabled in Theme Settings. Ensures better compatibility with other plugins loading FitVids for fluid width video embeds.
+* Set Google font display to block.
+* Updated SiteOrigin Settings framework.
+
 = 1.8 - 21 January 2021 =
 * Added `Responsive Navigation Collapse` setting.
 * Updated the Google Fonts array.
