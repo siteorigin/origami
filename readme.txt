@@ -93,6 +93,9 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.9 - 21 July 2021 =
+* Disabled WP 5.8 Block-Based widgets editor. Can be re-enabled using `add_filter( 'siteorigin_settings_disable_new_widget_area', '__return_false' );`.
+
 = 1.8.1 - 19 June 2021 =
 * Only setup FitVids if enabled in Theme Settings. Ensures better compatibility with other plugins loading FitVids for fluid width video embeds.
 * Set Google font display to block.
