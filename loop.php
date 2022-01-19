@@ -98,4 +98,9 @@
 
 		</div>
 	<?php endwhile; ?>
+	<?php if ( origami_is_post_loop_widget() ) { ?>
+		<div id="posts-nav">
+			<?php posts_nav_link( '', esc_html__( 'Newer Entries', 'origami' ), esc_html__( 'Older Entries', 'origami' ) ); ?>
+		</div>
+	<?php } ?>
 <?php endif; ?>
