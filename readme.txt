@@ -4,7 +4,7 @@ Contributors: siteorigin
 
 Tags: blog, photography, portfolio, one-column, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready
 
-Tested up to: 5.8
+Tested up to: 5.9
 Requires at least: 4.7
 Requires PHP: 5.6.20
 License: GPLv2 or later
@@ -92,6 +92,10 @@ Licensed under the [MIT License](http://opensource.org/licenses/MIT)
 This theme makes use of the [SiteOrigin Settings Framework](https://github.com/siteorigin/settings) contained in the /inc/settings folder. All code is licensed under GPL 2.0 and copyright 2016 SiteOrigin unless otherwise stated in the file header. 
 
 == Changelog ==
+
+= 1.10.0 - 23 January 2022 =
+* Added pagination to the `loop.php` Post Loop Widget template.
+* Updated SiteOrigin Settings framework.
 
 = 1.9 - 21 July 2021 =
 * Disabled WP 5.8 Block-Based widgets editor. Can be re-enabled using `add_filter( 'siteorigin_settings_disable_new_widget_area', '__return_false' );`.

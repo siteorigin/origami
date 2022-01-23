@@ -457,6 +457,15 @@ function origami_set_is_blog_archive($new) {
 	$origami_is_blog_archive = $new;
 }
 
+if ( ! function_exists( 'origami_is_post_loop_widget' ) ) :
+/**
+ * Checks if we're currently rendering a post loop widget.
+ */
+function origami_is_post_loop_widget() {
+	return method_exists( 'SiteOrigin_Panels_Widgets_PostLoop', 'is_rendering_loop' ) && SiteOrigin_Panels_Widgets_PostLoop::is_rendering_loop();
+}
+endif;
+
 if( ! function_exists( 'origami_header_image' ) ) :
 function origami_header_image(){
 
