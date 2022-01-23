@@ -93,6 +93,10 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.10.0 - 23 January 2022 =
+* Added pagination to the `loop.php` Post Loop Widget template.
+* Updated SiteOrigin Settings framework.
+
 = 1.9 - 21 July 2021 =
 * Disabled WP 5.8 Block-Based widgets editor. Can be re-enabled using `add_filter( 'siteorigin_settings_disable_new_widget_area', '__return_false' );`.
 
