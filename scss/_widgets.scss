@@ -137,6 +137,73 @@
 	}
 }
 
+/**
+ * #.# Calendar Widget
+ */
+
+.widget #wp-calendar {
+	border: 0;
+	line-height: 1.7333;
+	margin: 0;
+	width: 100%;
+
+	caption {
+		color: #505050;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	tr:nth-child(2n+2) {
+		background: none;
+	}
+
+	th,
+	td {
+		border: 0;
+		padding: 0;
+	}
+
+	thead {
+
+		tr {
+			background: none;
+		}
+
+		th {
+			padding: 8px 0;
+			text-align: center;
+		}
+	}
+
+	tbody {
+
+		.pad {
+			background: none;
+		}
+
+		tr:first-of-type td {
+			padding-top: 8px;
+		}
+
+		td {
+			padding-bottom: 8px;
+			text-align: center;
+		}
+	}
+
+	tfoot {
+
+		#prev,
+		#next {
+			padding-top: 4px;
+		}
+
+		#next {
+			text-align: right;
+		}
+	}
+}
+
 .widget img {
 	max-width: 100%;
 	height: auto;

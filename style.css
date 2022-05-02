@@ -952,6 +952,42 @@ h1.archive-title {
 .widget_headline .align-right {
   text-align: right; }
 
+/**
+ * #.# Calendar Widget
+ */
+.widget #wp-calendar {
+  border: 0;
+  line-height: 1.7333;
+  margin: 0;
+  width: 100%; }
+  .widget #wp-calendar caption {
+    color: #505050;
+    font-weight: bold;
+    text-align: left; }
+  .widget #wp-calendar tr:nth-child(2n+2) {
+    background: none; }
+  .widget #wp-calendar th,
+  .widget #wp-calendar td {
+    border: 0;
+    padding: 0; }
+  .widget #wp-calendar thead tr {
+    background: none; }
+  .widget #wp-calendar thead th {
+    padding: 8px 0;
+    text-align: center; }
+  .widget #wp-calendar tbody .pad {
+    background: none; }
+  .widget #wp-calendar tbody tr:first-of-type td {
+    padding-top: 8px; }
+  .widget #wp-calendar tbody td {
+    padding-bottom: 8px;
+    text-align: center; }
+  .widget #wp-calendar tfoot #prev,
+  .widget #wp-calendar tfoot #next {
+    padding-top: 4px; }
+  .widget #wp-calendar tfoot #next {
+    text-align: right; }
+
 .widget img {
   max-width: 100%;
   height: auto; }
