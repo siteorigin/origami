@@ -982,11 +982,6 @@ h1.archive-title {
   .widget #wp-calendar tbody td {
     padding-bottom: 8px;
     text-align: center; }
-  .widget #wp-calendar tfoot #prev,
-  .widget #wp-calendar tfoot #next {
-    padding-top: 4px; }
-  .widget #wp-calendar tfoot #next {
-    text-align: right; }
 
 .widget img {
   max-width: 100%;
