@@ -24,7 +24,9 @@ function origami_settings_init(){
 	$settings = SiteOrigin_Settings::single();
 	
 	$settings->add_section('text', __('Text', 'origami'));
-	$settings->add_field('text', 'copyright', 'text', __('Copyright', 'origami'));
+	$settings->add_field('text', 'copyright', 'text', __('Copyright', 'origami'), array(
+		'sanitize_callback' => 'wp_kses_post',
+	));
 	$settings->add_field('text', 'not_found', 'text', __('404 Message', 'origami'));
 	$settings->add_field('text', 'no_results', 'text', __('No Search Results', 'origami'));
 
