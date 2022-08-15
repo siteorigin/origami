@@ -93,6 +93,11 @@ This theme makes use of the [SiteOrigin Settings Framework](https://github.com/s
 
 == Changelog ==
 
+= 1.10.1 - 15 August 2022 =
+* Calendar Widget: Updated styling for new markup.
+* Allowed HTML in Copyright Text field.
+* Updated SiteOrigin Settings framework.
+
 = 1.10.0 - 23 January 2022 =
 * Added pagination to the `loop.php` Post Loop Widget template.
 * Updated SiteOrigin Settings framework.
