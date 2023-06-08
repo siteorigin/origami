@@ -11,11 +11,10 @@ include get_template_directory() . '/inc/settings.php';
 include get_template_directory() . '/inc/customizer.php';
 include get_template_directory() . '/inc/gallery.php';
 include get_template_directory() . '/inc/panels.php';
-include get_template_directory() . '/inc/recommended-plugins.php';
 include get_template_directory() . '/inc/legacy.php';
 
-if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
-	include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+if ( is_admin() && ! class_exists( 'SiteOrigin_Installer' ) ) {
+	include plugin_dir_path( __FILE__ ) . 'inc/installer/siteorigin-installer.php';
 }
 
 /**

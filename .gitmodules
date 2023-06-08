@@ -4,3 +4,6 @@
 [submodule "build"]
 	path = build
 	url = git@github.com:siteorigin/theme-build.git
+[submodule "inc/installer"]
+	path = inc/installer
+	url = https://github.com/siteorigin/siteorigin-installer/
