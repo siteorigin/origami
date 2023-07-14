@@ -13,10 +13,6 @@ include get_template_directory() . '/inc/gallery.php';
 include get_template_directory() . '/inc/panels.php';
 include get_template_directory() . '/inc/legacy.php';
 
-if ( is_admin() && ! class_exists( 'SiteOrigin_Installer' ) ) {
-	include plugin_dir_path( __FILE__ ) . 'inc/installer/siteorigin-installer.php';
-}
-
 /**
  * Jetpack compatibility.
  */
