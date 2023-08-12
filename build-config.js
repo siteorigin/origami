@@ -64,19 +64,20 @@ module.exports = {
 	},	
 	copy: {
 		src: [
-			'**/!(*.js|*.scss|*.md|style.css|woocommerce.css)',   // Everything except .js and .scss files
-			'!{build,build/**}',                                  // Ignore build/ and contents
-			'!{sass,sass/**}',                                    // Ignore sass/ and contents
-			'inc/settings/chosen/*.js',                           // Ensure necessary .js files ignored in the first glob are copied
-			'!{inc/settings/bin,inc/settings/bin/**}',            // Ignore settings/bin/ and contents
-			'!{inc/settings/README.md}',                          // Ignore settings/README.md
-			'!{tests,tests/**}',                                  // Ignore tests/ and contents
-			'!{tmp,tmp/**}',                                      // Ignore tmp/ and contents
-			'!phpunit.xml',                                       // Not the unit tests configuration file. (If there is one.)
-			'!functions.php',                                     // Not the functions .php file. It is copied by the 'version' task.
-			'!readme.txt',                                        // Not the readme.txt file. It is copied by the 'version' task.
-			'!npm-debug.log',                                     // Ignore debug log from NPM if it's there
-            'inc/installer/css/*css'                              // Include Installer CSS.
+			'**/!(*.js|*.scss|*.md|style.css|woocommerce.css)', // Everything except .js and .scss files
+			'!{build,build/**}',                                // Ignore build/ and contents
+			'!{sass,sass/**}',                                  // Ignore sass/ and contents
+			'inc/settings/chosen/*.js',                         // Ensure necessary .js files ignored in the first glob are copied
+			'!{inc/settings/bin,inc/settings/bin/**}',          // Ignore settings/bin/ and contents
+			'!{inc/settings/README.md}',                        // Ignore settings/README.md
+			'!{tests,tests/**}',                                // Ignore tests/ and contents
+			'!{tmp,tmp/**}',                                    // Ignore tmp/ and contents
+			'!phpunit.xml',                                     // Not the unit tests configuration file. (If there is one.)
+			'!functions.php',                                   // Not the functions .php file. It is copied by the 'version' task.
+			'!readme.txt',                                      // Not the readme.txt file. It is copied by the 'version' task.
+			'!npm-debug.log',                                   // Ignore debug log from NPM if it's there
+            'inc/installer/css/*css',                           // Include Installer CSS.
+            '!inc/installer/inc/github-plugin-updater.php',     // Exclude Installer Standalone Updater.
 		]
 	}
 };
