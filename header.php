@@ -18,15 +18,15 @@ do_action( 'origami_top' );
 
 <div class="container">
 
-	<?php do_action('origami_before_page_container') ?>
+	<?php do_action( 'origami_before_page_container' ); ?>
 
 	<div id="page-container">
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'origami' ); ?></a>
 
-		<?php do_action('origami_top_page_container') ?>
+		<?php do_action( 'origami_top_page_container' ); ?>
 
-		<?php get_template_part('parts/logo', 'top') ?>
+		<?php get_template_part( 'parts/logo', 'top' ); ?>
 
-		<?php do_action('origami_after_logo_wrapper') ?>
+		<?php do_action( 'origami_after_logo_wrapper' ); ?>
 
-		<?php get_template_part('parts/menu', 'top') ?>
+		<?php get_template_part( 'parts/menu', 'top' ); ?>
