@@ -5,6 +5,9 @@ if ( class_exists( 'WP_Customize_Control' ) && !class_exists('SiteOrigin_Customi
  * A customizer control for choosing web fonts
  */
 class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
+	public $id;
+	public $type;
+
 	function __construct( $manager, $id, $args = array() ) {
 		// Let other themes and plugins process the web fonts array
 		$google_web_fonts = include ( dirname(__FILE__) . '/google-fonts.php' );
@@ -53,14 +56,14 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 }
 endif;
 
-if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) :
+if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) :
 /**
  * This is used for building custom CSS.
  */
 class SiteOrigin_Customizer_CSS_Builder {
 	private $css;
 	private $raw_css;
-	private $fonts;
+	private $google_fonts;
 	private $defaults;
 
 	// These are web safe fonts
