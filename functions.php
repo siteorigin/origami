@@ -256,20 +256,20 @@ if(!function_exists('origami_enqueue_google_webfonts')) :
  * This just displays the Google web fonts
  */
 function origami_enqueue_google_webfonts(){
+	$google_fonts_url = esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) );
 
 	if( ! get_header_image() ){
 		// Enqueue the logo font as well (Terminal Dosis 200)
-		wp_enqueue_style('google-webfonts', '//fonts.googleapis.com/css?family=Terminal+Dosis:200,400');
+		wp_enqueue_style('google-webfonts', $google_fonts_url . '?family=Terminal+Dosis:200,400');
 	}
 	else{
 		// Enqueue only the text fonts that we need
-		wp_enqueue_style('google-webfonts', '//fonts.googleapis.com/css?family=Terminal+Dosis:400');
+		wp_enqueue_style('google-webfonts', $google_fonts_url . '?family=Terminal+Dosis:400');
 	}
 
 }
 endif;
 add_action('wp_enqueue_scripts', 'origami_enqueue_google_webfonts');
-
 
 if(!function_exists('origami_comment')) :
 /**

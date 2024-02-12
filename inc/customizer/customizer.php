@@ -83,27 +83,33 @@ class SiteOrigin_Customizer_CSS_Builder {
 	/**
 	 * Echo all the CSS
 	 */
-	function css() {
+	public function css() {
 		// Start by importing Google web fonts
 		$return = '<style type="text/css" id="customizer-css">';
 
 		if ( apply_filters( 'origami_import_google_fonts', true ) ) {
 			$import = array();
+
 			foreach ( $this->google_fonts as $font ) {
 				$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
 			}
 			$import = array_unique( $import );
-			if ( !empty( $import ) ) {
-				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '&display=block); ';
+
+			if ( ! empty( $import ) ) {
+				$return .= '@import url(' . esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block ' ) . ');';
 			}
 		}
 
 		foreach ( $this->css as $selector => $rules ) {
 			$return .= $selector . ' { ' . implode( '; ', $rules ) . ' } ';
 		}
-		if( !empty($this->raw_css) ) $return .= $this->raw_css;
+
+		if ( ! empty( $this->raw_css ) ) {
+			$return .= $this->raw_css;
+		}
 
 		$return .= '</style>';
+
 		return $return;
 	}
 
@@ -570,7 +576,7 @@ class SiteOrigin_Customizer_Helper {
 					}
 				}
 			}
-			
+
 			if ( isset( $setting['callback'] ) ) {
 				$val = get_theme_mod( $id );
 				if ( isset( $setting['default'] ) && $val != $setting['default'] ) {
