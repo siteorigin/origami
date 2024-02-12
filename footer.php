@@ -2,30 +2,30 @@
 
 
 
-		<?php if(!empty($sidebars_widgets['site-footer'])) : ?>
+		<?php if ( ! empty( $sidebars_widgets['site-footer'] ) ) { ?>
 
-			<?php do_action('origami_before_footer_widgets') ?>
+			<?php do_action( 'origami_before_footer_widgets' ); ?>
 
-			<?php get_template_part('parts/footer-widgets') ?>
+			<?php get_template_part( 'parts/footer-widgets' ); ?>
 
-			<?php do_action('origami_after_footer_widgets') ?>
+			<?php do_action( 'origami_after_footer_widgets' ); ?>
 
-		<?php endif; ?>
+		<?php } ?>
 
-		<?php do_action('origami_bottom_page_container') ?>
+		<?php do_action( 'origami_bottom_page_container' ); ?>
 
 	</div>
 
-	<?php do_action('origami_after_page_container') ?>
+	<?php do_action( 'origami_after_page_container' ); ?>
 
-	<?php do_action('origami_before_footer') ?>
+	<?php do_action( 'origami_before_footer' ); ?>
 
-	<?php get_template_part('parts/footer-copyright') ?>
+	<?php get_template_part( 'parts/footer-copyright' ); ?>
 
-	<?php do_action('origami_after_footer') ?>
+	<?php do_action( 'origami_after_footer' ); ?>
 
 </div>
 
-<?php wp_footer() ?>
+<?php wp_footer(); ?>
 </body>
 </html>

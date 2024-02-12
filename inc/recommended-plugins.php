@@ -3,10 +3,10 @@
 /**
  * Add some plugins to TGM plugin activation
  */
-function origami_recommended_plugins(){
+function origami_recommended_plugins() {
 	$plugins = array(
 		array(
-			'name'      => __('SiteOrigin Page Builder', 'origami'),
+			'name'      => __( 'SiteOrigin Page Builder', 'origami' ),
 			'slug'      => 'siteorigin-panels',
 			'required'  => false,
 		),

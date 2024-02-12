@@ -1,115 +1,117 @@
 <?php
 
-if( !function_exists('siteorigin_mobilenav_enqueue_scripts') ) :
-/**
- * Enqueue everything for the mobile navigation.
- *
- * @action wp_enqueue_scripts
- */
-function siteorigin_mobilenav_enqueue_scripts() {
-	$root_uri = get_template_directory_uri() . '/inc/mobilenav/';
+if ( ! function_exists( 'siteorigin_mobilenav_enqueue_scripts' ) ) {
+	/**
+	 * Enqueue everything for the mobile navigation.
+	 *
+	 * @action wp_enqueue_scripts
+	 */
+	function siteorigin_mobilenav_enqueue_scripts() {
+		$root_uri = get_template_directory_uri() . '/inc/mobilenav/';
 
-	wp_enqueue_script( 'siteorigin-mobilenav', $root_uri . 'js/mobilenav' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
+		wp_enqueue_script( 'siteorigin-mobilenav', $root_uri . 'js/mobilenav' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
 
-	$text = array(
-		'navigate' => __( 'Menu', 'origami' ),
-		'back' => __( 'Back', 'origami' ),
-		'close' => __( 'Close', 'origami' ),
-	);
-	if( siteorigin_setting('navigation_responsive_menu_text') ) {
-		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
+		$text = array(
+			'navigate' => __( 'Menu', 'origami' ),
+			'back' => __( 'Back', 'origami' ),
+			'close' => __( 'Close', 'origami' ),
+		);
+
+		if ( siteorigin_setting( 'navigation_responsive_menu_text' ) ) {
+			$text['navigate'] = siteorigin_setting( 'navigation_responsive_menu_text' );
+		}
+		$text = apply_filters( 'siteorigin_mobilenav_text', $text );
+
+		$search = array( 'url' => get_home_url(), 'placeholder' => __( 'Search', 'origami' ) );
+		$search = apply_filters( 'siteorigin_mobilenav_search', $search );
+
+		wp_localize_script( 'siteorigin-mobilenav', 'mobileNav', array(
+			'search' => $search,
+			'text' => $text,
+			'nextIconUrl' => $root_uri . 'images/next.png',
+		) );
+		wp_enqueue_style( 'siteorigin-mobilenav', $root_uri . 'css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
 	}
-	$text = apply_filters('siteorigin_mobilenav_text', $text);
-
-	$search = array( 'url' => get_home_url(), 'placeholder' => __( 'Search', 'origami' ) );
-	$search = apply_filters('siteorigin_mobilenav_search', $search);
-
-	wp_localize_script( 'siteorigin-mobilenav', 'mobileNav', array(
-		'search' => $search,
-		'text' => $text,
-		'nextIconUrl' => $root_uri.'images/next.png',
-	) );
-	wp_enqueue_style( 'siteorigin-mobilenav', $root_uri . 'css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
 }
-endif;
 add_action( 'wp_enqueue_scripts', 'siteorigin_mobilenav_enqueue_scripts' );
 
-if( !function_exists('siteorigin_mobilenav_nav_filter') ) :
-/**
- * Filter navigation menu to add mobile markers.
- *
- * @param $nav_menu
- * @param $args
- * @return string
- */
-function siteorigin_mobilenav_nav_filter($nav_menu, $args){
-	$args = (object) $args;
-	if( empty($args->theme_location) && !apply_filters('siteorigin_mobilenav_is_valid', false, $args) ) return $nav_menu;
+if ( ! function_exists( 'siteorigin_mobilenav_nav_filter' ) ) {
+	/**
+	 * Filter navigation menu to add mobile markers.
+	 *
+	 * @return string
+	 */
+	function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
+		$args = (object) $args;
 
-	static $mobile_nav_id = 1;
+		if ( empty( $args->theme_location ) && !apply_filters( 'siteorigin_mobilenav_is_valid', false, $args ) ) {
+			return $nav_menu;
+		}
 
-	// Add a marker so we can find this menu later
-	$nav_menu = '<div id="so-mobilenav-standard-'.$mobile_nav_id.'" data-id="'.$mobile_nav_id.'" class="so-mobilenav-standard"></div>'.$nav_menu;
+		static $mobile_nav_id = 1;
 
-	// Add the mobile navigation marker
-	$nav_menu .= '<div id="so-mobilenav-mobile-'.$mobile_nav_id.'" data-id="'.$mobile_nav_id.'" class="so-mobilenav-mobile"></div>';
+		// Add a marker so we can find this menu later
+		$nav_menu = '<div id="so-mobilenav-standard-' . $mobile_nav_id . '" data-id="' . $mobile_nav_id . '" class="so-mobilenav-standard"></div>' . $nav_menu;
 
-	// Create the mobile navigation
-	$class = $args->container_class ? ' class="' . esc_attr( $args->container_class ) . '" menu-mobilenav-container' : ' class="menu-mobilenav-container"';
-	$id = $args->container_id ? ' id="' . esc_attr( $args->container_id ) . '"' : '';
-	$nav_menu .= '<'. $args->container . $id . $class . '>';
+		// Add the mobile navigation marker
+		$nav_menu .= '<div id="so-mobilenav-mobile-' . $mobile_nav_id . '" data-id="' . $mobile_nav_id . '" class="so-mobilenav-mobile"></div>';
 
-	$text = array(
-		'navigate' => __( 'Menu', 'origami' ),
-		'back' => __( 'Back', 'origami' ),
-		'close' => __( 'Close', 'origami' ),
-	);
-	$text = apply_filters('siteorigin_mobilenav_text', $text);
+		// Create the mobile navigation
+		$class = $args->container_class ? ' class="' . esc_attr( $args->container_class ) . '" menu-mobilenav-container' : ' class="menu-mobilenav-container"';
+		$id = $args->container_id ? ' id="' . esc_attr( $args->container_id ) . '"' : '';
+		$nav_menu .= '<' . $args->container . $id . $class . '>';
 
-	$wrap_class = $args->menu_class ? $args->menu_class : '';
-	$wrap_id = 'mobile-nav-item-wrap-'.$mobile_nav_id;
-	$items = '<li><a href="#" class="mobilenav-main-link" data-id="'.$mobile_nav_id.'"><span class="mobile-nav-icon"></span>'.$text['navigate'].'</a></li>';
+		$text = array(
+			'navigate' => __( 'Menu', 'origami' ),
+			'back' => __( 'Back', 'origami' ),
+			'close' => __( 'Close', 'origami' ),
+		);
+		$text = apply_filters( 'siteorigin_mobilenav_text', $text );
 
-	$nav_menu .= sprintf( $args->items_wrap, esc_attr( $wrap_id ), esc_attr( $wrap_class ), $items );
+		$wrap_class = $args->menu_class ? $args->menu_class : '';
+		$wrap_id = 'mobile-nav-item-wrap-' . $mobile_nav_id;
+		$items = '<li><a href="#" class="mobilenav-main-link" data-id="' . $mobile_nav_id . '"><span class="mobile-nav-icon"></span>' . $text['navigate'] . '</a></li>';
 
-	$nav_menu .= '</' . $args->container . '>';
+		$nav_menu .= sprintf( $args->items_wrap, esc_attr( $wrap_id ), esc_attr( $wrap_class ), $items );
 
-	$mobile_nav_id++;
+		$nav_menu .= '</' . $args->container . '>';
 
-	return $nav_menu;
+		$mobile_nav_id++;
+
+		return $nav_menu;
+	}
 }
-endif;
-add_filter('wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
-add_filter('wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
+add_filter( 'wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
+add_filter( 'wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
 
-if ( ! function_exists( 'siteorigin_mobilenav_nav_menu_css' ) ) :
-function siteorigin_mobilenav_nav_menu_css() {
-	$mobile_resolution = apply_filters( 'siteorigin_mobilenav_resolution', 480 );
+if ( ! function_exists( 'siteorigin_mobilenav_nav_menu_css' ) ) {
+	function siteorigin_mobilenav_nav_menu_css() {
+		$mobile_resolution = apply_filters( 'siteorigin_mobilenav_resolution', 480 );
 
-	if ( $mobile_resolution != 0 ) : ?>
+		if ( $mobile_resolution != 0 ) { ?>
 		<style type="text/css">
 			.so-mobilenav-mobile + * { display: none; }
-			@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } }
+			@media screen and (max-width: <?php echo intval( $mobile_resolution ); ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } }
 		</style>
-	<?php else : ?>
+	<?php } else { ?>
 		<style type="text/css">
 			.so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; }
 		</style>
-	<?php endif;
+	<?php }
+	}
 }
-endif;
 add_action( 'wp_head', 'siteorigin_mobilenav_nav_menu_css' );
 
-if( !function_exists('siteorigin_mobilenav_body_class') ) :
-/**
- * Add custom body classes.
- *
- * @param $classes
- * @return array
- */
-function siteorigin_mobilenav_body_class($classes){
-	$classes[] = 'mobilenav';
-	return $classes;
+if ( ! function_exists( 'siteorigin_mobilenav_body_class' ) ) {
+	/**
+	 * Add custom body classes.
+	 *
+	 * @return array
+	 */
+	function siteorigin_mobilenav_body_class( $classes ) {
+		$classes[] = 'mobilenav';
+
+		return $classes;
+	}
 }
-endif;
-add_filter('body_class', 'siteorigin_mobilenav_body_class');
+add_filter( 'body_class', 'siteorigin_mobilenav_body_class' );
