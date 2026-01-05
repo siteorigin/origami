@@ -4,7 +4,7 @@ Contributors: siteorigin
 
 Tags: blog, photography, portfolio, one-column, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready
 
-Tested up to: 6.6
+Tested up to: 6.9
 Requires at least: 4.7
 Requires PHP: 7.0.0
 License: GPLv2 or later
@@ -92,6 +92,13 @@ Licensed under the [MIT License](http://opensource.org/licenses/MIT)
 This theme makes use of the [SiteOrigin Settings Framework](https://github.com/siteorigin/settings) contained in the /inc/settings folder. All code is licensed under GPL 2.0 and copyright 2016 SiteOrigin unless otherwise stated in the file header. 
 
 == Changelog ==
+
+= 1.10.3 - 05 January 2026 =
+* SiteOrigin Settings: Updated the settings framework.
+* Widgets: Fixed the Icon Text widget icon selector label output.
+* Updated the Tested up to tag to 6.9.
+* Updated the required PHP version to 7.0.0.
+* Developer: Updated the build submodule.
 
 = 1.10.2 - 12 February 2024 =
 * Updated SiteOrigin Settings framework.
