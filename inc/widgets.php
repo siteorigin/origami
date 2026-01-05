@@ -365,7 +365,7 @@ class SiteOrigin_Widgets_IconText extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'icon' ); ?>"><?php _e( 'Icon', 'origami' ); ?></label>
 			<select name="<?php echo $this->get_field_name( 'icon' ); ?>" id="<?php echo $this->get_field_id( 'icon' ); ?>">
-				<option value="0" <?php selected( ! empty( $instance['icon'] ) ); ?>><?php echo esc_html_e( 'None', 'origami' ); ?></option>
+				<option value="0" <?php selected( ! empty( $instance['icon'] ) ); ?>><?php esc_html_e( 'None', 'origami' ); ?></option>
 				<?php foreach ( $attachments as $attachment ) { ?>
 					<option value="<?php echo $attachment->ID; ?>" <?php selected( $instance['icon'], $attachment->ID ); ?>><?php echo esc_html( $attachment->post_title ); ?></option>
 				<?php } ?>
